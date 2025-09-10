@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Andrews Country Club - Luxury Living Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+            color: #e8d5b5;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #8b7355;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #c9b892;
+            font-style: italic;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #8b7355;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-card h3 {
+            color: #c9b892;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card .value {
+            color: #d4af37;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .subtitle {
+            color: #a8956f;
+            font-size: 0.9em;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .property-list {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #8b7355;
+        }
+
+        .property-list h2 {
+            color: #d4af37;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #8b7355;
+            padding-bottom: 10px;
+        }
+
+        .property-item {
+            background: linear-gradient(135deg, #33334a 0%, #252538 100%);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border: 1px solid #5a5a6e;
+            transition: all 0.3s ease;
+        }
+
+        .property-item:hover {
+            border-color: #d4af37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .property-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .property-address {
+            color: #e8d5b5;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .property-price {
+            color: #d4af37;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .property-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+
+        .detail-label {
+            color: #a8956f;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #e8d5b5;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .amenities-card, .market-insights {
+            background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #8b7355;
+        }
+
+        .amenities-card h3, .market-insights h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.3);
+        }
+
+        .amenity-item:last-child {
+            border-bottom: none;
+        }
+
+        .amenity-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+
+        .amenity-text {
+            color: #c9b892;
+        }
+
+        .insight-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+
+        .insight-label {
+            color: #a8956f;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .insight-value {
+            color: #d4af37;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: #1a1a2e;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .cta-section p {
+            color: #1a1a2e;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .cta-button {
+            background: #1a1a2e;
+            color: #d4af37;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cta-button:hover {
+            background: #0f0f1e;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .property-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>St. Andrews Country Club</h1>
+            <p>Exclusive Luxury Living in Boca Raton</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Available</h3>
+                <div class="value">12</div>
+                <div class="subtitle">Active Listings</div>
+            </div>
+            <div class="stat-card">
+                <h3>Price Range</h3>
+                <div class="value">$2.15M-$10.5M</div>
+                <div class="subtitle">St. Andrews</div>
+            </div>
+            <div class="stat-card">
+                <h3>Sold YTD</h3>
+                <div class="value">26</div>
+                <div class="subtitle">2024 Transactions</div>
+            </div>
+            <div class="stat-card">
+                <h3>Days on Market</h3>
+                <div class="value">42</div>
+                <div class="subtitle">Average DOM</div>
+            </div>
+            <div class="stat-card">
+                <h3>Market Activity</h3>
+                <div class="value">68%</div>
+                <div class="subtitle">Sold Ratio</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="property-list">
+                <h2>Featured Properties</h2>
+                
+                <div class="property-item">
+                    <div class="property-header">
+                        <div class="property-address">7358 Queenferry Circle</div>
+                        <div class="property-price">$4,950,000</div>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Bedrooms</div>
+                            <div class="detail-value">6</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Bathrooms</div>
+                            <div class="detail-value">7.5</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Sq Ft</div>
+                            <div class="detail-value">7,240</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-header">
+                        <div class="property-address">17590 Fieldbrook Circle</div>
+                        <div class="property-price">$3,750,000</div>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Bedrooms</div>
+                            <div class="detail-value">5</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Bathrooms</div>
+                            <div class="detail-value">6</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Sq Ft</div>
+                            <div class="detail-value">5,890</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-header">
+                        <div class="property-address">7124 Ayrshire Lane</div>
+                        <div class="property-price">$2,995,000</div>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Bedrooms</div>
+                            <div class="detail-value">5</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Bathrooms</div>
+                            <div class="detail-value">5.5</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Sq Ft</div>
+                            <div class="detail-value">4,920</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="property-item">
+                    <div class="property-header">
+                        <div class="property-address">17715 Lake Estates Drive</div>
+                        <div class="property-price">$6,250,000</div>
+                    </div>
+                    <div class="property-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Bedrooms</div>
+                            <div class="detail-value">7</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Bathrooms</div>
+                            <div class="detail-value">9</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Sq Ft</div>
+                            <div class="detail-value">9,450</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="amenities-card">
+                    <h3>Club Amenities</h3>
+                    <div class="amenity-item">
+                        <span class="amenity-icon">⛳</span>
+                        <span class="amenity-text">Championship Golf Courses (2)</span>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-icon">🎾</span>
+                        <span class="amenity-text">Tennis Courts (17)</span>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-icon">🏊</span>
+                        <span class="amenity-text">Resort-Style Pools</span>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-icon">🍽️</span>
+                        <span class="amenity-text">Fine Dining Restaurants</span>
+                    </div>
+                    <div class="amenity-item">
+                        <span class="amenity-icon">💪</span>
+                        <span class="amenity-text">State-of-the-Art Fitness</span>
+                    </div>
+                </div>
+
+                <div class="market-insights">
+                    <h3>Market Insights</h3>
+                    <div class="insight-item">
+                        <div class="insight-label">YoY Appreciation</div>
+                        <div class="insight-value">+12.3%</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-label">Inventory Level</div>
+                        <div class="insight-value">2.3 months</div>
+                    </div>
+                    <div class="insight-item">
+                        <div class="insight-label">List-to-Sale Ratio</div>
+                        <div class="insight-value">96.8%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Experience Luxury Living</h2>
+            <p>Schedule your private tour of St. Andrews Country Club today</p>
+            <button class="cta-button" onclick="alert('Contact Edmund Bogen at (561) 235-7575')">Schedule Viewing</button>
+        </div>
+
+        <div class="community-comparison" style="margin-top: 40px;">
+            <h2 style="color: #d4af37; text-align: center; margin-bottom: 30px; font-size: 2.5em;">Luxury Community Market Analysis</h2>
+            
+            <div class="comparison-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
+                <!-- Communities sorted by absorption rate -->
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 2px solid #d4af37;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Delaire ⭐</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">3</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">17</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">85%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Broken Sound</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">22</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">79</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">78%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Polo Club</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">15</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">51</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">77%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Addison Reserve</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">7</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">22</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">76%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Boca Bridges</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">8</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">25</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">76%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Boca West</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">53</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">146</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">73%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Woodfield</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">18</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">48</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">73%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Seven Bridges</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">11</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">27</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">71%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 2px solid #d4af37;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">St. Andrews Country Club</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">12</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">26</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">68%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">The Bridges</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">9</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">17</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">65%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">The Oaks</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">15</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">27</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #4CAF50; font-weight: bold;">64%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Lotus</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">19</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">32</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">63%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Bocaire Country Club</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">12</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">18</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">60%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Boca Grove</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">8</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">11</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">58%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Stonebridge</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">12</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">16</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">57%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">The Sanctuary</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">5</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">6</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">55%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Mizner Country Club</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">9</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">9</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">50%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Seasons</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">7</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">7</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #FFA500; font-weight: bold;">50%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Royal Palm Yacht Club</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">32</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">26</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #dc3545; font-weight: bold;">45%</span>
+                    </div>
+                </div>
+
+                <div class="community-card" style="background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%); padding: 20px; border-radius: 12px; border: 1px solid #8b7355;">
+                    <h3 style="color: #d4af37; margin-bottom: 15px;">Long Lake Estates</h3>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Active:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">7</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span style="color: #c9b892;">Sold:</span>
+                        <span style="color: #e8d5b5; font-weight: bold;">3</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #c9b892;">Absorption:</span>
+                        <span style="color: #dc3545; font-weight: bold;">30%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
