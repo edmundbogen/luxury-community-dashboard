@@ -14,20 +14,20 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f8fbff;
-            color: #333;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
             line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 50px rgba(0, 61, 130, 0.1);
+            background: #ffffff;
+            box-shadow: 0 0 50px rgba(65, 105, 225, 0.3);
         }
 
         .header {
-            background: linear-gradient(135deg, #003d82 0%, #0056b3 100%);
+            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
             color: white;
             padding: 60px 40px;
             text-align: center;
@@ -84,11 +84,11 @@
         }
 
         .section h2 {
-            color: #003d82;
+            color: #4169E1;
             font-size: 2.5em;
             margin-bottom: 30px;
             font-weight: 300;
-            border-bottom: 3px solid #0056b3;
+            border-bottom: 3px solid #4169E1;
             padding-bottom: 15px;
         }
 
@@ -100,10 +100,10 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
             padding: 25px;
             border-radius: 12px;
-            border: 1px solid #e6f2ff;
+            border: 1px solid #4169E1;
             text-align: center;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -111,12 +111,12 @@
 
         .stat-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
-            border-color: #0056b3;
+            box-shadow: 0 10px 30px rgba(65, 105, 225, 0.3);
+            border-color: #4169E1;
         }
 
         .stat-card .label {
-            color: #666;
+            color: #333333;
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -124,7 +124,7 @@
         }
 
         .stat-card .value {
-            color: #003d82;
+            color: #4169E1;
             font-size: 2em;
             font-weight: bold;
             margin: 10px 0;
@@ -153,14 +153,14 @@
             background: white;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 61, 130, 0.1);
+            box-shadow: 0 5px 20px rgba(65, 105, 225, 0.2);
             margin: 30px 0;
             height: 400px;
             position: relative;
         }
 
         .chart-container h3 {
-            color: #003d82;
+            color: #4169E1;
             margin-bottom: 20px;
             font-size: 1.5em;
         }
@@ -174,7 +174,7 @@
 
         .community-card {
             background: white;
-            border: 1px solid #e6f2ff;
+            border: 1px solid #cccccc;
             border-radius: 12px;
             padding: 20px;
             transition: all 0.3s ease;
@@ -190,7 +190,7 @@
             left: 0;
             width: 4px;
             height: 100%;
-            background: #0056b3;
+            background: #4169E1;
             transform: scaleY(0);
             transition: transform 0.3s ease;
         }
@@ -200,14 +200,23 @@
         }
 
         .community-card:hover {
-            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.15);
+            box-shadow: 0 10px 30px rgba(65, 105, 225, 0.3);
             transform: translateX(5px);
         }
 
         .community-card h3 {
-            color: #003d82;
+            color: #000000;
             margin-bottom: 15px;
             font-size: 1.3em;
+        }
+
+        .community-card h3 a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .community-card h3 a:hover {
+            text-decoration: underline;
         }
 
         .community-stats {
@@ -223,12 +232,12 @@
         }
 
         .stat-label {
-            color: #666;
+            color: #333333;
             font-size: 0.95em;
         }
 
         .stat-value {
-            color: #003d82;
+            color: #000000;
             font-weight: bold;
             font-size: 1.1em;
         }
@@ -261,7 +270,7 @@
         }
 
         .interactive-button {
-            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -269,13 +278,14 @@
             font-size: 1.1em;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 61, 130, 0.3);
+            box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
             margin: 20px 10px;
         }
 
         .interactive-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 61, 130, 0.4);
+            box-shadow: 0 6px 20px rgba(65, 105, 225, 0.5);
+            background: #000000;
         }
 
         .tab-container {
@@ -286,10 +296,10 @@
         }
 
         .tab-button {
-            background: #f8fbff;
-            color: #003d82;
+            background: #f5f5f5;
+            color: #000000;
             padding: 12px 25px;
-            border: 1px solid #e6f2ff;
+            border: 1px solid #cccccc;
             cursor: pointer;
             transition: all 0.3s ease;
             margin: 5px;
@@ -298,17 +308,17 @@
         }
 
         .tab-button.active {
-            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
             color: white;
-            border-color: #003d82;
+            border-color: #4169E1;
         }
 
         .tab-button:hover {
-            background: #e6f2ff;
+            background: #e0e0e0;
         }
 
         .tab-button.active:hover {
-            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
         }
 
         .table-container {
@@ -324,7 +334,7 @@
         }
 
         th {
-            background: linear-gradient(135deg, #003d82 0%, #0056b3 100%);
+            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
             color: white;
             padding: 15px;
             text-align: left;
@@ -360,15 +370,20 @@
         }
 
         .footer {
-            background: #003d82;
+            background: #000000;
             color: white;
             padding: 40px;
             text-align: center;
         }
 
         .footer a {
-            color: #4da3ff;
+            color: #4169E1;
             text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #6495ED;
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -462,7 +477,7 @@
             <div class="community-grid">
                 <!-- St. Andrews -->
                 <div class="community-card" onclick="showCommunityDetail('St. Andrews')">
-                    <h3>St. Andrews Country Club</h3>
+                    <h3><a href="#" style="color: #4169E1;">St. Andrews Country Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">12</span>
@@ -482,7 +497,7 @@
 
                 <!-- Delaire -->
                 <div class="community-card" onclick="showCommunityDetail('Delaire')">
-                    <h3>Delaire Country Club ⭐</h3>
+                    <h3><a href="#" style="color: #FF6B35;">Delaire Country Club ⭐</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">3</span>
@@ -502,7 +517,7 @@
 
                 <!-- Boca West -->
                 <div class="community-card" onclick="showCommunityDetail('Boca West')">
-                    <h3>Boca West Country Club</h3>
+                    <h3><a href="#" style="color: #1ABC9C;">Boca West Country Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">53</span>
@@ -522,7 +537,7 @@
 
                 <!-- Broken Sound -->
                 <div class="community-card" onclick="showCommunityDetail('Broken Sound')">
-                    <h3>Broken Sound Club</h3>
+                    <h3><a href="#" style="color: #9B59B6;">Broken Sound Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">22</span>
@@ -542,7 +557,7 @@
 
                 <!-- Royal Palm -->
                 <div class="community-card" onclick="showCommunityDetail('Royal Palm')">
-                    <h3>Royal Palm Yacht Club</h3>
+                    <h3><a href="#" style="color: #2196F3;">Royal Palm Yacht Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">32</span>
@@ -562,7 +577,7 @@
 
                 <!-- Long Lake -->
                 <div class="community-card" onclick="showCommunityDetail('Long Lake')">
-                    <h3>Long Lake Estates</h3>
+                    <h3><a href="#" style="color: #795548;">Long Lake Estates</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
                         <span class="stat-value">7</span>
@@ -677,10 +692,10 @@
                         Licensed Realtor with Douglas Elliman Real Estate specializing in luxury properties across Palm Beach County's most prestigious communities. With deep market expertise and data-driven insights, Edmund provides clients with unparalleled service in South Florida's premier real estate market.
                     </p>
                     <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="tel:+15612357575" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #0056b3; color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
+                        <a href="tel:+15612357575" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #4169E1; color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
                             <span style="font-size: 18px;">📞</span> (561) 235-7575
                         </a>
-                        <a href="mailto:edmund@bogenhomes.com" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #003d82; color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
+                        <a href="mailto:edmund@bogenhomes.com" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #1e3a8a; color: white; border-radius: 6px; text-decoration: none; transition: all 0.3s ease;">
                             <span style="font-size: 18px;">✉️</span> edmund@bogenhomes.com
                         </a>
                     </div>
