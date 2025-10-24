@@ -27,7 +27,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #4169E1 0%, #1e3a8a 100%);
+            background: #1a3e5c;
             color: white;
             padding: 60px 40px;
             text-align: center;
@@ -386,17 +386,218 @@
             text-decoration: underline;
         }
 
+        /* Listings Grid Styles */
+        .listings-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+
+        .listings-modal.active {
+            display: block;
+        }
+
+        .listings-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 0;
+            padding: 40px;
+            position: relative;
+        }
+
+        .listings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 4px solid #00a8e1;
+        }
+
+        .listings-header h2 {
+            color: #1a3e5c;
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .close-listings {
+            background: transparent;
+            color: #1a3e5c;
+            border: 2px solid #1a3e5c;
+            padding: 12px 25px;
+            border-radius: 0;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .close-listings:hover {
+            background: #1a3e5c;
+            color: white;
+            transform: none;
+        }
+
+        .listing-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #00a8e1;
+            border-radius: 0;
+            padding: 25px 25px 25px 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+        }
+
+        .listing-card:hover {
+            border-left-color: #1a3e5c;
+            box-shadow: 0 4px 20px rgba(26, 62, 92, 0.15);
+            transform: translateX(5px);
+        }
+
+        .listing-info {
+            flex: 1;
+        }
+
+        .listing-address {
+            color: #1a3e5c;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .listing-price {
+            color: #000000;
+            font-size: 2em;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .listing-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .listing-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .listing-detail-label {
+            color: #666;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+            font-weight: 400;
+        }
+
+        .listing-detail-value {
+            color: #1a3e5c;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .listing-mls {
+            display: inline-block;
+            background: #f4f4f4;
+            color: #1a3e5c;
+            padding: 8px 15px;
+            border-radius: 0;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-top: 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .listing-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .view-listing-btn {
+            background: #00a8e1;
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 0;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .view-listing-btn:hover {
+            background: #008bbf;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .listing-dom {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .listing-dom.fresh {
+            color: #28a745;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
             }
-            
+
             .section {
                 padding: 40px 20px;
             }
-            
+
             .chart-container {
                 height: 300px;
+            }
+
+            .listing-card {
+                grid-template-columns: 1fr;
+            }
+
+            .listing-cta {
+                align-items: stretch;
+            }
+
+            .listings-container {
+                padding: 20px;
+            }
+
+            .listings-header h2 {
+                font-size: 1.8em;
             }
         }
     </style>
@@ -406,11 +607,14 @@
         <!-- Header -->
         <div class="header">
             <div style="margin-bottom: 20px;">
-                <img src="EBT-Logo-ADS-ONLY-V.png" alt="The Edmund Bogen Team" style="max-width: 450px; height: auto;">
+                <img src="EBT-Logo-ADS-ONLY-V.png" alt="The Edmund Bogen Team" style="max-width: 450px; height: auto; filter: brightness(0) invert(1);">
             </div>
             <h1>Luxury Communities Market Intelligence</h1>
             <div class="subtitle">Palm Beach County Premium Real Estate Analysis</div>
             <div class="date">Market Data as of September 2025</div>
+            <div style="margin-top: 25px; position: relative; z-index: 10;">
+                <a href="javascript:void(0);" onclick="showStAndrewsListings();" style="display: inline-block; background: #00a8e1; color: white; font-weight: 600; font-size: 1.1em; text-decoration: none; padding: 14px 30px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 168, 225, 0.4); cursor: pointer;">Click here to see all current listings in St. Andrews Country Club</a>
+            </div>
         </div>
 
         <!-- Executive Summary -->
@@ -418,14 +622,14 @@
             <h2>Executive Market Summary</h2>
             
             <div class="stats-grid">
-                <div class="stat-card" onclick="showCommunityDetails('standrews')">
+                <div class="stat-card" onclick="showCommunityDetail('St. Andrews')">
                     <div class="label">St. Andrews Range</div>
                     <div class="value" style="font-size: 1.5em;">$2.15M-$10.5M</div>
                     <div class="change positive">↑ 12% YoY</div>
                 </div>
                 <div class="stat-card" onclick="showMarketOverview()">
                     <div class="label">Total Active</div>
-                    <div class="value">293</div>
+                    <div class="value">292</div>
                     <div class="change negative">↓ 8% vs 2024</div>
                 </div>
                 <div class="stat-card" onclick="showSalesData()">
@@ -482,7 +686,7 @@
                     <h3><a href="#" style="color: #4169E1;">St. Andrews Country Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">12</span>
+                        <span class="stat-value">11</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
@@ -622,7 +826,7 @@
                     <tbody>
                         <tr>
                             <td><strong>St. Andrews Country Club</strong></td>
-                            <td>12</td>
+                            <td>11</td>
                             <td>28</td>
                             <td><span style="color: #28a745;">70%</span></td>
                             <td>42</td>
@@ -716,10 +920,21 @@
     <!-- Tooltip -->
     <div class="tooltip" id="tooltip"></div>
 
+    <!-- Listings Modal -->
+    <div class="listings-modal" id="listingsModal">
+        <div class="listings-container">
+            <div class="listings-header">
+                <h2 id="listingsTitle">ST. ANDREWS COUNTRY CLUB - AVAILABLE LISTINGS</h2>
+                <button class="close-listings" onclick="closeListings()">CLOSE ✕</button>
+            </div>
+            <div id="listingsGrid"></div>
+        </div>
+    </div>
+
     <script>
         // Community data
         const communities = [
-            { name: 'St. Andrews', active: 12, sold: 28, absorption: 70 },
+            { name: 'St. Andrews', active: 11, sold: 28, absorption: 70 },
             { name: 'Delaire', active: 4, sold: 21, absorption: 84 },
             { name: 'Addison Reserve', active: 12, sold: 26, absorption: 68 },
             { name: 'The Oaks', active: 15, sold: 30, absorption: 67 },
@@ -740,6 +955,142 @@
             { name: 'Seasons', active: 5, sold: 8, absorption: 62 },
             { name: 'Woodfield', active: 14, sold: 57, absorption: 80 },
             { name: 'Stonebridge', active: 16, sold: 24, absorption: 60 }
+        ];
+
+        // St. Andrews Listings Data
+        const stAndrewsListings = [
+            {
+                address: '7090 Ayrshire Lane',
+                price: '$5,975,000',
+                mlsId: 'RX-11086721',
+                sqft: '5,912',
+                beds: 5,
+                fullBaths: 6,
+                halfBaths: 1,
+                yearBuilt: 1996,
+                daysOnMarket: 175,
+                url: 'https://bogenhomes.com/homes-for-sale-details/7090-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11086721/43/'
+            },
+            {
+                address: '17903 Foxborough Lane',
+                price: '$10,500,000',
+                mlsId: 'RX-11087609',
+                sqft: '7,616',
+                beds: 6,
+                fullBaths: 6,
+                halfBaths: 2,
+                yearBuilt: 2025,
+                daysOnMarket: 172,
+                url: 'https://bogenhomes.com/homes-for-sale-details/UNDISCLOSED-BOCA-RATON-FL-33496/RX-11087609/43/'
+            },
+            {
+                address: '17906 Aberdeen Way',
+                price: '$3,250,000',
+                mlsId: 'RX-11089100',
+                sqft: '4,996',
+                beds: 5,
+                fullBaths: 6,
+                halfBaths: 0,
+                yearBuilt: 1990,
+                daysOnMarket: 168,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17906-ABERDEEN-WAY-BOCA-RATON-FL-33496/RX-11089100/43/'
+            },
+            {
+                address: '17356 Loch Lomond Way',
+                price: '$2,750,000',
+                mlsId: 'RX-11102175',
+                sqft: '3,049',
+                beds: 3,
+                fullBaths: 5,
+                halfBaths: 0,
+                yearBuilt: 1988,
+                daysOnMarket: 122,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17356-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11102175/43/'
+            },
+            {
+                address: '7536 Fenwick Place',
+                price: '$3,495,000',
+                mlsId: 'RX-11104673',
+                sqft: '3,725',
+                beds: 5,
+                fullBaths: 5,
+                halfBaths: 1,
+                yearBuilt: 1983,
+                daysOnMarket: 114,
+                url: 'https://bogenhomes.com/homes-for-sale-details/7536-FENWICK-PLACE-BOCA-RATON-FL-33496/RX-11104673/43/'
+            },
+            {
+                address: '17096 Northway Circle',
+                price: '$9,950,000',
+                mlsId: 'RX-11105751',
+                sqft: '9,041',
+                beds: 6,
+                fullBaths: 8,
+                halfBaths: 1,
+                yearBuilt: 2018,
+                daysOnMarket: 108,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17096-NORTHWAY-CIRCLE-BOCA-RATON-FL-33496/RX-11105751/43/'
+            },
+            {
+                address: '6981 Lions Head Lane',
+                price: '$3,675,000',
+                mlsId: 'RX-11115087',
+                sqft: '4,504',
+                beds: 3,
+                fullBaths: 4,
+                halfBaths: 1,
+                yearBuilt: 1993,
+                daysOnMarket: 73,
+                url: 'https://bogenhomes.com/homes-for-sale-details/6981-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11115087/43/'
+            },
+            {
+                address: '7131 Ayrshire Lane',
+                price: '$6,950,000',
+                mlsId: 'RX-11116306',
+                sqft: '6,904',
+                beds: 5,
+                fullBaths: 6,
+                halfBaths: 1,
+                yearBuilt: 2012,
+                daysOnMarket: 69,
+                url: 'https://bogenhomes.com/homes-for-sale-details/7131-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11116306/43/'
+            },
+            {
+                address: '17369 Loch Lomond Way',
+                price: '$2,150,000',
+                mlsId: 'RX-11118266',
+                sqft: '2,885',
+                beds: 3,
+                fullBaths: 4,
+                halfBaths: 0,
+                yearBuilt: 1988,
+                daysOnMarket: 60,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17369-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11118266/43/'
+            },
+            {
+                address: '7000 Lions Head Lane',
+                price: '$6,499,999',
+                mlsId: 'RX-11121073',
+                sqft: '7,116',
+                beds: 5,
+                fullBaths: 7,
+                halfBaths: 1,
+                yearBuilt: 1994,
+                daysOnMarket: 50,
+                url: 'https://bogenhomes.com/homes-for-sale-details/7000-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11121073/43/'
+            },
+            {
+                address: '17615 Foxborough Lane',
+                price: '$7,950,000',
+                mlsId: 'RX-11123890',
+                sqft: '5,800',
+                beds: 4,
+                fullBaths: 5,
+                halfBaths: 1,
+                yearBuilt: 2024,
+                daysOnMarket: 39,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17615-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/RX-11123890/43/'
+            }
         ];
 
         // Initialize charts when page loads
@@ -1068,8 +1419,78 @@
 
         // Interactive functions
         function showCommunityDetail(name) {
-            alert(`Detailed analysis for ${name} coming soon!`);
+            // Check if it's St. Andrews - show listings
+            if (name === 'St. Andrews') {
+                showStAndrewsListings();
+            } else {
+                alert(`Detailed analysis for ${name} coming soon!`);
+            }
         }
+
+        // Show St. Andrews Listings
+        function showStAndrewsListings() {
+            const modal = document.getElementById('listingsModal');
+            const grid = document.getElementById('listingsGrid');
+
+            // Generate listings HTML
+            const listingsHTML = stAndrewsListings.map(listing => {
+                const bathsDisplay = listing.halfBaths > 0
+                    ? `${listing.fullBaths}.${listing.halfBaths}`
+                    : listing.fullBaths;
+
+                const domClass = listing.daysOnMarket <= 60 ? 'fresh' : '';
+
+                return `
+                    <div class="listing-card">
+                        <div class="listing-info">
+                            <div class="listing-address">${listing.address}</div>
+                            <div class="listing-price">${listing.price}</div>
+                            <div class="listing-details">
+                                <div class="listing-detail-item">
+                                    <span class="listing-detail-label">Bedrooms</span>
+                                    <span class="listing-detail-value">${listing.beds}</span>
+                                </div>
+                                <div class="listing-detail-item">
+                                    <span class="listing-detail-label">Bathrooms</span>
+                                    <span class="listing-detail-value">${bathsDisplay}</span>
+                                </div>
+                                <div class="listing-detail-item">
+                                    <span class="listing-detail-label">Living SqFt</span>
+                                    <span class="listing-detail-value">${listing.sqft}</span>
+                                </div>
+                                <div class="listing-detail-item">
+                                    <span class="listing-detail-label">Year Built</span>
+                                    <span class="listing-detail-value">${listing.yearBuilt}</span>
+                                </div>
+                            </div>
+                            <div class="listing-mls">MLS#: ${listing.mlsId}</div>
+                        </div>
+                        <div class="listing-cta">
+                            <a href="${listing.url}" target="_blank" class="view-listing-btn">View Details</a>
+                            <span class="listing-dom ${domClass}">${listing.daysOnMarket} Days on Market</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            grid.innerHTML = listingsHTML;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Listings Modal
+        function closeListings() {
+            const modal = document.getElementById('listingsModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('listingsModal').addEventListener('click', function(e) {
+            if (e.target.id === 'listingsModal') {
+                closeListings();
+            }
+        });
 
         function showAllCommunities() {
             // Create HTML for all communities
