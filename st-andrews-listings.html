@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Andrews Country Club - Current Listings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+        }
+        .header {
+            border-bottom: 4px solid #00a8e1;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #1a3e5c;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .listing-card {
+            background: white;
+            border: 1px solid #e8e8e8;
+            border-left: 4px solid #00a8e1;
+            padding: 25px 25px 25px 30px;
+            margin-bottom: 20px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .listing-card:hover {
+            border-left-color: #1a3e5c;
+            box-shadow: 0 4px 20px rgba(26, 62, 92, 0.15);
+            transform: translateX(5px);
+        }
+        .listing-address {
+            color: #1a3e5c;
+            font-size: 1.4em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .listing-price {
+            color: #000000;
+            font-size: 2em;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+        .listing-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .listing-detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .listing-detail-label {
+            color: #666;
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+        }
+        .listing-detail-value {
+            color: #1a3e5c;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .listing-mls {
+            display: inline-block;
+            background: #f4f4f4;
+            color: #1a3e5c;
+            padding: 8px 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-top: 10px;
+            letter-spacing: 0.05em;
+        }
+        .view-listing-btn {
+            background: #00a8e1;
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            font-size: 1em;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+        }
+        .view-listing-btn:hover {
+            background: #008bbf;
+        }
+        .listing-dom {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .listing-dom.fresh {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .back-button {
+            background: #1a3e5c;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .back-button:hover {
+            background: #0d1f2d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://edmundbogen.github.io/luxury-community-dashboard/" class="back-button">← Back to Dashboard</a>
+
+        <div class="header">
+            <h1>St. Andrews Country Club - Available Listings</h1>
+        </div>
+
+        <!-- Listing 1 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">7090 Ayrshire Lane</div>
+                <div class="listing-price">$5,975,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">6.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">5,912</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1996</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11086721</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/7090-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11086721/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">175 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 2 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17903 Foxborough Lane</div>
+                <div class="listing-price">$10,500,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">6</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">6.2</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">7,616</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">2025</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11087609</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/UNDISCLOSED-BOCA-RATON-FL-33496/RX-11087609/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">172 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 3 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17906 Aberdeen Way</div>
+                <div class="listing-price">$3,250,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">6</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">4,996</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1990</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11089100</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/17906-ABERDEEN-WAY-BOCA-RATON-FL-33496/RX-11089100/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">168 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 4 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17356 Loch Lomond Way</div>
+                <div class="listing-price">$2,750,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">3</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">3,049</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1988</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11102175</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/17356-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11102175/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">122 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 5 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">7536 Fenwick Place</div>
+                <div class="listing-price">$3,495,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">5.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">3,725</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1983</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11104673</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/7536-FENWICK-PLACE-BOCA-RATON-FL-33496/RX-11104673/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">114 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 6 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17096 Northway Circle</div>
+                <div class="listing-price">$9,950,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">6</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">8.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">9,041</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">2018</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11105751</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/17096-NORTHWAY-CIRCLE-BOCA-RATON-FL-33496/RX-11105751/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom">108 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 7 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">6981 Lions Head Lane</div>
+                <div class="listing-price">$3,675,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">3</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">4.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">4,504</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1993</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11115087</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/6981-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11115087/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom class="fresh">73 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 8 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">7131 Ayrshire Lane</div>
+                <div class="listing-price">$6,950,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">6.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">6,904</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">2012</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11116306</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/7131-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11116306/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom class="fresh">69 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 9 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17369 Loch Lomond Way</div>
+                <div class="listing-price">$2,150,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">3</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">4</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">2,885</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1988</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11118266</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/17369-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11118266/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom class="fresh">60 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 10 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">7000 Lions Head Lane</div>
+                <div class="listing-price">$6,499,999</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">5</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">7.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">7,116</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">1994</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11121073</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/7000-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11121073/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom class="fresh">50 Days on Market</span>
+            </div>
+        </div>
+
+        <!-- Listing 11 -->
+        <div class="listing-card">
+            <div class="listing-info">
+                <div class="listing-address">17615 Foxborough Lane</div>
+                <div class="listing-price">$7,950,000</div>
+                <div class="listing-details">
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bedrooms</span>
+                        <span class="listing-detail-value">4</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Bathrooms</span>
+                        <span class="listing-detail-value">5.1</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Living SqFt</span>
+                        <span class="listing-detail-value">5,800</span>
+                    </div>
+                    <div class="listing-detail-item">
+                        <span class="listing-detail-label">Year Built</span>
+                        <span class="listing-detail-value">2024</span>
+                    </div>
+                </div>
+                <div class="listing-mls">MLS#: RX-11123890</div>
+            </div>
+            <div class="listing-cta">
+                <a href="https://bogenhomes.com/homes-for-sale-details/17615-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/RX-11123890/43/" target="_blank" class="view-listing-btn">View Details</a>
+                <span class="listing-dom class="fresh">39 Days on Market</span>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
