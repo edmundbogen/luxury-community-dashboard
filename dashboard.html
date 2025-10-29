@@ -640,17 +640,17 @@
                 </div>
                 <div class="stat-card" onclick="showMarketOverview()">
                     <div class="label">Total Active</div>
-                    <div class="value">292</div>
-                    <div class="change negative">↓ 8% vs 2024</div>
+                    <div class="value">282</div>
+                    <div class="change negative">↓ 3% vs Last Update</div>
                 </div>
                 <div class="stat-card" onclick="showSalesData()">
                     <div class="label">Total Sold YTD</div>
-                    <div class="value">641</div>
-                    <div class="change positive">↑ 15% vs 2024</div>
+                    <div class="value">750</div>
+                    <div class="change positive">↑ 17% vs Last Update</div>
                 </div>
                 <div class="stat-card" onclick="showAbsorptionRate()">
                     <div class="label">Avg Absorption</div>
-                    <div class="value">69%</div>
+                    <div class="value">73%</div>
                     <div class="change positive">Strong Market</div>
                 </div>
                 <div class="stat-card" onclick="showPriceAnalysis()">
@@ -706,7 +706,7 @@
                     <h3><a href="#" style="color: #4169E1;">St. Andrews Country Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">11</span>
+                        <span class="stat-value">12</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
@@ -746,18 +746,18 @@
                     <h3><a href="#" style="color: #1ABC9C;">Boca West Country Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">56</span>
+                        <span class="stat-value">53</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
-                        <span class="stat-value">181</span>
+                        <span class="stat-value">186</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Absorption Rate</span>
-                        <span class="stat-value" style="color: #28a745;">76%</span>
+                        <span class="stat-value" style="color: #28a745;">78%</span>
                     </div>
                     <div class="absorption-bar">
-                        <div class="absorption-fill high" style="width: 76%;"></div>
+                        <div class="absorption-fill high" style="width: 78%;"></div>
                     </div>
                 </div>
 
@@ -766,18 +766,18 @@
                     <h3><a href="#" style="color: #9B59B6;">Broken Sound Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">27</span>
+                        <span class="stat-value">26</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
-                        <span class="stat-value">89</span>
+                        <span class="stat-value">91</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Absorption Rate</span>
-                        <span class="stat-value" style="color: #28a745;">77%</span>
+                        <span class="stat-value" style="color: #28a745;">78%</span>
                     </div>
                     <div class="absorption-bar">
-                        <div class="absorption-fill high" style="width: 77%;"></div>
+                        <div class="absorption-fill high" style="width: 78%;"></div>
                     </div>
                 </div>
 
@@ -786,7 +786,7 @@
                     <h3><a href="#" style="color: #2196F3;">Royal Palm Yacht Club</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">33</span>
+                        <span class="stat-value">31</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
@@ -794,10 +794,10 @@
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Absorption Rate</span>
-                        <span class="stat-value" style="color: #dc3545;">48%</span>
+                        <span class="stat-value" style="color: #dc3545;">49%</span>
                     </div>
                     <div class="absorption-bar">
-                        <div class="absorption-fill low" style="width: 48%;"></div>
+                        <div class="absorption-fill low" style="width: 49%;"></div>
                     </div>
                 </div>
 
@@ -806,7 +806,7 @@
                     <h3><a href="#" style="color: #795548;">Long Lake Estates</a></h3>
                     <div class="community-stats">
                         <span class="stat-label">Active Listings</span>
-                        <span class="stat-value">7</span>
+                        <span class="stat-value">6</span>
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Sold YTD</span>
@@ -814,10 +814,10 @@
                     </div>
                     <div class="community-stats">
                         <span class="stat-label">Absorption Rate</span>
-                        <span class="stat-value" style="color: #dc3545;">30%</span>
+                        <span class="stat-value" style="color: #dc3545;">33%</span>
                     </div>
                     <div class="absorption-bar">
-                        <div class="absorption-fill low" style="width: 30%;"></div>
+                        <div class="absorption-fill low" style="width: 33%;"></div>
                     </div>
                 </div>
             </div>
@@ -892,31 +892,43 @@
     <script>
         // Community data
         const communities = [
-            { name: 'St. Andrews', active: 11, sold: 28, absorption: 70 },
+            { name: 'St. Andrews', active: 12, sold: 28, absorption: 70 },
             { name: 'Delaire', active: 4, sold: 21, absorption: 84 },
-            { name: 'Addison Reserve', active: 12, sold: 26, absorption: 68 },
-            { name: 'The Oaks', active: 15, sold: 30, absorption: 67 },
-            { name: 'The Bridges', active: 10, sold: 22, absorption: 69 },
+            { name: 'Addison Reserve', active: 14, sold: 27, absorption: 66 },
+            { name: 'The Oaks', active: 14, sold: 32, absorption: 70 },
+            { name: 'The Bridges', active: 8, sold: 22, absorption: 73 },
             { name: 'Seven Bridges', active: 17, sold: 29, absorption: 63 },
             { name: 'Boca Grove', active: 9, sold: 16, absorption: 64 },
-            { name: 'Boca West', active: 56, sold: 181, absorption: 76 },
-            { name: 'Boca Bridges', active: 10, sold: 29, absorption: 74 },
-            { name: 'Lotus', active: 18, sold: 34, absorption: 65 },
-            { name: 'Bocaire', active: 13, sold: 19, absorption: 59 },
+            { name: 'Boca West', active: 53, sold: 186, absorption: 78 },
+            { name: 'Boca Bridges', active: 9, sold: 30, absorption: 77 },
+            { name: 'Lotus', active: 16, sold: 34, absorption: 68 },
+            { name: 'Bocaire', active: 14, sold: 19, absorption: 58 },
             { name: 'The Sanctuary', active: 7, sold: 7, absorption: 50 },
-            { name: 'Polo Club', active: 16, sold: 61, absorption: 79 },
-            { name: 'Mizner CC', active: 8, sold: 16, absorption: 67 },
-            { name: 'Long Lake', active: 7, sold: 3, absorption: 30 },
-            { name: 'Broken Sound', active: 27, sold: 89, absorption: 77 },
-            { name: 'Royal Palm YC', active: 33, sold: 30, absorption: 48 },
+            { name: 'Polo Club', active: 18, sold: 63, absorption: 78 },
+            { name: 'Mizner CC', active: 8, sold: 17, absorption: 68 },
+            { name: 'Long Lake', active: 6, sold: 3, absorption: 33 },
+            { name: 'Broken Sound', active: 26, sold: 91, absorption: 78 },
+            { name: 'Royal Palm YC', active: 31, sold: 30, absorption: 49 },
             { name: 'Le Lac', active: 1, sold: 0, absorption: 0 },
-            { name: 'Seasons', active: 5, sold: 8, absorption: 62 },
-            { name: 'Woodfield', active: 14, sold: 57, absorption: 80 },
-            { name: 'Stonebridge', active: 16, sold: 24, absorption: 60 }
+            { name: 'Seasons', active: 6, sold: 8, absorption: 57 },
+            { name: 'Woodfield', active: 12, sold: 61, absorption: 84 },
+            { name: 'Stonebridge', active: 17, sold: 25, absorption: 60 }
         ];
 
         // St. Andrews Listings Data
         const stAndrewsListings = [
+            {
+                address: '17844 Scarsdale Way',
+                price: '$3,200,000',
+                mlsId: 'FX-10528126',
+                sqft: '3,797',
+                beds: 4,
+                fullBaths: 4,
+                halfBaths: 0,
+                yearBuilt: 1984,
+                daysOnMarket: 22,
+                url: 'https://www.flexmls.com/link.html?1wnqewrgocu8,15'
+            },
             {
                 address: '7090 Ayrshire Lane',
                 price: '$5,975,000',
@@ -926,7 +938,7 @@
                 fullBaths: 6,
                 halfBaths: 1,
                 yearBuilt: 1996,
-                daysOnMarket: 175,
+                daysOnMarket: 180,
                 url: 'https://bogenhomes.com/homes-for-sale-details/7090-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11086721/43/'
             },
             {
@@ -938,7 +950,7 @@
                 fullBaths: 6,
                 halfBaths: 2,
                 yearBuilt: 2025,
-                daysOnMarket: 172,
+                daysOnMarket: 177,
                 url: 'https://bogenhomes.com/homes-for-sale-details/UNDISCLOSED-BOCA-RATON-FL-33496/RX-11087609/43/'
             },
             {
@@ -950,7 +962,7 @@
                 fullBaths: 6,
                 halfBaths: 0,
                 yearBuilt: 1990,
-                daysOnMarket: 168,
+                daysOnMarket: 173,
                 url: 'https://bogenhomes.com/homes-for-sale-details/17906-ABERDEEN-WAY-BOCA-RATON-FL-33496/RX-11089100/43/'
             },
             {
@@ -962,7 +974,7 @@
                 fullBaths: 5,
                 halfBaths: 0,
                 yearBuilt: 1988,
-                daysOnMarket: 122,
+                daysOnMarket: 127,
                 url: 'https://bogenhomes.com/homes-for-sale-details/17356-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11102175/43/'
             },
             {
@@ -974,7 +986,7 @@
                 fullBaths: 5,
                 halfBaths: 1,
                 yearBuilt: 1983,
-                daysOnMarket: 114,
+                daysOnMarket: 119,
                 url: 'https://bogenhomes.com/homes-for-sale-details/7536-FENWICK-PLACE-BOCA-RATON-FL-33496/RX-11104673/43/'
             },
             {
@@ -986,7 +998,7 @@
                 fullBaths: 8,
                 halfBaths: 1,
                 yearBuilt: 2018,
-                daysOnMarket: 108,
+                daysOnMarket: 113,
                 url: 'https://bogenhomes.com/homes-for-sale-details/17096-NORTHWAY-CIRCLE-BOCA-RATON-FL-33496/RX-11105751/43/'
             },
             {
@@ -998,7 +1010,7 @@
                 fullBaths: 4,
                 halfBaths: 1,
                 yearBuilt: 1993,
-                daysOnMarket: 73,
+                daysOnMarket: 78,
                 url: 'https://bogenhomes.com/homes-for-sale-details/6981-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11115087/43/'
             },
             {
@@ -1010,7 +1022,7 @@
                 fullBaths: 6,
                 halfBaths: 1,
                 yearBuilt: 2012,
-                daysOnMarket: 69,
+                daysOnMarket: 74,
                 url: 'https://bogenhomes.com/homes-for-sale-details/7131-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11116306/43/'
             },
             {
@@ -1022,7 +1034,7 @@
                 fullBaths: 4,
                 halfBaths: 0,
                 yearBuilt: 1988,
-                daysOnMarket: 60,
+                daysOnMarket: 65,
                 url: 'https://bogenhomes.com/homes-for-sale-details/17369-LOCH-LOMOND-WAY-BOCA-RATON-FL-33496/RX-11118266/43/'
             },
             {
@@ -1034,7 +1046,7 @@
                 fullBaths: 7,
                 halfBaths: 1,
                 yearBuilt: 1994,
-                daysOnMarket: 50,
+                daysOnMarket: 55,
                 url: 'https://bogenhomes.com/homes-for-sale-details/7000-LIONS-HEAD-LANE-BOCA-RATON-FL-33496/RX-11121073/43/'
             },
             {
@@ -1046,7 +1058,7 @@
                 fullBaths: 5,
                 halfBaths: 1,
                 yearBuilt: 2024,
-                daysOnMarket: 39,
+                daysOnMarket: 44,
                 url: 'https://bogenhomes.com/homes-for-sale-details/17615-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/RX-11123890/43/'
             }
         ];
