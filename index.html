@@ -601,6 +601,105 @@
                 font-size: 1.8em;
             }
         }
+
+        /* Compare Communities Modal Styles */
+        .compare-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #ffffff;
+            border: 2px solid #1a3e5c;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .compare-checkbox:hover {
+            background: #e6f2ff;
+            border-color: #4169E1;
+        }
+        .compare-checkbox input {
+            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            accent-color: #28a745;
+        }
+        .compare-checkbox span {
+            color: #1a3e5c;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        .compare-checkbox.selected {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        .compare-checkbox.selected span {
+            color: #155724;
+        }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+        .comparison-table th {
+            background: #1a3e5c;
+            color: white;
+        }
+        .comparison-table tr:hover {
+            background: #f8fbff;
+        }
+        .winner-cell {
+            background: #d4edda !important;
+            font-weight: bold;
+            color: #155724 !important;
+        }
+
+        /* Heatmap Styles */
+        .heatmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+        }
+        .heatmap-cell {
+            padding: 20px 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .heatmap-cell:hover {
+            transform: scale(1.05);
+        }
+        .heatmap-cell h4 {
+            margin: 0 0 8px 0;
+            font-size: 0.95em;
+        }
+        .heatmap-cell .value {
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        /* Export Button Styles */
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
     </style>
 </head>
 <body>
@@ -1499,60 +1598,6 @@
             `;
 
             document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-            // Add checkbox styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .compare-checkbox {
-                    display: flex;
-                    align-items: center;
-                    padding: 10px;
-                    margin: 5px 0;
-                    background: #f5f5f5 !important;
-                    border-radius: 6px;
-                    cursor: pointer;
-                    transition: all 0.2s ease;
-                }
-                .compare-checkbox span {
-                    color: #000000 !important;
-                    font-weight: 600 !important;
-                    font-size: 1.1em !important;
-                }
-                .compare-checkbox:hover {
-                    background: #e6f2ff;
-                }
-                .compare-checkbox input {
-                    margin-right: 10px;
-                    width: 18px;
-                    height: 18px;
-                }
-                .compare-checkbox.selected {
-                    background: #d4edda;
-                    border-left: 3px solid #28a745;
-                }
-                .comparison-table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin-top: 20px;
-                }
-                .comparison-table th, .comparison-table td {
-                    padding: 12px;
-                    text-align: center;
-                    border-bottom: 1px solid #ddd;
-                }
-                .comparison-table th {
-                    background: #1a3e5c;
-                    color: white;
-                }
-                .comparison-table tr:hover {
-                    background: #f8fbff;
-                }
-                .winner-cell {
-                    background: #d4edda !important;
-                    font-weight: bold;
-                }
-            `;
-            document.head.appendChild(style);
         }
 
         function updateCompareSelection(checkbox) {
@@ -1682,46 +1727,6 @@
             `;
 
             document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-            // Add heatmap styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .heatmap-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-                    gap: 12px;
-                }
-                .heatmap-cell {
-                    padding: 20px 15px;
-                    border-radius: 8px;
-                    text-align: center;
-                    transition: transform 0.2s ease;
-                    cursor: pointer;
-                }
-                .heatmap-cell:hover {
-                    transform: scale(1.05);
-                }
-                .heatmap-cell h4 {
-                    margin: 0 0 8px 0;
-                    font-size: 0.95em;
-                    color: inherit;
-                }
-                .heatmap-cell .value {
-                    font-size: 1.8em;
-                    font-weight: bold;
-                }
-                .legend-item {
-                    display: flex;
-                    align-items: center;
-                    gap: 8px;
-                }
-                .legend-color {
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 4px;
-                }
-            `;
-            document.head.appendChild(style);
         }
 
         function renderHeatmap(metric = 'absorption') {
@@ -2070,16 +2075,6 @@
             `;
 
             document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-            // Add hover styles
-            const style = document.createElement('style');
-            style.textContent = `
-                .export-btn:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-                }
-            `;
-            document.head.appendChild(style);
         }
 
         function downloadCSV() {
