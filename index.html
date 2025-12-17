@@ -640,19 +640,35 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            table-layout: fixed;
         }
         .comparison-table th, .comparison-table td {
-            padding: 12px;
+            padding: 14px 10px;
             text-align: center;
             border-bottom: 1px solid #ddd;
-            color: #333;
+            color: #1a3e5c !important;
+            font-size: 0.95em;
         }
         .comparison-table th {
             background: #1a3e5c;
-            color: white;
+            color: white !important;
+            font-weight: 600;
         }
-        .comparison-table tr:hover {
+        .comparison-table td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: #000000 !important;
+            background: #f8f9fa;
+            min-width: 140px;
+        }
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+        .comparison-table tr:hover td {
             background: #f8fbff;
+        }
+        .comparison-table tr:hover td:first-child {
+            background: #e9ecef;
         }
         .winner-cell {
             background: #d4edda !important;
