@@ -1646,11 +1646,6 @@
             const resultsDiv = document.getElementById('comparisonResults');
             const selectedData = communities.filter(c => selectedCommunities.includes(c.name));
 
-            // Find best performers
-            const maxAbsorption = Math.max(...selectedData.map(c => c.absorption));
-            const maxSold = Math.max(...selectedData.map(c => c.sold));
-            const minActive = Math.min(...selectedData.map(c => c.active));
-
             const tableHTML = `
                 <h3 style="color: #1a3e5c; margin-bottom: 20px;">Side-by-Side Comparison</h3>
                 <table class="comparison-table">
@@ -1663,15 +1658,15 @@
                     <tbody>
                         <tr>
                             <td><strong>Active Listings</strong></td>
-                            ${selectedData.map(c => `<td class="${c.active === minActive ? 'winner-cell' : ''}">${c.active}</td>`).join('')}
+                            ${selectedData.map(c => `<td>${c.active}</td>`).join('')}
                         </tr>
                         <tr>
                             <td><strong>Sold YTD</strong></td>
-                            ${selectedData.map(c => `<td class="${c.sold === maxSold ? 'winner-cell' : ''}">${c.sold}</td>`).join('')}
+                            ${selectedData.map(c => `<td>${c.sold}</td>`).join('')}
                         </tr>
                         <tr>
                             <td><strong>Absorption Rate</strong></td>
-                            ${selectedData.map(c => `<td class="${c.absorption === maxAbsorption ? 'winner-cell' : ''}">${c.absorption}%</td>`).join('')}
+                            ${selectedData.map(c => `<td>${c.absorption}%</td>`).join('')}
                         </tr>
                         <tr>
                             <td><strong>Market Velocity</strong></td>
@@ -1690,11 +1685,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div style="margin-top: 20px; padding: 15px; background: #e6f2ff; border-radius: 8px;">
-                    <p style="margin: 0; color: #1a3e5c;"><strong>Analysis:</strong> Based on current data,
-                    <strong>${selectedData.find(c => c.absorption === maxAbsorption).name}</strong>
-                    has the strongest absorption rate at ${maxAbsorption}%, indicating the highest buyer demand relative to inventory.</p>
-                </div>
             `;
 
             resultsDiv.innerHTML = tableHTML;
