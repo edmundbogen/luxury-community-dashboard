@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boca Raton's "One Boca" Vision: What the Proposed City Center Redevelopment Really Means | The Edmund Bogen Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.8;
+            color: #333;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2d5a7b 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero img {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+        .hero h1 {
+            color: white;
+            font-size: 2.5em;
+            font-weight: 700;
+            max-width: 900px;
+            margin: 0 auto 20px;
+            line-height: 1.3;
+        }
+        .hero .subtitle {
+            color: #b3d9ff;
+            font-size: 1.3em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+        .byline {
+            text-align: center;
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #00a8e1;
+        }
+        .byline strong {
+            color: #1a3e5c;
+        }
+        h2 {
+            color: #1a3e5c;
+            font-size: 1.6em;
+            margin: 40px 0 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e8e8e8;
+        }
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        h3 {
+            color: #1a3e5c;
+            font-size: 1.2em;
+            margin: 25px 0 15px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .lead-paragraph {
+            font-size: 1.25em;
+            color: #1a3e5c;
+            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .stat-callout {
+            background: linear-gradient(135deg, #f8fbff 0%, #e8f4ff 100%);
+            border-left: 4px solid #00a8e1;
+            padding: 25px 30px;
+            margin: 30px 0;
+            font-size: 1.2em;
+            color: #1a3e5c;
+            font-weight: 500;
+        }
+        .warning-callout {
+            background: linear-gradient(135deg, #fff8f8 0%, #ffe8e8 100%);
+            border-left: 4px solid #dc3545;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+        .green-callout {
+            background: linear-gradient(135deg, #f8fff8 0%, #e8ffe8 100%);
+            border-left: 4px solid #28a745;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+        .vote-callout {
+            background: linear-gradient(135deg, #fff8e8 0%, #fff3d9 100%);
+            border-left: 4px solid #ffc107;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+        ul {
+            margin: 20px 0 30px 30px;
+        }
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .column-box {
+            background: #f8fbff;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid #00a8e1;
+        }
+        .column-box h4 {
+            color: #1a3e5c;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .column-box ul {
+            margin: 0 0 0 20px;
+        }
+        .column-box li {
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        .economic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+        .economic-table th, .economic-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        .economic-table th {
+            background: #1a3e5c;
+            color: white;
+            font-weight: 600;
+        }
+        .economic-table tr:hover {
+            background: #f8fbff;
+        }
+        .economic-table td:last-child {
+            font-weight: 600;
+            color: #1a3e5c;
+        }
+        .sources {
+            background: #f5f5f5;
+            padding: 30px;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        .sources h3 {
+            color: #1a3e5c;
+            margin-bottom: 15px;
+        }
+        .sources p {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2d5a7b 100%);
+            padding: 50px;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: 8px;
+        }
+        .cta-section h3 {
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .cta-section p {
+            color: #b3d9ff;
+            margin-bottom: 25px;
+        }
+        .cta-section a {
+            display: inline-block;
+            background: #00a8e1;
+            color: white;
+            padding: 14px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .cta-section a:hover {
+            background: #0088b8;
+            transform: translateY(-2px);
+        }
+        .back-link {
+            display: inline-block;
+            background: #1a3e5c;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .back-link:hover {
+            background: #0d1f2d;
+        }
+        .author-section {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2d5a7b 100%);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .author-section p {
+            color: #e6f2ff;
+            font-size: 1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        .author-section p:last-child {
+            margin-bottom: 0;
+        }
+        .author-section .author-title {
+            color: #b3d9ff;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        .author-section .author-name {
+            color: white;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .author-section .contact-info {
+            color: #00a8e1;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            .economic-table {
+                font-size: 0.9em;
+            }
+            .economic-table th, .economic-table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <img src="one-boca-hero.png" alt="Boca Raton One Boca City Center Redevelopment">
+        <h1>Boca Raton's "One Boca" Vision</h1>
+        <p class="subtitle">What the Proposed City Center Redevelopment Really Means for Our City</p>
+    </div>
+
+    <div class="container">
+        <a href="index.html" class="back-link">Back to Market Dashboard</a>
+
+        <div class="byline">
+            By <strong>Edmund Bogen</strong> | The Edmund Bogen Team at Douglas Elliman Real Estate<br>
+            December 2025
+        </div>
+
+        <p class="lead-paragraph">Boca Raton is at an inflection point.</p>
+
+        <p>For decades, our downtown government campus—centered around City Hall and Memorial Park—has served its purpose quietly and reliably. Now, the city is proposing something far more ambitious: a reimagined, mixed-use "City Center" that blends civic buildings, green space, cultural amenities, and private development into a single, modern downtown hub.</p>
+
+        <p>You may have heard it referred to as <strong>"One Boca."</strong> You may also have strong feelings about it—supportive, skeptical, or somewhere in between. As someone who lives, works, and sells real estate in Boca Raton every day, I believe this project deserves a clear, fact-based discussion about what's actually being proposed, what's changed, and how it could affect residents, taxpayers, and property values long-term.</p>
+
+        <p>Let's break it down.</p>
+
+        <h2>What Is the Downtown Government Campus Redevelopment?</h2>
+
+        <p>At its core, the plan would transform roughly <strong>30 acres of city-owned land</strong> into a modern civic campus paired with a compact, transit-oriented private development near the Brightline station.</p>
+
+        <div class="two-column">
+            <div class="column-box">
+                <h4>West Side (Public Land)</h4>
+                <ul>
+                    <li>A new City Hall</li>
+                    <li>Combined police and fire-rescue substation (~10,000 sq ft)</li>
+                    <li>35,000 sq ft community center with meeting rooms and indoor gym</li>
+                    <li>Two new outdoor basketball courts</li>
+                    <li>Tennis center with 10 clay courts</li>
+                    <li>Major upgrades to Memorial Park including civic lawn, playgrounds, garden walkways</li>
+                    <li>Central plaza known as "Banyan Village"</li>
+                </ul>
+            </div>
+            <div class="column-box">
+                <h4>East Side (Near Brightline)</h4>
+                <ul>
+                    <li>~950 residential units (primarily rentals, some condos)</li>
+                    <li>~120,000 sq ft of office space</li>
+                    <li>~85,000 sq ft of retail and restaurant space</li>
+                    <li>~180-room hotel</li>
+                    <li>Private development on 7.8 acres (99-year lease)</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>Importantly, the historic <strong>Singing Pines Children's Museum</strong>, closed since 2019, would remain on-site under the revised plan—preserved for future restoration rather than relocated or demolished.</p>
+
+        <div class="green-callout">
+            <strong>Key Fact:</strong> More than half of the total land—over 15 acres—remains public space, a significant increase compared to earlier versions of the proposal.
+        </div>
+
+        <h2>Why Has This Project Been So Controversial?</h2>
+
+        <p>The scale and structure of the deal sparked a strong public response.</p>
+
+        <p>A grassroots movement known as <strong>Save Boca</strong> raised concerns about:</p>
+
+        <ul>
+            <li>Leasing public land for private use</li>
+            <li>Transparency in the approval process</li>
+            <li>Long-term control of city-owned assets</li>
+            <li>Potential impacts on Memorial Park and other public amenities</li>
+        </ul>
+
+        <p>That opposition led to over <strong>7,000 residents signing a petition</strong> calling for voter approval on large land leases. In response, city leadership made substantial changes:</p>
+
+        <ul>
+            <li>The private lease area was reduced by roughly 75%</li>
+            <li>Overall development density was cut significantly</li>
+            <li>Green space preservation was expanded</li>
+            <li>Memorial Park and its banyan trees were explicitly protected</li>
+        </ul>
+
+        <p>Ultimately, the City Council agreed that <strong>Boca Raton voters will decide.</strong></p>
+
+        <div class="vote-callout">
+            <strong>Mark Your Calendar:</strong> A city-wide referendum is scheduled for <strong>March 10, 2026</strong>, which will determine whether the project moves forward.
+        </div>
+
+        <h2>The Economic Case: Jobs and Long-Term Activity</h2>
+
+        <p>If approved, the project would represent one of the largest economic investments in Boca Raton's history.</p>
+
+        <table class="economic-table">
+            <tr>
+                <th>Phase</th>
+                <th>Metric</th>
+                <th>Impact</th>
+            </tr>
+            <tr>
+                <td>During Construction</td>
+                <td>Construction Jobs</td>
+                <td>~5,700</td>
+            </tr>
+            <tr>
+                <td>During Construction</td>
+                <td>Economic Output</td>
+                <td>~$1.15 billion</td>
+            </tr>
+            <tr>
+                <td>Once Operational</td>
+                <td>Permanent On-Site Jobs</td>
+                <td>~1,200</td>
+            </tr>
+            <tr>
+                <td>Once Operational</td>
+                <td>Annual Labor Income</td>
+                <td>~$91 million</td>
+            </tr>
+            <tr>
+                <td>Once Operational</td>
+                <td>Annual Economic Activity</td>
+                <td>$250+ million</td>
+            </tr>
+        </table>
+
+        <p>Supporters argue this would create a true downtown employment and lifestyle hub, helping Boca remain competitive with cities like West Palm Beach and Fort Lauderdale—particularly as remote work and transit-oriented living continue to grow.</p>
+
+        <h2>What Does the City Get Financially?</h2>
+
+        <p>From a fiscal standpoint, the structure is designed to reduce taxpayer burden:</p>
+
+        <ul>
+            <li>Annual ground rent payments over the 99-year lease</li>
+            <li>New property tax revenue from private buildings</li>
+            <li>Profit-sharing once developers exceed targeted returns</li>
+            <li>A 1% transfer fee on future sales</li>
+        </ul>
+
+        <div class="stat-callout">
+            Over the full term, consultants estimate: <strong>$4.14 billion in gross revenue</strong> to the city (approximately $354 million in today's dollars).
+        </div>
+
+        <p>Those funds would help pay for the new City Hall, community center, public safety facilities, and parks—covering more than half of the public construction costs through project-generated revenue.</p>
+
+        <p><strong>In plain English:</strong> the project is designed to largely pay for itself, while still generating long-term surplus revenue for the city.</p>
+
+        <h2>What Could This Mean for Boca Raton Real Estate?</h2>
+
+        <p>This is where my lens as a real estate professional comes in.</p>
+
+        <p>Historically, <strong>transit-oriented development</strong> has had a meaningful impact on property values across South Florida. Areas near Brightline stations in Fort Lauderdale, West Palm Beach, and Miami have seen above-average appreciation compared to surrounding markets.</p>
+
+        <p>With Boca Raton's Brightline station now active, a modern city center could:</p>
+
+        <ul>
+            <li>Increase demand for nearby residential neighborhoods</li>
+            <li>Attract out-of-state buyers and remote professionals</li>
+            <li>Support higher long-term property values through improved amenities and walkability</li>
+        </ul>
+
+        <p>That said, there are valid considerations:</p>
+
+        <ul>
+            <li>Nearly 1,000 new residential units is meaningful supply</li>
+            <li>Construction impacts and traffic must be managed carefully</li>
+            <li>Quality of execution matters immensely</li>
+        </ul>
+
+        <div class="green-callout">
+            <strong>Infrastructure Investment:</strong> The current plan includes nearly <strong>$39 million in mobility and traffic improvements</strong>, including new roadways, roundabouts, bike lanes, and smart traffic systems—an acknowledgment that infrastructure has to keep pace.
+        </div>
+
+        <h2>A Defining Moment for Boca Raton</h2>
+
+        <p>Reasonable people can—and do—disagree on this project.</p>
+
+        <p>What's clear is that One Boca represents a defining decision about the city's future: whether Boca remains primarily suburban in its downtown footprint or evolves into a more modern, mixed-use urban center anchored by public space, culture, and transit.</p>
+
+        <p>As residents, homeowners, and voters, the responsibility now lies with us to understand the facts, weigh the trade-offs, and decide what vision best serves Boca Raton—not just today, but decades from now.</p>
+
+        <div class="warning-callout">
+            <p style="margin-bottom: 0;"><strong>Whatever your position, this is a conversation worth having thoughtfully, openly, and with the long-term health of our community in mind.</strong></p>
+        </div>
+
+        <p style="margin-top: 30px; font-style: italic; color: #666;">If you'd like to discuss how this project—or broader downtown changes—could impact your property value, investment strategy, or future plans in Boca Raton, I'm always happy to talk.</p>
+
+        <div class="author-section">
+            <p class="author-title">About the Author</p>
+            <p class="author-name">Edmund Bogen</p>
+            <p>Edmund Bogen is a luxury real estate specialist and trusted advisor based in Boca Raton, Florida. As the leader of the Edmund Bogen Team at Douglas Elliman Real Estate, Edmund is known for combining market expertise, high-touch service, and strong local relationships to help buyers and sellers navigate premier communities throughout Palm Beach County—especially Saint Andrews Country Club and Boca Raton's top luxury neighborhoods.</p>
+            <p>He is recognized for his strategic pricing guidance, discreet marketing approach, and hands-on deal leadership from start to finish.</p>
+            <p class="contact-info">Call/Text: (561) 235-7575</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Questions About Boca Raton Real Estate?</h3>
+            <p>Whether you're buying, selling, or simply want to understand how market changes affect your property, I'm here to help.</p>
+            <a href="https://bogenhomes.com/contact/" target="_blank">Contact Edmund Bogen</a>
+        </div>
+    </div>
+</body>
+</html>
