@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component 4: Article Template SOP | The Edmund Bogen Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2c5f8d 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header .back-link {
+            color: #00a8e1;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .header .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header .component-badge {
+            display: inline-block;
+            background: #00a8e1;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #b3d9ff;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .example-banner {
+            background: linear-gradient(135deg, #00a8e1 0%, #0090c5 100%);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .example-banner p {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .example-banner a {
+            background: white;
+            color: #00a8e1;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .example-banner a:hover {
+            background: #f0f0f0;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #1a3e5c;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00a8e1;
+        }
+
+        .section h3 {
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            padding: 5px 0;
+            font-size: 15px;
+        }
+
+        .template-section {
+            background: #f8fbff;
+            border-left: 5px solid #00a8e1;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .template-section h4 {
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .template-section p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .template-section ul {
+            margin-left: 20px;
+        }
+
+        .template-section li {
+            color: #666;
+            font-size: 14px;
+            padding: 3px 0;
+        }
+
+        /* Design Element Examples */
+        .design-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .design-element {
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .design-element-header {
+            background: #1a3e5c;
+            color: white;
+            padding: 12px 15px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .design-element-body {
+            padding: 15px;
+        }
+
+        /* Example boxes */
+        .example-stat-box {
+            background: #e7f3ff;
+            border: 2px solid #00a8e1;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .example-stat-box .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+
+        .example-stat-box .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a3e5c;
+            margin: 5px 0;
+        }
+
+        .example-warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+        }
+
+        .example-warning-box p {
+            margin: 0;
+            font-size: 13px;
+            color: #856404;
+        }
+
+        .example-quote-box {
+            background: #f8fbff;
+            border-left: 4px solid #00a8e1;
+            padding: 15px;
+            font-style: italic;
+        }
+
+        .example-quote-box p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .example-success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+        }
+
+        .example-success-box p {
+            margin: 0;
+            font-size: 13px;
+            color: #155724;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th {
+            background: #1a3e5c;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 14px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        .data-table code {
+            background: #e8f4f8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #1a3e5c;
+        }
+
+        .callout {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout.info {
+            background: #e7f3ff;
+            border-left-color: #00a8e1;
+        }
+
+        .callout.success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .callout h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .callout.info h4 {
+            color: #004085;
+        }
+
+        .callout.success h4 {
+            color: #155724;
+        }
+
+        .callout p, .callout ul {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8e8e8;
+        }
+
+        .footer-nav a {
+            color: #00a8e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a3e5c 0%, #0d1f2e 100%);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #b3d9ff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .example-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="sop-index.html" class="back-link">← Back to SOP Home</a>
+        <div class="component-badge">Component 4</div>
+        <h1>FEATURED ARTICLE</h1>
+        <p>In-depth content pieces that accompany the weekly newsletter</p>
+    </header>
+
+    <div class="container">
+
+        <div class="example-banner">
+            <p>View a live article example:</p>
+            <a href="https://edmundbogen.github.io/luxury-community-dashboard/newsletter-persuasion-florida.html" target="_blank">View Article →</a>
+        </div>
+
+        <section class="section">
+            <h2>Overview</h2>
+            <p>Featured articles are in-depth content pieces that provide value to subscribers beyond just market data. They cover topics relevant to luxury real estate buyers, such as relocation guides, market analysis, lifestyle content, and community spotlights.</p>
+            <p><strong>File naming:</strong> <code>newsletter-[topic-slug].html</code></p>
+            <p><strong>Example:</strong> <code>newsletter-persuasion-florida.html</code></p>
+
+            <div class="callout info">
+                <h4>Article Frequency</h4>
+                <p>Articles are created as needed, not necessarily every week. When there's no new article, the email features the most recent one. New articles should be created when there's a timely topic or fresh content to share.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Article Structure Template</h2>
+            <p>Every article follows this consistent structure:</p>
+
+            <div class="template-section">
+                <h4>1. Hero Section</h4>
+                <p>Full-width header with gradient background</p>
+                <ul>
+                    <li>Background: Gradient from <code>#1a3e5c</code> to <code>#2d5a7b</code></li>
+                    <li>Main headline (compelling, benefit-focused)</li>
+                    <li>Subtitle (context or promise)</li>
+                    <li>Byline: "Edmund Bogen, Douglas Elliman Real Estate | [Month Year]"</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>2. Opening Hook</h4>
+                <p>First content section that draws readers in</p>
+                <ul>
+                    <li>Identify the reader's problem or desire</li>
+                    <li>Create emotional connection</li>
+                    <li>Set up what the article will deliver</li>
+                    <li>Keep to 2-3 paragraphs maximum</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>3. Data & Evidence Section</h4>
+                <p>Support claims with facts and statistics</p>
+                <ul>
+                    <li>Financial benefits with specific numbers</li>
+                    <li>Market statistics and trends</li>
+                    <li>Research findings with sources cited</li>
+                    <li>Use stat boxes for key numbers</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>4. Lifestyle/Benefits Section</h4>
+                <p>Soft benefits beyond the numbers</p>
+                <ul>
+                    <li>Health and wellness benefits</li>
+                    <li>Weather and outdoor lifestyle</li>
+                    <li>Community and social aspects</li>
+                    <li>Family considerations</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>5. Practical Strategy Section</h4>
+                <p>Actionable advice readers can use</p>
+                <ul>
+                    <li>Step-by-step guidance</li>
+                    <li>Tips and recommendations</li>
+                    <li>Common mistakes to avoid</li>
+                    <li>Timeline or process overview</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>6. Local Specifics</h4>
+                <p>Tie back to St. Andrews and Edmund's expertise</p>
+                <ul>
+                    <li>St. Andrews Country Club amenities</li>
+                    <li>Local community features</li>
+                    <li>Comparison to other communities</li>
+                    <li>Edmund's firsthand knowledge</li>
+                </ul>
+            </div>
+
+            <div class="template-section">
+                <h4>7. Call-to-Action Section</h4>
+                <p>Clear next steps for interested readers</p>
+                <ul>
+                    <li>Headline: "Ready to Explore Your Options?"</li>
+                    <li>Phone button: (561) 235-7575</li>
+                    <li>Email button: edmund@bogenhomes.com</li>
+                    <li>Link back to Dashboard</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Design Elements</h2>
+            <p>Use these visual elements to break up content and highlight key information:</p>
+
+            <div class="design-elements">
+                <div class="design-element">
+                    <div class="design-element-header">Stat Box</div>
+                    <div class="design-element-body">
+                        <div class="example-stat-box">
+                            <div class="label">No State Income Tax</div>
+                            <div class="value">$20K-$37K+</div>
+                            <div class="label">Annual Savings</div>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 12px; color: #666;">Use for key statistics and numbers that should stand out.</p>
+                    </div>
+                </div>
+
+                <div class="design-element">
+                    <div class="design-element-header">Warning Box</div>
+                    <div class="design-element-body">
+                        <div class="example-warning-box">
+                            <p><strong>Important:</strong> IRS domicile rules require 183+ days in-state plus other criteria for tax benefits.</p>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 12px; color: #666;">Use for caveats, disclaimers, or important warnings.</p>
+                    </div>
+                </div>
+
+                <div class="design-element">
+                    <div class="design-element-header">Quote Callout</div>
+                    <div class="design-element-body">
+                        <div class="example-quote-box">
+                            <p>"Couples who use inclusive pronouns experience greater relationship satisfaction during major life transitions."</p>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 12px; color: #666;">Use for research quotes, expert citations, or key insights.</p>
+                    </div>
+                </div>
+
+                <div class="design-element">
+                    <div class="design-element-header">Success Box</div>
+                    <div class="design-element-body">
+                        <div class="example-success-box">
+                            <p><strong>Key Finding:</strong> 71% of grandparents took multigenerational trips in the past 3 years.</p>
+                        </div>
+                        <p style="margin-top: 10px; font-size: 12px; color: #666;">Use for positive statistics, success metrics, or benefits.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Additional Elements</h3>
+            <ul>
+                <li><strong>Tables:</strong> Use for comparative data (e.g., tax rates by state, community amenities)</li>
+                <li><strong>Numbered Lists:</strong> Use for step-by-step processes or ranked items</li>
+                <li><strong>Bullet Lists:</strong> Use for feature lists or multiple related points</li>
+                <li><strong>Section Dividers:</strong> Use cyan accent line between major sections</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Writing Guidelines</h2>
+
+            <h3>Voice & Tone</h3>
+            <ul>
+                <li><strong>Professional but approachable</strong> - Expert knowledge, friendly delivery</li>
+                <li><strong>Data-driven</strong> - Back claims with statistics and research</li>
+                <li><strong>Helpful</strong> - Focus on reader value, not sales pitch</li>
+                <li><strong>Local expertise</strong> - Showcase Edmund's community knowledge</li>
+            </ul>
+
+            <h3>Headlines</h3>
+            <ul>
+                <li>Benefit-focused (what will the reader gain?)</li>
+                <li>Specific when possible (numbers, outcomes)</li>
+                <li>Active voice</li>
+                <li>Avoid clickbait or overpromising</li>
+            </ul>
+
+            <h3>Content Quality</h3>
+            <ul>
+                <li>Always cite data sources</li>
+                <li>Use recent statistics (current year preferred)</li>
+                <li>Include local/regional specifics</li>
+                <li>Proofread carefully before publishing</li>
+            </ul>
+
+            <div class="callout success">
+                <h4>Research Sources</h4>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>U.S. Census Bureau</li>
+                    <li>Florida Realtors reports</li>
+                    <li>Tax Foundation data</li>
+                    <li>Academic research (psychology, economics)</li>
+                    <li>Industry surveys (NAR, travel industry)</li>
+                    <li>Local government data</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Article Topics</h2>
+            <p>Good article topics provide value while positioning Edmund as an expert:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Example Topics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Relocation</td>
+                        <td>Tax benefits, convincing family, moving logistics, state comparisons</td>
+                    </tr>
+                    <tr>
+                        <td>Market Analysis</td>
+                        <td>Quarterly trends, price forecasts, inventory analysis, buyer/seller tips</td>
+                    </tr>
+                    <tr>
+                        <td>Community Spotlights</td>
+                        <td>St. Andrews amenities, club comparisons, neighborhood guides</td>
+                    </tr>
+                    <tr>
+                        <td>Lifestyle</td>
+                        <td>Golf communities, health benefits, retirement planning, multigenerational living</td>
+                    </tr>
+                    <tr>
+                        <td>Investment</td>
+                        <td>ROI analysis, rental potential, property appreciation, portfolio diversification</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Publishing Workflow</h2>
+
+            <h3>Step 1: Topic Selection</h3>
+            <p>Choose topic based on:</p>
+            <ul>
+                <li>Timeliness (seasonal, news-related)</li>
+                <li>Subscriber questions/interests</li>
+                <li>SEO opportunity</li>
+                <li>Edmund's expertise areas</li>
+            </ul>
+
+            <h3>Step 2: Research & Outline</h3>
+            <ul>
+                <li>Gather data and sources</li>
+                <li>Create section outline</li>
+                <li>Identify stat boxes and callouts</li>
+                <li>Draft headline options</li>
+            </ul>
+
+            <h3>Step 3: Write Content</h3>
+            <ul>
+                <li>Follow template structure</li>
+                <li>Include all design elements</li>
+                <li>Add source citations</li>
+                <li>Write CTA section</li>
+            </ul>
+
+            <h3>Step 4: Create Hero Graphic</h3>
+            <ul>
+                <li>Eye-catching image relevant to topic</li>
+                <li>Brand colors and styling</li>
+                <li>Save as <code>[topic]-hero.png</code></li>
+            </ul>
+
+            <h3>Step 5: Build HTML Page</h3>
+            <ul>
+                <li>Use existing article as template</li>
+                <li>Update all content sections</li>
+                <li>Test all links</li>
+                <li>Check mobile responsiveness</li>
+            </ul>
+
+            <h3>Step 6: Publish</h3>
+            <ul>
+                <li>Push to GitHub</li>
+                <li>Verify live page loads correctly</li>
+                <li>Update email to reference new article</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>File Naming Convention</h2>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>File Type</th>
+                        <th>Naming Pattern</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Article HTML</td>
+                        <td><code>newsletter-[topic-slug].html</code></td>
+                        <td><code>newsletter-persuasion-florida.html</code></td>
+                    </tr>
+                    <tr>
+                        <td>Hero Image</td>
+                        <td><code>[topic-slug]-hero.png</code></td>
+                        <td><code>convincing-florida-hero.png</code></td>
+                    </tr>
+                    <tr>
+                        <td>Supporting Images</td>
+                        <td><code>[topic-slug]-[description].png</code></td>
+                        <td><code>tax-comparison-chart.png</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <div class="footer-nav">
+            <a href="sop-listings.html">← Previous: Listings SOP</a>
+            <a href="sop-index.html">Back to SOP Home →</a>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p><strong>The Edmund Bogen Team</strong> | Douglas Elliman Real Estate</p>
+    </footer>
+</body>
+</html>

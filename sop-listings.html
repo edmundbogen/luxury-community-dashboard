@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component 3: Listings SOP | The Edmund Bogen Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2c5f8d 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header .back-link {
+            color: #00a8e1;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .header .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header .component-badge {
+            display: inline-block;
+            background: #00a8e1;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #b3d9ff;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .example-banner {
+            background: linear-gradient(135deg, #00a8e1 0%, #0090c5 100%);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .example-banner p {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .example-banner a {
+            background: white;
+            color: #00a8e1;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .example-banner a:hover {
+            background: #f0f0f0;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #1a3e5c;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00a8e1;
+        }
+
+        .section h3 {
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .section li {
+            padding: 5px 0;
+            font-size: 15px;
+        }
+
+        .listing-card-example {
+            background: #f8fbff;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .listing-card-example h4 {
+            color: #1a3e5c;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .listing-card-example .price {
+            color: #000;
+            font-size: 28px;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .listing-card-example .specs {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 15px;
+        }
+
+        .listing-card-example .spec-item {
+            text-align: center;
+        }
+
+        .listing-card-example .spec-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #999;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .listing-card-example .spec-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a3e5c;
+        }
+
+        .listing-card-example .meta {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th {
+            background: #1a3e5c;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 14px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        .data-table code {
+            background: #e8f4f8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #1a3e5c;
+        }
+
+        .callout {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout.important {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .callout.info {
+            background: #e7f3ff;
+            border-left-color: #00a8e1;
+        }
+
+        .callout h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .callout.important h4 {
+            color: #721c24;
+        }
+
+        .callout.info h4 {
+            color: #004085;
+        }
+
+        .callout p, .callout ul {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8e8e8;
+        }
+
+        .footer-nav a {
+            color: #00a8e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #1a3e5c 0%, #0d1f2e 100%);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #b3d9ff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .example-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .listing-card-example .specs {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="sop-index.html" class="back-link">← Back to SOP Home</a>
+        <div class="component-badge">Component 3</div>
+        <h1>ST. ANDREWS LISTINGS</h1>
+        <p>Dedicated page for St. Andrews Country Club property listings</p>
+    </header>
+
+    <div class="container">
+
+        <div class="example-banner">
+            <p>View the live St. Andrews listings page:</p>
+            <a href="https://edmundbogen.github.io/luxury-community-dashboard/st-andrews-listings.html" target="_blank">View Listings →</a>
+        </div>
+
+        <section class="section">
+            <h2>Overview</h2>
+            <p>The St. Andrews Listings page is a dedicated page showcasing all currently active properties at St. Andrews Country Club. This page is linked prominently from both the email and the main dashboard.</p>
+            <p><strong>URL:</strong> <code>https://edmundbogen.github.io/luxury-community-dashboard/st-andrews-listings.html</code></p>
+            <p><strong>File:</strong> <code>/luxury-community-dashboard/st-andrews-listings.html</code></p>
+
+            <div class="callout info">
+                <h4>Why a Separate Page?</h4>
+                <p>St. Andrews Country Club is Edmund's primary focus community. Having a dedicated listings page allows subscribers to quickly see all available properties without navigating through the full dashboard. It also serves as a landing page for St. Andrews-specific marketing.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Page Structure</h2>
+
+            <h3>1. Header</h3>
+            <p>Consistent branding with other pages:</p>
+            <ul>
+                <li>Edmund Bogen Team logo</li>
+                <li>Title: "St. Andrews Country Club Listings"</li>
+                <li>Subtitle: "Boca Raton's Premier Golf Community"</li>
+                <li>Current listing count and price range</li>
+            </ul>
+
+            <h3>2. Summary Stats</h3>
+            <p>Quick overview cards:</p>
+            <ul>
+                <li>Total Active Listings</li>
+                <li>Price Range (Low - High)</li>
+                <li>Average Price</li>
+                <li>Average Days on Market</li>
+            </ul>
+
+            <h3>3. Listing Cards</h3>
+            <p>Individual cards for each property with full details.</p>
+
+            <h3>4. Contact CTA</h3>
+            <p>Edmund's contact information and scheduling options.</p>
+        </section>
+
+        <section class="section">
+            <h2>Listing Card Format</h2>
+            <p>Each property listing card contains the following information:</p>
+
+            <div class="listing-card-example">
+                <h4>17903 Foxborough Lane</h4>
+                <div class="price">$10,500,000</div>
+                <div class="specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Beds</span>
+                        <span class="spec-value">6</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Baths</span>
+                        <span class="spec-value">6.2</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">SqFt</span>
+                        <span class="spec-value">7,616</span>
+                    </div>
+                </div>
+                <div class="meta">MLS#: RX-11087609 • 177 Days on Market • New Construction 2025</div>
+            </div>
+
+            <h3>Required Data Points</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Source</th>
+                        <th>Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Street Address</td>
+                        <td>MLS</td>
+                        <td>Full street address</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>MLS</td>
+                        <td><code>$X,XXX,XXX</code></td>
+                    </tr>
+                    <tr>
+                        <td>Bedrooms</td>
+                        <td>MLS</td>
+                        <td>Number</td>
+                    </tr>
+                    <tr>
+                        <td>Bathrooms</td>
+                        <td>MLS</td>
+                        <td>Number (use .1 for half baths, e.g., 4.1)</td>
+                    </tr>
+                    <tr>
+                        <td>Square Footage</td>
+                        <td>MLS</td>
+                        <td><code>X,XXX</code> (with comma)</td>
+                    </tr>
+                    <tr>
+                        <td>MLS Number</td>
+                        <td>MLS</td>
+                        <td><code>XX-XXXXXXX</code> or <code>FXXXXXXXX</code></td>
+                    </tr>
+                    <tr>
+                        <td>Days on Market</td>
+                        <td>MLS</td>
+                        <td>Number</td>
+                    </tr>
+                    <tr>
+                        <td>Year Built</td>
+                        <td>MLS</td>
+                        <td>4-digit year</td>
+                    </tr>
+                    <tr>
+                        <td>Special Features</td>
+                        <td>MLS</td>
+                        <td>Waterfront, Pool, New Construction, etc.</td>
+                    </tr>
+                    <tr>
+                        <td>FlexMLS Link</td>
+                        <td>MLS Public Link</td>
+                        <td>Full URL to public listing</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section">
+            <h2>Update Process</h2>
+
+            <h3>Step 1: Pull Current Inventory</h3>
+            <p>Log into FlexMLS and search for:</p>
+            <ul>
+                <li>Status: Active</li>
+                <li>Community: St. Andrews Country Club</li>
+                <li>Property Type: Single Family Residence</li>
+            </ul>
+
+            <h3>Step 2: Compare to Existing Page</h3>
+            <p>Check for:</p>
+            <ul>
+                <li><strong>New listings:</strong> Add new cards</li>
+                <li><strong>Sold/Pending:</strong> Remove those listings</li>
+                <li><strong>Price changes:</strong> Update prices</li>
+                <li><strong>Days on market:</strong> Update DOM for all listings</li>
+            </ul>
+
+            <h3>Step 3: Update Summary Stats</h3>
+            <ul>
+                <li>Total count</li>
+                <li>Price range (min - max)</li>
+                <li>Calculate new average price</li>
+                <li>Calculate new average DOM</li>
+            </ul>
+
+            <h3>Step 4: Generate FlexMLS Public Links</h3>
+            <p>For each listing, generate a public link from FlexMLS that can be shared with non-MLS users.</p>
+
+            <div class="callout important">
+                <h4>Critical: Remove Sold Listings</h4>
+                <p>Always verify that displayed listings are still active. Showing sold or pending properties creates a poor user experience and makes the data appear outdated. Check status before every update.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Sorting Order</h2>
+            <p>Listings should be displayed in the following order:</p>
+            <ol>
+                <li><strong>Price (High to Low)</strong> - Luxury positioning, showcase premium properties first</li>
+                <li>Alternatively: <strong>Newest First</strong> - Show fresh inventory at top</li>
+            </ol>
+
+            <div class="callout">
+                <h4>Consistency</h4>
+                <p>Use the same sorting order each week. If you change the sort order, be consistent going forward. The default recommendation is <strong>Price (High to Low)</strong> to emphasize the luxury market positioning.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Connection to Other Components</h2>
+
+            <h3>Email Link</h3>
+            <p>The email contains a prominent link:</p>
+            <p><em>"Listings currently at St. Andrews Country Club - click here"</em></p>
+            <p>This links directly to this page.</p>
+
+            <h3>Dashboard Link</h3>
+            <p>The main dashboard also links to this page from the St. Andrews section.</p>
+
+            <h3>Featured Listings in Email</h3>
+            <p>The email shows 3 featured listings. These should be selected from this page:</p>
+            <ul>
+                <li>Typically: Highest price, mid-range, and entry point</li>
+                <li>Or: Newest listings to highlight fresh inventory</li>
+                <li>Ensure the 3 featured listings match what's on this page</li>
+            </ul>
+        </section>
+
+        <div class="footer-nav">
+            <a href="sop-dashboard.html">← Previous: Dashboard SOP</a>
+            <a href="sop-article.html">Next: Article SOP →</a>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p><strong>The Edmund Bogen Team</strong> | Douglas Elliman Real Estate</p>
+    </footer>
+</body>
+</html>

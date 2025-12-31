@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Newsletter SOP | The Edmund Bogen Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2c5f8d 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header img {
+            max-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #b3d9ff;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Overview Section */
+        .overview {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #00a8e1;
+        }
+
+        .overview h2 {
+            color: #1a3e5c;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 0.03em;
+        }
+
+        .overview p {
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* System Diagram */
+        .system-diagram {
+            background: #f8fbff;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .system-diagram h3 {
+            color: #1a3e5c;
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .flow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .flow-item {
+            background: #1a3e5c;
+            color: white;
+            padding: 20px 25px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 180px;
+        }
+
+        .flow-item.accent {
+            background: #00a8e1;
+        }
+
+        .flow-item span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .flow-item strong {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .flow-arrow {
+            color: #00a8e1;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Component Cards */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .component-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-header {
+            background: #1a3e5c;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .card-header .number {
+            display: inline-block;
+            background: #00a8e1;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            line-height: 40px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-header h3 {
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body p {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .card-body ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .card-body li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .card-body li:last-child {
+            border-bottom: none;
+        }
+
+        .card-body li::before {
+            content: "→";
+            color: #00a8e1;
+            margin-right: 10px;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #00a8e1;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0090c5;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1a3e5c;
+            border: 2px solid #1a3e5c;
+        }
+
+        .btn-outline:hover {
+            background: #1a3e5c;
+            color: white;
+        }
+
+        /* Workflow Section */
+        .workflow-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .workflow-section h2 {
+            color: #1a3e5c;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #00a8e1;
+            padding-bottom: 15px;
+        }
+
+        .workflow-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .workflow-timeline::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #00a8e1, #1a3e5c);
+            border-radius: 2px;
+        }
+
+        .workflow-day {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+
+        .workflow-day::before {
+            content: "";
+            position: absolute;
+            left: -32px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: #00a8e1;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 3px #00a8e1;
+        }
+
+        .workflow-day h4 {
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .workflow-day ul {
+            list-style: none;
+        }
+
+        .workflow-day li {
+            padding: 5px 0;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .workflow-day li::before {
+            content: "•";
+            color: #00a8e1;
+            margin-right: 10px;
+        }
+
+        /* Quick Reference */
+        .quick-ref {
+            background: #1a3e5c;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .quick-ref h2 {
+            color: #ffffff;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .quick-ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .quick-ref-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .quick-ref-item h4 {
+            color: #00a8e1;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+        }
+
+        .quick-ref-item p, .quick-ref-item code {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .quick-ref-item code {
+            background: rgba(0,168,225,0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a3e5c 0%, #0d1f2e 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #b3d9ff;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer .contact {
+            margin-top: 20px;
+        }
+
+        .footer .contact a {
+            color: #00a8e1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .flow-container {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <img src="https://edmundbogen.github.io/luxury-community-dashboard/EBT-Logo-WHITE-V.png" alt="The Edmund Bogen Team">
+        <h1>WEEKLY NEWSLETTER SOP</h1>
+        <p>Standard Operating Procedures for Market Intelligence Email Production</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Overview Section -->
+        <section class="overview">
+            <h2>System Overview</h2>
+            <p>This document provides complete instructions for producing the weekly "Luxury Communities Market Intelligence" email newsletter. The system consists of <strong>four interconnected components</strong> that work together to deliver market data and insights to our subscriber list.</p>
+            <p><strong>Update Frequency:</strong> Components 1-3 are updated weekly. Component 4 (Featured Article) is created as needed for new content.</p>
+
+            <div class="system-diagram">
+                <h3>How The System Works</h3>
+                <div class="flow-container">
+                    <div class="flow-item">
+                        <span>Step 1</span>
+                        <strong>Update Dashboard</strong>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <span>Step 2</span>
+                        <strong>Update Listings</strong>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item">
+                        <span>Step 3</span>
+                        <strong>Build Email</strong>
+                    </div>
+                    <span class="flow-arrow">→</span>
+                    <div class="flow-item accent">
+                        <span>Step 4</span>
+                        <strong>Send via CC</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Component Cards -->
+        <div class="components-grid">
+
+            <!-- Component 1: Email -->
+            <div class="component-card">
+                <div class="card-header">
+                    <div class="number">1</div>
+                    <h3>Constant Contact Email</h3>
+                </div>
+                <div class="card-body">
+                    <p>The actual email sent to subscribers. Contains market summary, community stats, featured listings, and links to all other components.</p>
+                    <ul>
+                        <li>Header with branding</li>
+                        <li>Featured article section (ONE)</li>
+                        <li>Executive market summary</li>
+                        <li>All 21 communities data</li>
+                        <li>Featured St. Andrews listings</li>
+                        <li>About section & footer</li>
+                    </ul>
+                    <div class="card-links">
+                        <a href="sop-email.html" class="btn btn-primary">View Full SOP</a>
+                        <a href="https://myemail.constantcontact.com/Real-Estate-Report---How-to-Convince-Loved-Ones-to-Move-Here.html?soid=1118751137932&aid=Ke2zKUSs2Js" target="_blank" class="btn btn-outline">Live Example</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 2: Dashboard -->
+            <div class="component-card">
+                <div class="card-header">
+                    <div class="number">2</div>
+                    <h3>Luxury Dashboard</h3>
+                </div>
+                <div class="card-body">
+                    <p>Interactive web dashboard displaying comprehensive market data for all 21 luxury communities with charts and visualizations.</p>
+                    <ul>
+                        <li>Executive summary cards</li>
+                        <li>Community performance table</li>
+                        <li>3 data visualization charts</li>
+                        <li>Interactive comparison tools</li>
+                        <li>Export functionality</li>
+                    </ul>
+                    <div class="card-links">
+                        <a href="sop-dashboard.html" class="btn btn-primary">View Full SOP</a>
+                        <a href="https://edmundbogen.github.io/luxury-community-dashboard/" target="_blank" class="btn btn-outline">Live Example</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 3: Listings -->
+            <div class="component-card">
+                <div class="card-header">
+                    <div class="number">3</div>
+                    <h3>St. Andrews Listings</h3>
+                </div>
+                <div class="card-body">
+                    <p>Dedicated page showcasing all current listings at St. Andrews Country Club with full property details and MLS links.</p>
+                    <ul>
+                        <li>All active St. Andrews properties</li>
+                        <li>Price, beds, baths, sqft</li>
+                        <li>Days on market</li>
+                        <li>MLS numbers with links</li>
+                        <li>Property highlights</li>
+                    </ul>
+                    <div class="card-links">
+                        <a href="sop-listings.html" class="btn btn-primary">View Full SOP</a>
+                        <a href="https://edmundbogen.github.io/luxury-community-dashboard/st-andrews-listings.html" target="_blank" class="btn btn-outline">Live Example</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component 4: Article -->
+            <div class="component-card">
+                <div class="card-header">
+                    <div class="number">4</div>
+                    <h3>Featured Article</h3>
+                </div>
+                <div class="card-body">
+                    <p>In-depth content piece featured in the email. Created as needed for new topics. Follows consistent template structure.</p>
+                    <ul>
+                        <li>Hero section with headline</li>
+                        <li>Data-driven content sections</li>
+                        <li>Stat boxes and callouts</li>
+                        <li>Research citations</li>
+                        <li>CTA section at end</li>
+                    </ul>
+                    <div class="card-links">
+                        <a href="sop-article.html" class="btn btn-primary">View Full SOP</a>
+                        <a href="https://edmundbogen.github.io/luxury-community-dashboard/newsletter-persuasion-florida.html" target="_blank" class="btn btn-outline">Live Example</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Workflow Section -->
+        <section class="workflow-section">
+            <h2>Weekly Production Workflow</h2>
+            <div class="workflow-timeline">
+                <div class="workflow-day">
+                    <h4>Day 1: Data Collection</h4>
+                    <ul>
+                        <li>Pull MLS data for all 21 communities (active, sold, calculate absorption)</li>
+                        <li>Pull St. Andrews specific listings with full details</li>
+                        <li>Note significant market changes from prior week</li>
+                    </ul>
+                </div>
+                <div class="workflow-day">
+                    <h4>Day 2: Dashboard & Listings Update</h4>
+                    <ul>
+                        <li>Update index.html with new community data</li>
+                        <li>Update st-andrews-listings.html with current inventory</li>
+                        <li>Update all chart data</li>
+                        <li>Test all links, push to GitHub</li>
+                    </ul>
+                </div>
+                <div class="workflow-day">
+                    <h4>Day 3: Article Creation (If Applicable)</h4>
+                    <ul>
+                        <li>Research topic and gather data</li>
+                        <li>Write content following template structure</li>
+                        <li>Create hero graphic</li>
+                        <li>Build HTML page, push to GitHub</li>
+                    </ul>
+                </div>
+                <div class="workflow-day">
+                    <h4>Day 4: Email Assembly</h4>
+                    <ul>
+                        <li>Copy email template, update date stamp</li>
+                        <li>Update all statistics and community data</li>
+                        <li>Update featured article section</li>
+                        <li>Update featured listings (3 properties)</li>
+                        <li>Preview and test all links</li>
+                    </ul>
+                </div>
+                <div class="workflow-day">
+                    <h4>Day 5: Distribution</h4>
+                    <ul>
+                        <li>Send test email to Edmund for approval</li>
+                        <li>Schedule or send to full list</li>
+                        <li>Monitor open rates and clicks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Reference -->
+        <section class="quick-ref">
+            <h2>Quick Reference</h2>
+            <div class="quick-ref-grid">
+                <div class="quick-ref-item">
+                    <h4>GitHub Repository</h4>
+                    <p><code>edmundbogen/luxury-community-dashboard</code></p>
+                </div>
+                <div class="quick-ref-item">
+                    <h4>Dashboard URL</h4>
+                    <p><code>edmundbogen.github.io/luxury-community-dashboard/</code></p>
+                </div>
+                <div class="quick-ref-item">
+                    <h4>Primary Color</h4>
+                    <p>Navy: <code>#1a3e5c</code></p>
+                </div>
+                <div class="quick-ref-item">
+                    <h4>Accent Color</h4>
+                    <p>Bright Blue: <code>#00a8e1</code></p>
+                </div>
+                <div class="quick-ref-item">
+                    <h4>Communities Tracked</h4>
+                    <p><code>21 luxury communities</code></p>
+                </div>
+                <div class="quick-ref-item">
+                    <h4>Contact</h4>
+                    <p><code>(561) 235-7575</code></p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>The Edmund Bogen Team</strong> | Douglas Elliman Real Estate</p>
+        <p>Weekly Newsletter Standard Operating Procedures</p>
+        <div class="contact">
+            <a href="tel:+15612357575">(561) 235-7575</a>
+            <a href="mailto:edmund@bogenhomes.com">edmund@bogenhomes.com</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component 1: Email Template SOP | The Edmund Bogen Team</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a3e5c 0%, #2c5f8d 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header .back-link {
+            color: #00a8e1;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .header .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header .component-badge {
+            display: inline-block;
+            background: #00a8e1;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #b3d9ff;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Live Example Banner */
+        .example-banner {
+            background: linear-gradient(135deg, #00a8e1 0%, #0090c5 100%);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .example-banner p {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .example-banner a {
+            background: white;
+            color: #00a8e1;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .example-banner a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Section */
+        .section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #1a3e5c;
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #00a8e1;
+        }
+
+        .section h3 {
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            color: #333;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* Structure List */
+        .structure-list {
+            counter-reset: section;
+        }
+
+        .structure-item {
+            background: #f8fbff;
+            border-left: 5px solid #00a8e1;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .structure-item::before {
+            counter-increment: section;
+            content: counter(section);
+            display: inline-block;
+            background: #1a3e5c;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        .structure-item h4 {
+            display: inline-block;
+            color: #1a3e5c;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .structure-item p {
+            margin-left: 45px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .structure-item ul {
+            margin-left: 45px;
+            margin-top: 10px;
+        }
+
+        .structure-item li {
+            color: #666;
+            font-size: 14px;
+            padding: 3px 0;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .data-table th {
+            background: #1a3e5c;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 14px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8fbff;
+        }
+
+        .data-table code {
+            background: #e8f4f8;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #1a3e5c;
+        }
+
+        /* Callout Box */
+        .callout {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout.important {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .callout.success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .callout h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .callout.important h4 {
+            color: #721c24;
+        }
+
+        .callout.success h4 {
+            color: #155724;
+        }
+
+        .callout p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        /* Community List */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .community-item {
+            background: #f8fbff;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            border-left: 3px solid #00a8e1;
+        }
+
+        /* Footer Nav */
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e8e8e8;
+        }
+
+        .footer-nav a {
+            color: #00a8e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1a3e5c 0%, #0d1f2e 100%);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            color: #b3d9ff;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .example-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .structure-item p,
+            .structure-item ul {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="sop-index.html" class="back-link">← Back to SOP Home</a>
+        <div class="component-badge">Component 1</div>
+        <h1>CONSTANT CONTACT EMAIL</h1>
+        <p>The main email sent to subscribers via Constant Contact</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Live Example Banner -->
+        <div class="example-banner">
+            <p>View the live example of this email in Constant Contact:</p>
+            <a href="https://myemail.constantcontact.com/Real-Estate-Report---How-to-Convince-Loved-Ones-to-Move-Here.html?soid=1118751137932&aid=Ke2zKUSs2Js" target="_blank">View Live Email →</a>
+        </div>
+
+        <!-- Overview Section -->
+        <section class="section">
+            <h2>Overview</h2>
+            <p>The Constant Contact email is the primary distribution vehicle for the weekly market intelligence report. It contains a summary of all market data and links to the interactive dashboard, listings page, and featured article.</p>
+
+            <div class="callout important">
+                <h4>Important Change</h4>
+                <p><strong>Going forward, feature ONE article only</strong> (not two). The email should have a single featured article section that links to the week's content piece.</p>
+            </div>
+        </section>
+
+        <!-- Email Structure -->
+        <section class="section">
+            <h2>Email Structure (Top to Bottom)</h2>
+            <p>The email consists of 10 sections in this exact order:</p>
+
+            <div class="structure-list">
+                <div class="structure-item">
+                    <h4>Header Section</h4>
+                    <p>Branded header with logo on gradient background</p>
+                    <ul>
+                        <li><strong>Logo:</strong> Edmund Bogen Team white logo</li>
+                        <li><strong>Title:</strong> "Luxury Communities Market Intelligence"</li>
+                        <li><strong>Subtitle:</strong> "Palm Beach County Premium Real Estate Analysis"</li>
+                        <li><strong>Date:</strong> "Market Data as of [Current Date]"</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Featured Article Section</h4>
+                    <p>Single featured article with hero image</p>
+                    <ul>
+                        <li>Hero graphic/image for the article</li>
+                        <li>Headline in ALL CAPS, bold</li>
+                        <li>Subheadline with context</li>
+                        <li>2-3 sentence description</li>
+                        <li>CTA link: "Read our comprehensive guide"</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>St. Andrews Quick Link</h4>
+                    <p>Prominent callout to listings page</p>
+                    <ul>
+                        <li>Text: "Listings currently at St. Andrews Country Club - click here"</li>
+                        <li>Links to: st-andrews-listings.html</li>
+                        <li>Large, clickable format</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Executive Market Summary</h4>
+                    <p>Four stat boxes with key metrics</p>
+                    <ul>
+                        <li>St. Andrews Price Range (with YoY change)</li>
+                        <li>Total Active Listings (with change)</li>
+                        <li>Total Sold YTD (with change)</li>
+                        <li>Average Absorption Rate</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>All 21 Communities</h4>
+                    <p>Complete list with stats for each community</p>
+                    <ul>
+                        <li>Community name</li>
+                        <li>Active listings count</li>
+                        <li>Sold YTD count</li>
+                        <li>Absorption rate percentage</li>
+                        <li>Color-coded borders (green = 80%+, blue = 60-79%)</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Featured St. Andrews Listings</h4>
+                    <p>3 featured properties with details</p>
+                    <ul>
+                        <li>Street address</li>
+                        <li>Price (large, prominent)</li>
+                        <li>Beds / Baths / Square Footage</li>
+                        <li>MLS number</li>
+                        <li>Days on Market</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Mastermind Promotion</h4>
+                    <p>Cross-promotion for Edmund's mastermind</p>
+                    <ul>
+                        <li>Screenshot/image of mastermind</li>
+                        <li>Tagline about AI and business</li>
+                        <li>Links to bogen.ai/contact</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Dashboard CTA Button</h4>
+                    <p>Primary call-to-action button</p>
+                    <ul>
+                        <li>Text: "View Full Interactive Dashboard"</li>
+                        <li>Links to main dashboard (index.html)</li>
+                        <li>Styled as prominent button</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>About Edmund Section</h4>
+                    <p>Agent bio and contact information</p>
+                    <ul>
+                        <li>Circular headshot photo</li>
+                        <li>Bio paragraph (Douglas Elliman affiliation)</li>
+                        <li>Phone button: (561) 235-7575</li>
+                        <li>Email button: edmund@bogenhomes.com</li>
+                    </ul>
+                </div>
+
+                <div class="structure-item">
+                    <h4>Footer</h4>
+                    <p>Legal and branding footer</p>
+                    <ul>
+                        <li>Company name and report title</li>
+                        <li>Douglas Elliman branding</li>
+                        <li>Data source attribution</li>
+                        <li>Office address</li>
+                        <li>Equal Housing Opportunity disclaimer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Required -->
+        <section class="section">
+            <h2>Data Required</h2>
+            <p>The following data points must be updated each week:</p>
+
+            <h3>Executive Summary Stats</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Source</th>
+                        <th>Format</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>St. Andrews Price Range</td>
+                        <td>MLS - St. Andrews active listings</td>
+                        <td><code>$X.XXM - $X.XXM</code></td>
+                    </tr>
+                    <tr>
+                        <td>Total Active Listings</td>
+                        <td>MLS - All 21 communities</td>
+                        <td><code>XXX</code></td>
+                    </tr>
+                    <tr>
+                        <td>Total Sold YTD</td>
+                        <td>MLS - All 21 communities</td>
+                        <td><code>XXX</code></td>
+                    </tr>
+                    <tr>
+                        <td>Avg Absorption Rate</td>
+                        <td>Calculated: Sold / (Sold + Active)</td>
+                        <td><code>XX%</code></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Community Data (21 Communities)</h3>
+            <p>For each community, collect:</p>
+            <ul>
+                <li>Active listings count</li>
+                <li>Sold YTD count</li>
+                <li>Absorption rate (calculated)</li>
+            </ul>
+
+            <div class="community-grid">
+                <div class="community-item">1. Delaire Country Club</div>
+                <div class="community-item">2. Woodfield</div>
+                <div class="community-item">3. Boca Bridges</div>
+                <div class="community-item">4. Boca West Country Club</div>
+                <div class="community-item">5. Polo Club</div>
+                <div class="community-item">6. Broken Sound</div>
+                <div class="community-item">7. The Bridges</div>
+                <div class="community-item">8. The Oaks</div>
+                <div class="community-item">9. St. Andrews Country Club</div>
+                <div class="community-item">10. Mizner Country Club</div>
+                <div class="community-item">11. Addison Reserve</div>
+                <div class="community-item">12. Lotus</div>
+                <div class="community-item">13. Seven Bridges</div>
+                <div class="community-item">14. Boca Grove</div>
+                <div class="community-item">15. Seasons</div>
+                <div class="community-item">16. Stonebridge</div>
+                <div class="community-item">17. Bocaire Country Club</div>
+                <div class="community-item">18. Royal Palm Yacht Club</div>
+                <div class="community-item">19. The Sanctuary</div>
+                <div class="community-item">20. Long Lake Estates</div>
+                <div class="community-item">21. Le Lac</div>
+            </div>
+        </section>
+
+        <!-- Visual Coding -->
+        <section class="section">
+            <h2>Visual Coding System</h2>
+            <p>Communities are color-coded by absorption rate performance:</p>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Absorption Rate</th>
+                        <th>Border Color</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>80% and above</td>
+                        <td><span style="display:inline-block;width:20px;height:20px;background:#28a745;border-radius:3px;vertical-align:middle;"></span> Green <code>#28a745</code></td>
+                        <td>Top performer - strong market</td>
+                    </tr>
+                    <tr>
+                        <td>60% - 79%</td>
+                        <td><span style="display:inline-block;width:20px;height:20px;background:#4169E1;border-radius:3px;vertical-align:middle;"></span> Blue <code>#4169E1</code></td>
+                        <td>Healthy market</td>
+                    </tr>
+                    <tr>
+                        <td>Below 60%</td>
+                        <td><span style="display:inline-block;width:20px;height:20px;background:#dc3545;border-radius:3px;vertical-align:middle;"></span> Red text <code>#dc3545</code></td>
+                        <td>Slower market</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- File Locations -->
+        <section class="section">
+            <h2>File Locations & Assets</h2>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Asset</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email HTML Template</td>
+                        <td><code>/luxury-community-dashboard/email-constant-contact.html</code></td>
+                    </tr>
+                    <tr>
+                        <td>Logo (White)</td>
+                        <td><code>EBT-Logo-WHITE-V.png</code> or <code>EBT-Logo-ADS-ONLY-V.png</code></td>
+                    </tr>
+                    <tr>
+                        <td>Edmund's Photo</td>
+                        <td><code>edmund-photo.png</code></td>
+                    </tr>
+                    <tr>
+                        <td>Mastermind Screenshot</td>
+                        <td><code>mastermind-screenshot.png</code></td>
+                    </tr>
+                    <tr>
+                        <td>Article Hero Images</td>
+                        <td><code>[topic]-hero.png</code> (varies by article)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Quality Checklist -->
+        <section class="section">
+            <h2>Quality Checklist</h2>
+            <p>Before sending, verify all of the following:</p>
+
+            <div class="callout success">
+                <h4>Pre-Send Checklist</h4>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Date stamp shows current week's date</li>
+                    <li>All statistics are updated with fresh data</li>
+                    <li>All 21 communities have current numbers</li>
+                    <li>Featured listings are still active (not sold)</li>
+                    <li>All links work (test each one)</li>
+                    <li>St. Andrews listing count matches actual inventory</li>
+                    <li>Mobile preview looks correct</li>
+                    <li>Edmund's contact info is accurate</li>
+                    <li>Douglas Elliman disclaimer is included</li>
+                    <li>No typos in headlines or body text</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div class="footer-nav">
+            <a href="sop-index.html">← Back to SOP Home</a>
+            <a href="sop-dashboard.html">Next: Dashboard SOP →</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>The Edmund Bogen Team</strong> | Douglas Elliman Real Estate</p>
+    </footer>
+</body>
+</html>
