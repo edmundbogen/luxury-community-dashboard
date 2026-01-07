@@ -729,7 +729,7 @@
             </div>
             <h1>Luxury Communities Market Intelligence</h1>
             <div class="subtitle">Palm Beach County Premium Real Estate Analysis</div>
-            <div class="date">Market Data as of December 31, 2025</div>
+            <div class="date">Market Data as of January 7, 2026</div>
             <div style="margin-top: 25px; position: relative; z-index: 10;">
                 <a href="javascript:void(0);" onclick="showStAndrewsListings();" style="display: inline-block; background: #00a8e1; color: white; font-weight: 600; font-size: 1.1em; text-decoration: none; padding: 14px 30px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.08em; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 168, 225, 0.4); cursor: pointer;">Click here to see all current listings in St. Andrews Country Club</a>
             </div>
@@ -1004,33 +1004,57 @@
     </div>
 
     <script>
-        // Community data - Updated December 31, 2025
+        // Community data - Updated January 7, 2026
         const communities = [
-            { name: 'Polo Club', active: 9, sold: 70, absorption: 89 },
-            { name: 'Woodfield', active: 11, sold: 71, absorption: 87 },
-            { name: 'Boca West', active: 38, sold: 219, absorption: 85 },
-            { name: 'Delaire', active: 4, sold: 22, absorption: 85 },
-            { name: 'The Oaks', active: 7, sold: 35, absorption: 83 },
-            { name: 'Addison Reserve', active: 10, sold: 33, absorption: 77 },
-            { name: 'Boca Bridges', active: 10, sold: 32, absorption: 76 },
-            { name: 'Broken Sound', active: 33, sold: 105, absorption: 76 },
-            { name: 'The Bridges', active: 10, sold: 30, absorption: 75 },
-            { name: 'Mizner CC', active: 7, sold: 20, absorption: 74 },
-            { name: 'St. Andrews', active: 12, sold: 33, absorption: 73 },
-            { name: 'Lotus', active: 14, sold: 38, absorption: 73 },
-            { name: 'Seven Bridges', active: 12, sold: 32, absorption: 73 },
-            { name: 'Stonebridge', active: 13, sold: 29, absorption: 69 },
-            { name: 'Seasons', active: 7, sold: 11, absorption: 61 },
-            { name: 'Bocaire', active: 13, sold: 20, absorption: 61 },
-            { name: 'Boca Grove', active: 12, sold: 16, absorption: 57 },
-            { name: 'Long Lake', active: 5, sold: 6, absorption: 55 },
-            { name: 'Royal Palm YC', active: 40, sold: 37, absorption: 48 },
-            { name: 'The Sanctuary', active: 10, sold: 8, absorption: 44 },
-            { name: 'Le Lac', active: 1, sold: 0, absorption: 0 }
+            { name: 'St. Andrews', active: 13, sold: 0, absorption: 0 },
+            { name: 'Addison Reserve', active: 14, sold: 0, absorption: 0 },
+            { name: 'The Oaks', active: 8, sold: 0, absorption: 0 },
+            { name: 'Delaire', active: 4, sold: 0, absorption: 0 },
+            { name: 'The Bridges', active: 10, sold: 0, absorption: 0 },
+            { name: 'Seven Bridges', active: 11, sold: 0, absorption: 0 },
+            { name: 'Boca Grove', active: 10, sold: 0, absorption: 0 },
+            { name: 'Boca West', active: 39, sold: 1, absorption: 3 },
+            { name: 'Boca Bridges', active: 10, sold: 0, absorption: 0 },
+            { name: 'Lotus', active: 16, sold: 0, absorption: 0 },
+            { name: 'Bocaire', active: 14, sold: 0, absorption: 0 },
+            { name: 'The Sanctuary', active: 10, sold: 0, absorption: 0 },
+            { name: 'Polo Club', active: 8, sold: 0, absorption: 0 },
+            { name: 'Mizner CC', active: 7, sold: 0, absorption: 0 },
+            { name: 'Long Lake', active: 5, sold: 0, absorption: 0 },
+            { name: 'Broken Sound', active: 33, sold: 0, absorption: 0 },
+            { name: 'Royal Palm YC', active: 39, sold: 0, absorption: 0 },
+            { name: 'Le Lac', active: 1, sold: 0, absorption: 0 },
+            { name: 'Seasons', active: 7, sold: 0, absorption: 0 },
+            { name: 'Woodfield', active: 10, sold: 0, absorption: 0 },
+            { name: 'Stonebridge', active: 13, sold: 0, absorption: 0 }
         ];
 
-        // St. Andrews Listings Data - Updated December 31, 2025
+        // St. Andrews Listings Data - Updated January 7, 2026
         const stAndrewsListings = [
+            {
+                address: '17119 Whitehaven Drive',
+                price: '$16,160,000',
+                mlsId: 'RX-11150516',
+                sqft: '10,229',
+                beds: 6,
+                fullBaths: 7,
+                halfBaths: 2,
+                yearBuilt: 2026,
+                daysOnMarket: 7,
+                url: 'https://bogenhomes.com/homes-for-sale-details/17119-WHITEHAVEN-DRIVE-BOCA-RATON-FL-33496/RX-11150516/43/'
+            },
+            {
+                address: '7202 Ayrshire Lane',
+                price: '$15,950,000',
+                mlsId: 'RX-11151587',
+                sqft: '8,815',
+                beds: 6,
+                fullBaths: 7,
+                halfBaths: 2,
+                yearBuilt: 2023,
+                daysOnMarket: 2,
+                url: 'https://bogenhomes.com/homes-for-sale-details/7202-AYRSHIRE-LANE-BOCA-RATON-FL-33496/RX-11151587/43/'
+            },
             {
                 address: '17903 Foxborough Lane',
                 price: '$10,500,000',
@@ -1039,8 +1063,8 @@
                 beds: 6,
                 fullBaths: 6,
                 halfBaths: 2,
-                yearBuilt: 2025,
-                daysOnMarket: 226,
+                yearBuilt: 2026,
+                daysOnMarket: 247,
                 url: 'https://www.flexmls.com/cgi-bin/mainmenu.cgi?cmd=url+other/run_public_link.html&public_link_tech_id=1wpl20iqy4vt&s=15&cid=1'
             },
             {
@@ -1090,18 +1114,6 @@
                 yearBuilt: 1994,
                 daysOnMarket: 104,
                 url: 'https://www.flexmls.com/cgi-bin/mainmenu.cgi?cmd=url+other/run_public_link.html&public_link_tech_id=1wpl20ficw60&s=15&cid=1'
-            },
-            {
-                address: '7090 Ayrshire Lane',
-                price: '$5,975,000',
-                mlsId: 'RX-11086721',
-                sqft: '5,912',
-                beds: 5,
-                fullBaths: 6,
-                halfBaths: 1,
-                yearBuilt: 1996,
-                daysOnMarket: 229,
-                url: 'https://www.flexmls.com/cgi-bin/mainmenu.cgi?cmd=url+other/run_public_link.html&public_link_tech_id=1wpl20ekckup&s=15&cid=1'
             },
             {
                 address: '6981 Lions Head Lane',
