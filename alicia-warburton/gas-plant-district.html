@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>St. Petersburg's $6.8 Billion Crossroads | Alicia Warburton</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a2634;
+      --accent: #d4a574;
+      --gray: #6b7c8a;
+      --light: #fdfcfb;
+      --text: #1a1a1a;
+      --text-light: #4a5568;
+      --border: #e8e8e8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #ffffff;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 17px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(26, 38, 52, 0.97);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 16px 24px;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .nav-brand span {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .nav-brand small {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-contact a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .nav-contact a:hover {
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      max-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('gas-plant-hero.png');
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(26, 38, 52, 0.95) 0%,
+        rgba(26, 38, 52, 0.7) 40%,
+        rgba(26, 38, 52, 0.3) 70%,
+        rgba(26, 38, 52, 0.1) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      padding: 60px 40px;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 1px;
+    }
+
+    .hero-meta span {
+      color: var(--accent);
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      background: var(--primary);
+      padding: 0;
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat-item {
+      padding: 32px 24px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat-item:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 8px;
+    }
+
+    /* Article Content */
+    .article-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .article-intro {
+      font-size: 20px;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-intro strong {
+      color: var(--text);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 400;
+      color: var(--primary);
+      margin: 48px 0 24px 0;
+      letter-spacing: -0.3px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary);
+      margin: 36px 0 16px 0;
+      letter-spacing: -0.2px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: var(--text-light);
+    }
+
+    /* Pull Quote */
+    .pull-quote {
+      margin: 48px 0;
+      padding: 32px 0 32px 32px;
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(to right, var(--light), transparent);
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--primary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .pull-quote cite {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      color: var(--gray);
+      letter-spacing: 1px;
+    }
+
+    /* Data Table */
+    .data-table {
+      width: 100%;
+      margin: 32px 0;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-light);
+    }
+
+    .data-table tr:nth-child(even) {
+      background: var(--light);
+    }
+
+    /* Callout Box */
+    .callout {
+      background: var(--light);
+      border: 1px solid var(--border);
+      padding: 28px;
+      margin: 36px 0;
+    }
+
+    .callout-label {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .callout h4 {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .callout p {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    .callout ul {
+      margin: 12px 0 0 20px;
+      font-size: 15px;
+      color: var(--text-light);
+    }
+
+    .callout li {
+      margin-bottom: 8px;
+    }
+
+    /* Two Column Comparison */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 36px 0;
+    }
+
+    .comparison-card {
+      background: var(--light);
+      padding: 28px;
+      border-top: 3px solid var(--accent);
+    }
+
+    .comparison-card h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .comparison-card ul {
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .comparison-card li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-light);
+    }
+
+    .comparison-card li:last-child {
+      border-bottom: none;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin: 36px 0;
+      padding-left: 24px;
+      border-left: 2px solid var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 24px 24px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .timeline-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .timeline-text {
+      font-size: 15px;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* Author Section */
+    .author-section {
+      background: var(--primary);
+      padding: 60px 24px;
+      margin-top: 60px;
+    }
+
+    .author-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .author-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .author-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .author-title {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .author-bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 32px;
+    }
+
+    .author-cta {
+      display: inline-block;
+      padding: 14px 40px;
+      background: var(--accent);
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .author-cta:hover {
+      background: #e0b88a;
+    }
+
+    .author-contact {
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .author-contact a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    .author-contact a:hover {
+      color: var(--accent);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--light);
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-size: 14px;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .footer-legal {
+      font-size: 11px;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 16px;
+      }
+
+      .nav-contact span {
+        display: none;
+      }
+
+      .hero {
+        height: 60vh;
+        min-height: 400px;
+      }
+
+      .hero-content {
+        padding: 40px 20px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-item {
+        padding: 24px 16px;
+      }
+
+      .stat-item:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-item:nth-child(3),
+      .stat-item:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stat-number {
+        font-size: 28px;
+      }
+
+      .article-container {
+        padding: 40px 20px;
+      }
+
+      .article-intro {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pull-quote p {
+        font-size: 20px;
+      }
+
+      .data-table {
+        font-size: 12px;
+      }
+
+      .data-table th,
+      .data-table td {
+        padding: 10px 8px;
+      }
+
+      .author-name {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 26px;
+      }
+
+      .stat-number {
+        font-size: 24px;
+      }
+
+      body {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <span>Alicia Warburton</span>
+        <small>Douglas Elliman Real Estate</small>
+      </a>
+      <div class="nav-contact">
+        <a href="tel:+17273137035">(727) 313-7035</a>
+        <a href="mailto:awarburton@elliman.com">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-label">Development Analysis | January 2026</p>
+      <h1 class="hero-title">St. Petersburg's $6.8 Billion Crossroads: What Investors Need to Know</h1>
+      <p class="hero-meta">By <span>Alicia Warburton</span> | 12 min read</p>
+    </div>
+  </header>
+
+  <!-- Stats Bar -->
+  <section class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <p class="stat-number">$6.8B</p>
+        <p class="stat-label">Total Investment</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">86</p>
+        <p class="stat-label">Acres</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">19,738</p>
+        <p class="stat-label">Projected Jobs</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-number">Feb 3</p>
+        <p class="stat-label">Proposal Deadline</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <article class="article-container">
+
+    <p class="article-intro">
+      <strong>The most significant redevelopment opportunity in Tampa Bay history sits at a crossroads.</strong> After the Tampa Bay Rays' $6.5 billion stadium deal collapsed in March 2025, the 86-acre Historic Gas Plant District is once again open for competing proposals&mdash;with a February 3, 2026 deadline. What happens next will determine not just the future of downtown St. Petersburg, but whether this city can execute the kind of thoughtful urban development that attracts long-term institutional capital.
+    </p>
+
+    <h2>The Land: Context for Investors</h2>
+
+    <p>
+      Before analyzing the competing proposals, sophisticated investors need to understand why this 86-acre parcel carries both extraordinary opportunity and extraordinary complexity.
+    </p>
+
+    <p>
+      The Gas Plant District was St. Petersburg's second African American neighborhood, established between 1890-1900 by workers who built the Orange Belt Railway. At its peak, the community included hundreds of single-family homes, nine churches, Black-owned businesses, and six generations of family history.
+    </p>
+
+    <p>
+      Between 1978 and 1986, the city systematically acquired this land through eminent domain. More than 500 families&mdash;over 800 residents&mdash;were relocated. 285+ buildings were demolished. 40 businesses displaced. The city promised affordable housing and an industrial park creating 620-688 jobs.
+    </p>
+
+    <p>
+      Those promises were never kept. Instead, the land became Tropicana Field&mdash;a stadium built without a baseball team, later leased to the Tampa Bay Rays for $1 per year.
+    </p>
+
+    <div class="pull-quote">
+      <p>"It was a lie that was told because I don't think it was ever intended to do anything but bring baseball."</p>
+      <cite>&mdash; Gwendolyn Reese, President, African American Heritage Association</cite>
+    </div>
+
+    <p>
+      This history matters for investors because it shapes every aspect of the current process: the community benefits requirements, the political dynamics, the scrutiny any developer will face, and ultimately the risk profile of the investment.
+    </p>
+
+    <h2>Two Competing Visions</h2>
+
+    <p>
+      After Mayor Ken Welch opened a 30-day proposal window in January 2026, two major development teams have emerged with fundamentally different approaches.
+    </p>
+
+    <div class="comparison-grid">
+      <div class="comparison-card">
+        <h4>ARK Ellison Horus</h4>
+        <ul>
+          <li><strong>Investment:</strong> $6.8 billion over 17 years</li>
+          <li><strong>Housing:</strong> 3,701 total units (1,925 affordable/workforce/senior)</li>
+          <li><strong>Commercial:</strong> 500,000 sf innovation hubs</li>
+          <li><strong>Cultural:</strong> 4,000-seat music hall, new Woodson Museum</li>
+          <li><strong>Jobs:</strong> 19,738 projected</li>
+          <li><strong>City Payment:</strong> Minimum $202 million</li>
+        </ul>
+      </div>
+      <div class="comparison-card">
+        <h4>Blake Investment Partners</h4>
+        <ul>
+          <li><strong>Approach:</strong> "St. Petersburg 3.0"</li>
+          <li><strong>Housing:</strong> "Largest affordable commitment in city history"</li>
+          <li><strong>Partners:</strong> Blue Sky Communities, Greystar</li>
+          <li><strong>Philosophy:</strong> Local ownership, community stewardship</li>
+          <li><strong>Financing:</strong> No additional public dollars beyond CRA funding</li>
+          <li><strong>Details:</strong> Partially disclosed</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>
+      <strong>Neither proposal includes a baseball stadium.</strong> The Rays' new ownership group (Patrick Zalupski, who closed the $1.7 billion purchase in September 2025) is pursuing Tampa sites. The team will remain at Tropicana Field through 2028, but the development plans are explicitly designed to proceed with or without baseball.
+    </p>
+
+    <h3>ARK Ellison Horus: The Institutional Play</h3>
+
+    <p>
+      This consortium brings heavyweight credentials: Cathie Wood (ARK Invest founder who relocated to St. Pete in 2021), Casey Ellison (Ellison Companies), and Jonathan Graham (Horus Construction). They've announced partnerships with Moss Construction, Jacobs, and Kimley-Horn to demonstrate execution capacity.
+    </p>
+
+    <div class="callout">
+      <p class="callout-label">Key Partnership</p>
+      <h4>Housing Authority Collaboration</h4>
+      <p>The St. Petersburg Housing Authority has signed a letter of interest to collaborate on affordable rental housing. The Pinellas County Housing Authority has offered a complementary senior-housing tower, and Evara Health has expressed interest in operating a medical facility on-site.</p>
+    </div>
+
+    <p>
+      The proposal projects $1.2 billion in annual economic impact and $28 billion over 30 years. The 30%+ open space commitment includes a 6.7-acre elevated park connecting Campbell Park to the Gas Plant neighborhood.
+    </p>
+
+    <h3>Blake Investment Partners: The Local Stewardship Play</h3>
+
+    <p>
+      Thompson Whitney Blake offered $260 million cash when the Rays deal first collapsed in March 2025. His team emphasizes local ownership, community accountability, and minimal public subsidy requirements.
+    </p>
+
+    <p>
+      The partnership with Blue Sky Communities (developer of Skyway Lofts and Bear Creek Commons) and Greystar Real Estate Partners brings established affordable housing expertise. Greystar is already developing "The Henry," a 325-unit apartment community with Blake's group in the Grand Central District.
+    </p>
+
+    <h2>The Investment Calculus</h2>
+
+    <p>
+      For investors evaluating St. Petersburg exposure, this development creates a complex risk-reward matrix.
+    </p>
+
+    <h3>The Bull Case</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>Implication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Scale of investment</td>
+          <td>$6.5-6.8B transforms the downtown core, driving appreciation across surrounding neighborhoods</td>
+        </tr>
+        <tr>
+          <td>Job creation</td>
+          <td>19,738 projected jobs creates sustained housing demand, particularly in premium segments</td>
+        </tr>
+        <tr>
+          <td>Innovation focus</td>
+          <td>ARK's "startup accelerators and cultural festivals" positioning attracts young professionals</td>
+        </tr>
+        <tr>
+          <td>City land control</td>
+          <td>First time in 25+ years the city controls development direction&mdash;more responsive to market needs</td>
+        </tr>
+        <tr>
+          <td>No stadium</td>
+          <td>Eliminates $2.4B+ public subsidy overhang that Florida Tax Watch identified in the Rays deal</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>The Bear Case</h3>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Factor</th>
+          <th>Implication</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Execution risk</td>
+          <td>17-year timeline through multiple economic cycles; original promises took 40+ years to address</td>
+        </tr>
+        <tr>
+          <td>Political complexity</td>
+          <td>Original 5-3 council approval margin has eroded; 2026 mayoral election adds uncertainty</td>
+        </tr>
+        <tr>
+          <td>Community benefit scrutiny</td>
+          <td>Original deal's $50M community benefits (0.04% of total) faced severe criticism; enforcement mechanisms remain weak</td>
+        </tr>
+        <tr>
+          <td>Competing infrastructure needs</td>
+          <td>City faces $5B in water/sewage/stormwater improvements over 30 years</td>
+        </tr>
+        <tr>
+          <td>Academic evidence</td>
+          <td>Research shows stadium-adjacent developments typically displace rather than create economic activity</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pull-quote">
+      <p>"We have a housing crisis for workforce and middle- to low-income people, and yet they are building luxury apartments and condos at a rate that's leaving some of them empty. How do you justify creating that glut of housing for the affluent and ignore the population that lived in that place?"</p>
+      <cite>&mdash; Bishop Manuel Sykes, Bethel Community Baptist Church</cite>
+    </div>
+
+    <h2>Lessons from Comparable Cities</h2>
+
+    <p>
+      History offers instructive parallels for how this development might unfold:
+    </p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>City</th>
+          <th>Project</th>
+          <th>Outcome</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pittsburgh Hill District</td>
+          <td>Penguins arena</td>
+          <td>Organized coalition achieved binding CBA: 38% jobs reserved for residents, living wages, grocery store</td>
+        </tr>
+        <tr>
+          <td>Atlanta Vine City</td>
+          <td>Mercedes-Benz Stadium</td>
+          <td>66% population loss 1970-2000; gentrification without displacement protections</td>
+        </tr>
+        <tr>
+          <td>Washington DC Navy Yard</td>
+          <td>Nationals Park</td>
+          <td>Black residents fell from 70% to under 50% within three years</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      The critical lesson: <strong>binding community benefit agreements with meaningful penalties are essential</strong>. Non-binding promises consistently go unfulfilled. The Southern Poverty Law Center's assessment of the original Rays deal was blunt: "with little to no enforcement mechanism and only the faintest of penalties for noncompliance, the development plan as proposed almost encourages the developer not to follow through."
+    </p>
+
+    <h2>Timeline and Decision Points</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-date">February 3, 2026</p>
+        <p class="timeline-text">Proposal deadline&mdash;all competing bids must be submitted</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">Spring 2026</p>
+        <p class="timeline-text">City evaluation and selection process</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">November 2026</p>
+        <p class="timeline-text">Mayoral election creates political pressure for visible progress</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">2026-2028</p>
+        <p class="timeline-text">Rays remain at repaired Tropicana Field</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-date">2026-2043</p>
+        <p class="timeline-text">15-20 year phased development implementation</p>
+      </div>
+    </div>
+
+    <h2>My Perspective</h2>
+
+    <p>
+      Having relocated from the New York area and watched St. Petersburg's transformation over the past decade, I understand why this development commands attention from sophisticated investors. This isn't just about 86 acres&mdash;it's about whether St. Petersburg can execute the kind of thoughtful urban development that attracts long-term institutional capital.
+    </p>
+
+    <p>
+      The Gas Plant history creates real constraints, but it also creates opportunity. A development that genuinely honors community commitments&mdash;with enforceable agreements, not just promises&mdash;would demonstrate something rare: a city that can balance growth with equity. That's increasingly valuable to ESG-focused institutional investors and the companies they fund.
+    </p>
+
+    <p>
+      For individual investors and property owners, the calculus is more immediate. This development will reshape traffic patterns, school enrollment, retail options, and neighborhood character across downtown St. Petersburg. Properties in Historic Old Northeast, Snell Isle, and the emerging Edge District will experience different impacts than those in Kenwood or Roser Park.
+    </p>
+
+    <p>
+      The most important thing you can do now is understand your specific exposure and develop a strategy that accounts for multiple scenarios. I'm tracking this development closely and would welcome the opportunity to discuss what it means for your portfolio.
+    </p>
+
+  </article>
+
+  <!-- Author Section -->
+  <section class="author-section">
+    <div class="author-inner">
+      <p class="author-label">About the Author</p>
+      <h3 class="author-name">Alicia Warburton</h3>
+      <p class="author-title">Realtor&reg; | Douglas Elliman Real Estate</p>
+      <p class="author-bio">
+        With 11 years in real estate and an MBA from Fordham University, Alicia brings institutional rigor to residential real estate. Her background as a luxury retail buyer for DKNY and Prada&mdash;plus her own relocation from the New York area&mdash;gives her unique insight into what drives sophisticated buyers to St. Petersburg's premium neighborhoods.
+      </p>
+      <a href="mailto:awarburton@elliman.com" class="author-cta">Contact Alicia</a>
+      <div class="author-contact">
+        <a href="tel:+17273137035">(727) 313-7035</a>
+        <a href="mailto:awarburton@elliman.com">awarburton@elliman.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-brand">Douglas Elliman Real Estate | 100 Beach Drive NE, Suite 102 | St. Petersburg, FL 33701</p>
+    <p class="footer-legal">
+      Equal Housing Opportunity. This article is for informational purposes only and should not be relied upon for investment decisions. Market conditions change rapidly; consult appropriate professionals before making real estate or investment decisions.
+    </p>
+  </footer>
+
+</body>
+</html>
