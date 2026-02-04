@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hidden Cost of Selling Your Home Off-Market | The Edmund Bogen Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.8;
+      color: #333333;
+      background-color: #ffffff;
+    }
+    /* Navigation */
+    .nav {
+      background-color: #1a3e5c;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-left: 30px;
+    }
+    .nav-links a:hover {
+      color: #00a8e1;
+    }
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 500px;
+      background: linear-gradient(135deg, rgba(26,62,92,0.85) 0%, rgba(26,62,92,0.7) 100%), url('https://edmundbogen.github.io/luxury-community-dashboard/edmund-hero.png') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 60px;
+    }
+    .hero-content {
+      max-width: 900px;
+    }
+    .hero-category {
+      color: #00a8e1;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    .hero-title {
+      color: #ffffff;
+      font-size: 42px;
+      font-weight: 300;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+    .hero-meta {
+      color: #e8e8e8;
+      font-size: 14px;
+      font-weight: 400;
+    }
+    .hero-meta span {
+      margin-right: 20px;
+    }
+    /* Article Container */
+    .article-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+    /* Disclaimer */
+    .disclaimer {
+      background-color: #f4f4f4;
+      border-left: 4px solid #00a8e1;
+      padding: 25px 30px;
+      margin-bottom: 40px;
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    /* Key Stats */
+    .key-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .key-stat {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: #f4f4f4;
+      border-top: 3px solid #00a8e1;
+    }
+    .key-stat-value {
+      color: #1a3e5c;
+      font-size: 36px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+    .key-stat-label {
+      color: #666666;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    /* Content Styles */
+    .article-content p {
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 25px;
+      color: #333333;
+    }
+    .article-content h2 {
+      color: #1a3e5c;
+      font-size: 26px;
+      font-weight: 300;
+      letter-spacing: -0.3px;
+      margin: 50px 0 25px 0;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e8e8e8;
+    }
+    .article-content h3 {
+      color: #1a3e5c;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 35px 0 15px 0;
+    }
+    .article-content strong {
+      font-weight: 600;
+      color: #1a3e5c;
+    }
+    .article-content ul, .article-content ol {
+      margin: 20px 0 25px 25px;
+    }
+    .article-content li {
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    /* Pull Quote */
+    .pull-quote {
+      border-left: 4px solid #00a8e1;
+      padding: 25px 30px;
+      margin: 40px 0;
+      background-color: #f9f9f9;
+    }
+    .pull-quote p {
+      font-size: 20px;
+      font-weight: 300;
+      color: #1a3e5c;
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+    /* Research Box */
+    .research-box {
+      background-color: #1a3e5c;
+      padding: 35px;
+      margin: 40px 0;
+      color: #ffffff;
+    }
+    .research-box h4 {
+      color: #00a8e1;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .research-box p {
+      color: #e8e8e8;
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    .research-box p:last-child {
+      margin-bottom: 0;
+    }
+    /* Questions List */
+    .questions-list {
+      background-color: #f4f4f4;
+      padding: 35px;
+      margin: 40px 0;
+    }
+    .questions-list h4 {
+      color: #1a3e5c;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .questions-list ol {
+      margin: 0 0 0 20px;
+    }
+    .questions-list li {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+      color: #333333;
+    }
+    /* CTA Section */
+    .cta-section {
+      background-color: #1a3e5c;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 60px 0;
+    }
+    .cta-section h3 {
+      color: #ffffff;
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: -0.3px;
+      margin-bottom: 15px;
+    }
+    .cta-section p {
+      color: #e8e8e8;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #00a8e1;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 35px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .cta-button:hover {
+      background-color: #0090c5;
+    }
+    /* Author Section */
+    .author-section {
+      display: flex;
+      gap: 30px;
+      padding: 40px;
+      background-color: #f4f4f4;
+      margin-top: 60px;
+    }
+    .author-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .author-info h4 {
+      color: #1a3e5c;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .author-title {
+      color: #00a8e1;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .author-bio {
+      color: #666666;
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    .author-contact {
+      color: #1a3e5c;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .author-contact a {
+      color: #00a8e1;
+      text-decoration: none;
+    }
+    /* Sources Section */
+    .sources-section {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid #e8e8e8;
+    }
+    .sources-section h4 {
+      color: #1a3e5c;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .sources-section p {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.8;
+      margin-bottom: 10px;
+    }
+    /* Footer */
+    .footer {
+      background-color: #1a3e5c;
+      padding: 40px;
+      text-align: center;
+    }
+    .footer-logo {
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .footer-text {
+      color: #a0a0a0;
+      font-size: 12px;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        padding: 40px 20px;
+      }
+      .hero-title {
+        font-size: 28px;
+      }
+      .key-stats {
+        grid-template-columns: 1fr;
+      }
+      .article-container {
+        padding: 40px 20px;
+      }
+      .author-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .author-photo {
+        margin: 0 auto;
+      }
+      .nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="https://www.bogenhomes.com" class="nav-logo">The Edmund Bogen Team</a>
+    <div class="nav-links">
+      <a href="https://www.bogenhomes.com">Properties</a>
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/">Market Dashboard</a>
+      <a href="mailto:edmund@bogenhomes.com">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-category">Market Analysis</div>
+      <h1 class="hero-title">The Hidden Cost of Selling Your Home Off-Market: What St. Andrews Country Club Sellers Need to Know</h1>
+      <div class="hero-meta">
+        <span>By Edmund Bogen</span>
+        <span>February 4, 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Article Content -->
+  <article class="article-container">
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      This article is for informational purposes only and does not constitute legal, financial, or real estate advice. Every transaction is unique. National and regional studies do not predict outcomes for any specific property, neighborhood, or price point, including St. Andrews Country Club homes. Sellers should consult qualified professionals about their specific circumstances. Nothing in this article should be interpreted as a recommendation for or against any specific brokerage, agent, or marketing strategy. The studies and examples cited reflect general market trends and may not apply to individual properties or markets.
+    </div>
+
+    <!-- Key Stats -->
+    <div class="key-stats">
+      <div class="key-stat">
+        <div class="key-stat-value">1.5%</div>
+        <div class="key-stat-label">Reported Median Difference (Zillow)</div>
+      </div>
+      <div class="key-stat">
+        <div class="key-stat-value">5+</div>
+        <div class="key-stat-label">Major Studies Cited</div>
+      </div>
+      <div class="key-stat">
+        <div class="key-stat-value">7</div>
+        <div class="key-stat-label">Key Questions to Ask</div>
+      </div>
+    </div>
+
+    <div class="article-content">
+      <p>When someone approaches you about a "quiet and exclusive" sale—or a broker suggests limiting exposure—it can sound appealing. Privacy, discretion, and fewer disruptions are legitimate priorities, especially in a gated community.</p>
+
+      <p>Before choosing an off-market approach, it is worth understanding what the research literature and industry discussions generally suggest about trade-offs, and which questions help a seller evaluate whether limited exposure aligns with their goals.</p>
+
+      <div class="pull-quote">
+        <p>Recent research and market analyses have reported that some off-market sales can close at lower prices than publicly marketed sales, with reported differences varying widely by dataset, region, time period, and price segment.</p>
+      </div>
+
+      <p>For that reason, sellers considering reduced exposure may want to evaluate—case by case—what they may be giving up in competitive market discovery.</p>
+
+      <p>This is not an allegation that any particular broker, firm, or practice is improper. It is a framework for informed decision-making.</p>
+
+      <h2>What the Research Shows About Off-Market Sales</h2>
+
+      <p>Multiple studies and industry analyses have examined price and timing differences between off-market and MLS-listed sales. These findings are averages drawn from specific datasets and should not be treated as predictions for any specific home.</p>
+
+      <div class="research-box">
+        <h4>Key Research Findings</h4>
+        <p><strong>Zillow Research (February 2025)</strong> analyzed a large national dataset and reported that sellers who skipped the MLS, in aggregate, realized lower outcomes on average, with the national median difference reported at approximately 1.5%. The same analysis reported variation by state and price segment.</p>
+        <p><strong>Bright MLS / Drexel University (2019–2023)</strong> examined a large Mid-Atlantic dataset and reported that MLS-listed homes sold for more on average than privately marketed homes, with the reported premium increasing during portions of the study period.</p>
+        <p><strong>San Francisco Association of Realtors / RealReports (2022–2024)</strong> reported higher average outcomes for MLS-listed homes in their dataset.</p>
+        <p><strong>PropTrack (2024)</strong> similarly reported that off-market properties sold for less on average than publicly marketed properties in the dataset studied.</p>
+      </div>
+
+      <p><strong>Important nuance for luxury sellers:</strong> Some analyses report a smaller average gap at the extreme top end of pricing in certain datasets, suggesting that for truly scarce, ultra-high-end inventory, the difference may be smaller in some cases. That nuance does not eliminate the broader point: sellers should evaluate the trade-offs with their own property, timeline, and buyer pool in mind.</p>
+
+      <h2>Incentives, Representation, and How to Evaluate "Dual Agency" Dynamics</h2>
+
+      <p>One reason this topic draws attention is that different marketing paths can create different incentive structures.</p>
+
+      <p>If a listing agent introduces the buyer in a reduced-exposure scenario, the transaction <strong>may</strong> be structured so the same brokerage or agent participates on both sides of the deal. Depending on the agreement, this <strong>can</strong> affect how commission is split and how representation is structured. That does not mean anything improper occurred; it means the seller should understand the structure and the incentives.</p>
+
+      <p><strong>Important context:</strong> Dual agency (and other forms of shared-brokerage participation) is <strong>legal in Florida</strong> when properly disclosed and consented to by all required parties, and many such transactions are handled ethically with full transparency.</p>
+
+      <p>Industry commentary has noted that legal and ethical risk increases when a listing is kept off the MLS for reasons not aligned with the seller's best interest, or when a seller does not fully understand the options being waived. NAR has stated that risk can arise when pocket listings result in reduced exposure and increased likelihood that the same agent/brokerage is involved on both sides—particularly if the seller is not fully informed.</p>
+
+      <p><strong>Florida representation structure (clarified):</strong> Florida law generally presumes brokers operate as <strong>transaction brokers</strong> unless a different relationship is established in writing. Transaction brokers provide limited representation and do not owe full fiduciary duties in the same way a single agent does; however, transaction brokers still owe statutory duties, including <strong>honesty, accounting, skill, care, and disclosure of known material facts</strong>. Sellers should confirm the representation relationship in writing and understand what duties apply in their specific arrangement.</p>
+
+      <h2>When Off-Market May Make Sense</h2>
+
+      <p>There are legitimate circumstances where reduced exposure can be a rational choice—if the seller understands the trade-offs and the strategy is intentional rather than assumed.</p>
+
+      <p><strong>Genuine privacy or safety needs:</strong> Certain sellers have heightened privacy concerns (public figures, sensitive legal situations, security considerations, or high-value contents). In such cases, discretion can be a priority that outweighs maximum exposure.</p>
+
+      <p><strong>Health or disruption constraints:</strong> Situations involving illness, elder care, or significant disruption from frequent showings may justify a narrower approach.</p>
+
+      <p><strong>Tenant and operational considerations:</strong> Some investment property owners prefer reduced disruption to tenants and operations.</p>
+
+      <p><strong>Short "market testing" periods (with caution):</strong> A brief, clearly defined pre-marketing phase may be used to calibrate pricing or assess early interest—provided the seller understands how long it lasts, what constitutes "public marketing" under applicable MLS rules, and what the next step is if goals are not met.</p>
+
+      <p>NAR guidance has acknowledged that these situations can exist while also emphasizing the need to thoroughly discuss pros/cons and ensure the seller understands what is being waived.</p>
+
+      <h2>The Fair Housing Dimension (Policy Debate and Industry Concerns)</h2>
+
+      <p>Separately from seller proceeds, some fair housing advocates and consumer groups have raised concerns that reduced-exposure practices may limit access to housing opportunities if marketing is confined to narrower networks.</p>
+
+      <p>Zillow research analyzing certain private listing networks reported differences in where privately marketed listings appeared and raised questions about whether reduced-exposure practices could correlate with unequal access across communities. Zillow also reported survey findings indicating that recommendations for private listing networks may vary across demographic groups. These findings are the subject of ongoing policy debate and should be interpreted as research observations and advocacy concerns—not conclusions about intent or legal violations in any particular transaction.</p>
+
+      <p>The core seller takeaway is practical: sellers should understand who will actually see the property under any limited-exposure strategy and whether that audience is adequate to meet the seller's objectives.</p>
+
+      <h2>Legal and Regulatory Developments (Informational)</h2>
+
+      <p>Regulatory and litigation activity around commissions, MLS rules, and marketing practices has increased in recent years. The following items are provided for background and context only. They are not proof of wrongdoing by any party and may change as matters develop.</p>
+
+      <p><strong>Examples of matters discussed publicly include:</strong></p>
+
+      <ul>
+        <li><strong>LaRatta v. Compass (filed October 2022):</strong> allegations regarding a pocket listing and alleged seller harm. <em>Allegations in a complaint are not adjudicated findings.</em></li>
+        <li><strong>DOJ / NAR matters:</strong> long-running antitrust scrutiny of brokerage practices (scope and posture have shifted over time).</li>
+        <li><strong>Sitzer/Burnett:</strong> litigation and settlement activity focused on commissions and industry rules (not limited to pocket listings).</li>
+        <li><strong>PLS.com-related litigation:</strong> challenges to NAR policies affecting listing distribution.</li>
+        <li><strong>Compass v. Zillow (filed June 2025):</strong> dispute over private-marketing timeframes and platform rules; <em>pending matters have uncertain outcomes.</em></li>
+      </ul>
+
+      <p><strong>NAR policy:</strong> NAR's <strong>Clear Cooperation Policy</strong> generally requires MLS submission within a defined timeframe after "public marketing." NAR has also discussed additional listing options that may allow delayed consumer-facing exposure while still meeting MLS submission requirements, depending on local MLS implementation.</p>
+
+      <p><strong>Local enforcement:</strong> MLS enforcement and penalties are local-policy dependent. Sellers and brokers should confirm the rules that apply to their specific MLS and marketing plan.</p>
+
+      <h2>The St. Andrews and South Florida Context</h2>
+
+      <p>South Florida includes a meaningful cash-buyer and international-buyer component in certain segments, and some buyers may value discretion. St. Andrews Country Club is also a relationship-driven, gated community market. Those characteristics can make reduced-exposure strategies more common in practice.</p>
+
+      <p>That said, "common" is not synonymous with "optimal." The decision should be tied to the seller's goals (price, certainty, timing, privacy, disruption tolerance), the home's uniqueness, and the realistic buyer pool for that specific property.</p>
+
+      <p><strong>HOA considerations:</strong> Some communities restrict signs or certain showing practices. Those restrictions may shape how marketing is conducted, but they do not eliminate the broader question of distribution, exposure, and competition.</p>
+
+      <div class="questions-list">
+        <h4>Questions to Help You Evaluate an Off-Market Strategy</h4>
+        <p>If a broker recommends an off-market or reduced-exposure strategy, these questions help clarify structure and trade-offs:</p>
+        <ol>
+          <li><strong>Will the property be submitted to the MLS immediately, or marketed privately first?</strong> If privately first, for how long, and under what conditions does the plan shift to full exposure?</li>
+          <li><strong>What representation relationship will we have in writing?</strong> Transaction broker vs. single agent vs. other permitted relationship; what duties apply.</li>
+          <li><strong>What is the complete marketing plan?</strong> Which channels, which buyer pools, which outreach methods, and what qualifies as "public marketing" under applicable MLS rules.</li>
+          <li><strong>If you or your brokerage introduce the buyer, how will that affect commission and representation?</strong> Ask for the structure in plain terms.</li>
+          <li><strong>If we receive an early offer, what is the evaluation plan?</strong> Will there be a defined period to solicit additional interest, counter-offer strategy, or pricing validation steps?</li>
+          <li><strong>What does research suggest about outcomes for comparable homes and price tiers?</strong> Not as a guarantee—just as context.</li>
+          <li><strong>What specific reason justifies limiting exposure in my case?</strong> Privacy, security, health, operational constraints, or another concrete objective.</li>
+        </ol>
+      </div>
+
+      <h2>Bottom Line</h2>
+
+      <p>Reduced-exposure sales can be appropriate in specific circumstances, particularly where privacy, safety, health, or operational constraints are decisive. At the same time, research and policy debate frequently emphasize that reduced exposure can correlate with weaker pricing outcomes on average in many datasets and markets.</p>
+
+      <p>The practical issue is not whether off-market sales are "good" or "bad" in the abstract. It is whether the seller:</p>
+
+      <ul>
+        <li>understands the options being waived,</li>
+        <li>understands representation and incentives,</li>
+        <li>understands who will actually see the property,</li>
+        <li>and adopts a clear timeline and trigger points for moving to broader exposure if goals are not met.</li>
+      </ul>
+
+      <div class="pull-quote">
+        <p>Your home is often a seller's largest asset. The decision should be made with full clarity on trade-offs, not marketing labels.</p>
+      </div>
+
+      <!-- Sources Section -->
+      <div class="sources-section">
+        <h4>Sources & Citations</h4>
+        <p><strong>Statistical Studies / Analyses:</strong> Zillow Research (February 2025), off-MLS pricing outcomes and private listing network observations; Bright MLS / Drexel University, "On/Off MLS" study (2019–2023); San Francisco Association of Realtors / RealReports materials (2022–2024); DeLeon Realty luxury market analysis (contextual market commentary); PropTrack analysis (2024)</p>
+        <p><strong>Policy / Industry Commentary:</strong> NAR guidance and commentary regarding pocket listings and Clear Cooperation</p>
+        <p><strong>Litigation / Regulatory Context (informational):</strong> LaRatta v. Compass (filed October 2022); Sitzer/Burnett matter (verdict/settlement activity); PLS.com-related litigation re: NAR policies; Compass v. Zillow (filed June 2025)</p>
+        <p><strong>Florida Law (general reference):</strong> Florida real estate brokerage relationship framework (transaction broker presumption; statutory duties)</p>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <h3>Why South Florida Continues to Win</h3>
+      <p>Get weekly market intelligence on South Florida's most prestigious communities.</p>
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/" class="cta-button">Explore Market Dashboard</a>
+    </div>
+
+    <!-- Author Section -->
+    <div class="author-section">
+      <img src="https://edmundbogen.github.io/luxury-community-dashboard/edmund-photo.png" alt="Edmund Bogen" class="author-photo">
+      <div class="author-info">
+        <h4>Edmund Bogen</h4>
+        <div class="author-title">Luxury Real Estate Specialist | Douglas Elliman</div>
+        <p class="author-bio">Edmund Bogen is a luxury real estate specialist with The Edmund Bogen Team at Douglas Elliman, serving South Florida's country club communities including St. Andrews Country Club in Boca Raton. With deep expertise in the luxury market, Edmund delivers institutional-grade market intelligence to every client relationship.</p>
+        <p class="author-bio"><em>The information above reflects the author's understanding of publicly available research and industry developments as of the publication date. Facts, policies, and litigation statuses can change. Sellers should consult qualified professionals regarding their specific circumstances.</em></p>
+        <div class="author-contact">
+          561.706.5546 | <a href="mailto:edmund@bogenhomes.com">edmund@bogenhomes.com</a> | <a href="https://www.bogenhomes.com">bogenhomes.com</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">The Edmund Bogen Team</div>
+    <p class="footer-text">
+      Douglas Elliman Real Estate | 444 E Palmetto Park Rd, Boca Raton, FL 33432<br><br>
+      This article is intended for informational purposes only and does not constitute an offer to sell, a solicitation to buy, or a recommendation for any property or service. Equal Housing Opportunity.
+    </p>
+  </footer>
+</body>
+</html>
