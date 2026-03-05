@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>48 Million Golfers, $7 Billion in New Wealth, and One ZIP Code</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #333333;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+    }
+    .header {
+      background-color: #1a3e5c;
+      padding: 20px 30px;
+      text-align: center;
+    }
+    .header-logo {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .header-subtitle {
+      color: #00a8e1;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .hero-section {
+      position: relative;
+    }
+    .hero-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-overlay {
+      background: linear-gradient(135deg, rgba(26,62,92,0.9) 0%, rgba(26,62,92,0.7) 100%);
+      padding: 30px;
+    }
+    .hero-label {
+      color: #00a8e1;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.3;
+      margin: 0 0 8px 0;
+    }
+    .hero-title-sub {
+      color: #00a8e1;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.3;
+      margin: 0 0 15px 0;
+    }
+    .hero-summary {
+      color: #e8e8e8;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .hero-meta {
+      color: #a0a0a0;
+      font-size: 12px;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #00a8e1;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 28px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 20px;
+    }
+    .section {
+      padding: 30px;
+    }
+    .section-dark {
+      background-color: #1a3e5c;
+      padding: 25px 30px;
+      text-align: center;
+    }
+    .section-dark-title {
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 15px 0;
+    }
+    .section-title {
+      color: #1a3e5c;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 20px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #00a8e1;
+    }
+    .stats-grid {
+      display: table;
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .stats-row {
+      display: table-row;
+    }
+    .stat-box {
+      display: table-cell;
+      width: 50%;
+      padding: 20px 15px;
+      text-align: center;
+      border: 1px solid #e8e8e8;
+    }
+    .stat-value {
+      color: #1a3e5c;
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 5px;
+    }
+    .stat-label {
+      color: #666666;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .community-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .community-table th {
+      background-color: #1a3e5c;
+      color: #ffffff;
+      padding: 10px 8px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .community-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .community-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .community-name {
+      color: #1a3e5c;
+      font-weight: 500;
+    }
+    .mastermind-section {
+      background-color: #f4f4f4;
+      padding: 30px;
+      text-align: center;
+    }
+    .mastermind-title {
+      color: #1a3e5c;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 0 0 10px 0;
+    }
+    .mastermind-text {
+      color: #666666;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .author-section {
+      padding: 30px;
+      background-color: #ffffff;
+      border-top: 3px solid #00a8e1;
+    }
+    .author-name {
+      color: #1a3e5c;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 5px 0;
+    }
+    .author-title {
+      color: #00a8e1;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .author-credentials {
+      color: #666666;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .author-contact {
+      color: #1a3e5c;
+      font-size: 14px;
+    }
+    .author-contact a {
+      color: #00a8e1;
+      text-decoration: none;
+    }
+    .footer {
+      background-color: #1a3e5c;
+      padding: 25px 30px;
+      text-align: center;
+    }
+    .footer-text {
+      color: #a0a0a0;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+    .footer-text a {
+      color: #00a8e1;
+      text-decoration: none;
+    }
+    @media only screen and (max-width: 600px) {
+      .stat-box {
+        display: block;
+        width: 100%;
+      }
+      .hero-title {
+        font-size: 20px;
+      }
+      .hero-title-sub {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="header-logo">The Edmund Bogen Team</h1>
+      <div style="color: #ffffff; font-size: 13px; font-weight: 300; margin-top: 5px;">at Douglas Elliman Real Estate</div>
+      <div class="header-subtitle">Market Intelligence</div>
+    </div>
+
+    <!-- Hero Article Section -->
+    <div class="hero-section">
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/golf-boom-country-club-repricing.html">
+        <img src="https://edmundbogen.github.io/luxury-community-dashboard/golf.png" alt="48 Million Golfers and South Florida Country Club Real Estate" class="hero-image" style="width: 100%; height: auto; display: block;">
+      </a>
+      <div class="hero-overlay">
+        <div class="hero-label">Market Intelligence &amp; Real Estate</div>
+        <h2 class="hero-title">48 Million Golfers, $7 Billion in New Wealth, and One ZIP Code</h2>
+        <div class="hero-title-sub">Why South Florida Country Club Real Estate Is Repricing in Real Time</div>
+        <p class="hero-summary">Golf participation has surged to 48 million. Palm Beach County absorbed $7 billion in adjusted gross income migration. Initiation fees have nearly doubled. Here's what it means for the country club communities where you live, buy, and sell.</p>
+        <div class="hero-meta">By Edmund Bogen | March 5, 2026</div>
+        <a href="https://edmundbogen.github.io/luxury-community-dashboard/golf-boom-country-club-repricing.html" class="cta-button">Read Full Article</a>
+      </div>
+    </div>
+
+    <!-- What the MLS Doesn't Tell You -->
+    <div style="background-color: #1a3e5c; padding: 35px 30px; text-align: center;">
+      <h3 style="color: #00a8e1; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin: 0 0 20px 0;">What the MLS Doesn't Tell You</h3>
+      <div style="display: inline-block; width: 100%; max-width: 460px;">
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td width="48%" style="text-align: center; padding: 15px 10px; border: 2px solid rgba(255,255,255,0.15); vertical-align: top;">
+              <div style="color: #ffffff; font-size: 48px; font-weight: 300; line-height: 1;">2</div>
+              <div style="color: #a0a0a0; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;">MLS Reported Sales</div>
+            </td>
+            <td width="4%" style="text-align: center; vertical-align: middle;">
+              <div style="color: #00a8e1; font-size: 24px; font-weight: 300;">vs</div>
+            </td>
+            <td width="48%" style="text-align: center; padding: 15px 10px; border: 2px solid #00a8e1; vertical-align: top;">
+              <div style="color: #00a8e1; font-size: 48px; font-weight: 300; line-height: 1;">10</div>
+              <div style="color: #ffffff; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-top: 8px;">Actual Closed Sales</div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <p style="color: #e8e8e8; font-size: 14px; line-height: 1.7; margin: 20px 0 5px 0;">MLS records show only 2 closed sales in St. Andrews Country Club in 2026. The actual number is <strong style="color: #ffffff;">10</strong> — five times what the public data shows.</p>
+      <p style="color: #a0a0a0; font-size: 13px; line-height: 1.6; margin: 0 0 20px 0;">The difference: private developer transactions, direct family transfers, and off-market deals that never hit the MLS. This is why working with someone embedded in the community matters.</p>
+    </div>
+
+    <!-- St. Andrews Listings Link -->
+    <div class="section-dark">
+      <h3 class="section-dark-title">St. Andrews Country Club</h3>
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/st-andrews-listings.html" class="cta-button">View All 8 Active Listings</a>
+    </div>
+
+    <!-- Executive Market Summary -->
+    <div class="section">
+      <h3 class="section-title">Executive Market Summary</h3>
+      <div class="stats-grid">
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-value">$1.9M–$10.5M</div>
+            <div class="stat-label">St. Andrews Price Range</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">8</div>
+            <div class="stat-label">St. Andrews Active</div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-value">292</div>
+            <div class="stat-label">Total Active (21 Communities)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-value">135</div>
+            <div class="stat-label">Total Sold YTD</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- All Communities Link -->
+    <div class="section-dark">
+      <h3 class="section-dark-title">Explore All 21 Luxury Communities</h3>
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/" class="cta-button">View Interactive Dashboard</a>
+    </div>
+
+    <!-- Community Stats Grid -->
+    <div class="section">
+      <h3 class="section-title">Community Performance — March 5, 2026</h3>
+      <table class="community-table">
+        <thead>
+          <tr>
+            <th>Community</th>
+            <th>Active</th>
+            <th>Sold YTD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="community-name">St. Andrews Country Club</td>
+            <td>8</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td class="community-name">Boca West Country Club</td>
+            <td>38</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td class="community-name">Royal Palm Yacht Club</td>
+            <td>37</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td class="community-name">Broken Sound</td>
+            <td>27</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td class="community-name">Boca Grove</td>
+            <td>19</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td class="community-name">Lotus</td>
+            <td>16</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td class="community-name">Polo Club</td>
+            <td>14</td>
+            <td>17</td>
+          </tr>
+          <tr>
+            <td class="community-name">Addison Reserve</td>
+            <td>13</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td class="community-name">Woodfield</td>
+            <td>13</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <td class="community-name">The Oaks</td>
+            <td>12</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td class="community-name">The Bridges</td>
+            <td>11</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td class="community-name">Boca Bridges</td>
+            <td>10</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td class="community-name">The Sanctuary</td>
+            <td>10</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td class="community-name">Stonebridge</td>
+            <td>10</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td class="community-name">Bocaire Country Club</td>
+            <td>7</td>
+            <td>6</td>
+          </tr>
+          <tr>
+            <td class="community-name">Long Lake Estates</td>
+            <td>7</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td class="community-name">Seven Bridges</td>
+            <td>6</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td class="community-name">Mizner Country Club</td>
+            <td>6</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td class="community-name">Delaire</td>
+            <td>4</td>
+            <td>0</td>
+          </tr>
+          <tr>
+            <td class="community-name">Seasons</td>
+            <td>4</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td class="community-name">Le Lac</td>
+            <td>0</td>
+            <td>0</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="color: #999999; font-size: 11px; line-height: 1.6; margin-top: 15px; font-style: italic;">Note: Sold figures reflect transactions reported through the Multiple Listing Service (MLS) and may not capture private transfers, inheritance conveyances, or off-market transactions. Actual sales activity within these communities may be higher. I periodically reconcile these figures to provide a more complete picture.</p>
+    </div>
+
+    <!-- Edmund's Mastermind CTA -->
+    <div class="mastermind-section">
+      <h3 class="mastermind-title">Edmund's Mastermind</h3>
+      <p class="mastermind-text">Join 14,000+ real estate professionals getting weekly insights on AI, marketing, and building a luxury practice.</p>
+      <a href="https://www.bogen.ai/contact?tab=client" class="cta-button">Click Here to Join</a>
+    </div>
+
+    <!-- Interactive Dashboard Link -->
+    <div class="section-dark">
+      <h3 class="section-dark-title">Deep Dive Into The Data</h3>
+      <a href="https://edmundbogen.github.io/luxury-community-dashboard/" class="cta-button">Interactive Dashboard</a>
+    </div>
+
+    <!-- Author Bio -->
+    <div class="author-section">
+      <h4 class="author-name">Edmund Bogen</h4>
+      <div class="author-title">Luxury Real Estate Advisor | The Edmund Bogen Team at Douglas Elliman</div>
+      <p class="author-credentials">Specializing in South Florida's most prestigious country club communities, Edmund brings institutional-grade market intelligence to every client relationship. With deep expertise in St. Andrews Country Club, Boca West, and the greater Boca Raton luxury market, Edmund and his team deliver data-driven guidance for discerning buyers and sellers.</p>
+      <div class="author-contact">
+        <strong>561-235-7575</strong> | <a href="mailto:edmund@bogenhomes.com">edmund@bogenhomes.com</a><br>
+        <a href="https://www.bogenhomes.com">www.bogenhomes.com</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">
+        <strong>The Edmund Bogen Team</strong><br>
+        at Douglas Elliman Real Estate<br>
+        444 E Palmetto Park Rd, Boca Raton, FL 33432<br><br>
+        <a href="#">Unsubscribe</a> | <a href="#">View in Browser</a>
+      </p>
+      <p class="footer-text" style="margin-top: 20px; font-size: 10px; line-height: 1.5;">
+        &copy; 2018 DOUGLAS ELLIMAN REAL ESTATE. ALL MATERIAL PRESENTED HEREIN IS INTENDED FOR INFORMATION PURPOSES ONLY. WHILE, THIS INFORMATION IS BELIEVED TO BE CORRECT, IT IS REPRESENTED SUBJECT TO ERRORS, OMISSIONS, CHANGES OR WITHDRAWAL WITHOUT NOTICE. ALL PROPERTY INFORMATION, INCLUDING, BUT NOT LIMITED TO SQUARE FOOTAGE, ROOM COUNT, NUMBER OF BEDROOMS AND THE SCHOOL DISTRICT IN PROPERTY LISTINGS SHOULD BE VERIFIED BY YOUR OWN ATTORNEY, ARCHITECT OR ZONING EXPERT. IF YOUR PROPERTY IS CURRENTLY LISTED WITH ANOTHER REAL ESTATE BROKER, PLEASE DISREGARD THIS OFFER. IT IS NOT OUR INTENTION TO SOLICIT THE OFFERINGS OF OTHER REAL ESTATE BROKERS. WE COOPERATE WITH THEM FULLY. EQUAL HOUSING OPPORTUNITY.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
