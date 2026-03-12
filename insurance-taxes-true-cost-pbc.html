@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance, Taxes, and the True Cost of Owning in Palm Beach County | Edmund Bogen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2a2a2a;
+            background: #ffffff;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --navy: #1a3e5c;
+            --cyan: #00a8e1;
+            --white: #ffffff;
+            --light-bg: #f7f9fb;
+            --text: #2a2a2a;
+            --text-light: #5a6a7a;
+            --border: #e0e6ec;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: var(--navy);
+            padding: 16px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--cyan); }
+        .nav-tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: url('./insurance-taxes-hero.png') center center / cover no-repeat;
+            margin-top: 56px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 62, 92, 0.35) 0%,
+                rgba(26, 62, 92, 0.55) 50%,
+                rgba(26, 62, 92, 0.85) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 60px 24px 50px;
+            text-align: center;
+        }
+        .hero-label {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            color: var(--white);
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero-meta {
+            margin-top: 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .hero-meta span { margin: 0 8px; }
+
+        /* ===== STAT CALLOUT BOXES ===== */
+        .stat-bar {
+            background: var(--navy);
+            padding: 40px 24px;
+        }
+        .stat-bar-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .stat-box {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-number {
+            color: var(--cyan);
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .stat-sublabel {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* ===== ARTICLE BODY ===== */
+        .article-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px 40px;
+        }
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 56px 0 20px;
+            line-height: 1.3;
+        }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 32px 0 12px;
+        }
+
+        /* ===== PULL QUOTES ===== */
+        .pull-quote {
+            border-left: 4px solid var(--cyan);
+            padding: 24px 28px;
+            margin: 40px 0;
+            background: var(--light-bg);
+            border-radius: 0 6px 6px 0;
+        }
+        .pull-quote p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.65;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* ===== DATA TABLES ===== */
+        .data-table-wrapper {
+            margin: 36px 0;
+            overflow-x: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .data-table thead th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 700;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .data-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: top;
+        }
+        .data-table tbody tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        .data-table tbody tr:hover {
+            background: #edf4fa;
+        }
+        .highlight-row td {
+            background: rgba(0, 168, 225, 0.08) !important;
+            font-weight: 600;
+        }
+
+        /* ===== CALLOUT CARD ===== */
+        .callout-card {
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+        .callout-card h3 {
+            color: var(--navy);
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        .callout-card p {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+        }
+
+        /* ===== DISCLAIMER CARD ===== */
+        .disclaimer-card {
+            background: #fffbf0;
+            border: 1px solid #e0d5b8;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 0 auto 0;
+            max-width: 760px;
+        }
+        .disclaimer-card h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .disclaimer-card p {
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 40px 36px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-section h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin: 0 0 16px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta-button:hover { background: #0090c4; }
+        .cta-phone {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+
+        /* ===== AUTHOR BIO ===== */
+        .author-bio {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 40px 0;
+            margin-top: 48px;
+            border-top: 2px solid var(--border);
+        }
+        .author-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--navy);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .author-info h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin: 0 0 4px;
+        }
+        .author-info .author-title {
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .author-info p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .author-contact {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+        .author-contact a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            padding: 36px 24px;
+            text-align: center;
+        }
+        .footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .footer .footer-brand {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero { min-height: 480px; }
+            .hero-title { font-size: 1.7rem; }
+            .hero-subtitle { font-size: 0.92rem; }
+            .stat-bar-inner {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .stat-number { font-size: 2.2rem; }
+            .article-body { padding: 36px 18px 30px; }
+            .article-body h2 { font-size: 1.3rem; margin-top: 40px; }
+            .article-body p { font-size: 0.95rem; }
+            .pull-quote p { font-size: 1rem; }
+            .cta-section { padding: 28px 20px; }
+            .author-bio { flex-direction: column; align-items: center; text-align: center; }
+            .data-table { font-size: 0.8rem; }
+            .disclaimer-card { padding: 20px 18px; margin: 0 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="https://www.bogenhomes.com" class="nav-brand">The Edmund Bogen Team <span>|</span> Douglas Elliman</a>
+        <span class="nav-tagline">Market Intelligence</span>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-label">Weekly Market Intelligence</div>
+        <h1 class="hero-title">Insurance, Taxes, and the True Cost of Owning in Palm Beach County</h1>
+        <p class="hero-subtitle">What the listing price doesn&rsquo;t tell you &mdash; and why the trajectory matters more than today&rsquo;s premium.</p>
+        <div class="hero-meta">
+            Edmund Bogen <span>|</span> March 12, 2026 <span>|</span> ~15-Minute Read
+        </div>
+    </div>
+</header>
+
+<!-- ===== 3-STAT CALLOUT ===== -->
+<section class="stat-bar">
+    <div class="stat-bar-inner">
+        <div class="stat-box">
+            <div class="stat-number">$6,412</div>
+            <div class="stat-label">Avg PBC Homeowners Premium (Incl. Wind)</div>
+            <div class="stat-sublabel">OIR January 2026 Stability Report</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">11.9%</div>
+            <div class="stat-label">Citizens Rate Decrease for PBC</div>
+            <div class="stat-sublabel">Effective July 1, 2026</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">$1.9M&ndash;$10.5M</div>
+            <div class="stat-label">St. Andrews CC Price Range</div>
+            <div class="stat-sublabel">8 Active Listings &bull; 12 Sold YTD</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DISCLAIMER (TOP) ===== -->
+<div style="padding: 40px 24px 0;">
+    <div class="disclaimer-card">
+        <h4>Important Disclosure</h4>
+        <p>This article is provided for informational and educational purposes only. It does not constitute legal, financial, tax, or insurance advice. Insurance premiums, property tax obligations, and real estate market conditions vary based on individual circumstances, property characteristics, and market factors. All data cited herein is sourced from publicly available government reports, industry publications, and MLS data believed to be reliable as of the date of publication. Readers should consult with licensed insurance agents, tax professionals, attorneys, and real estate advisors before making decisions. The Edmund Bogen Team at Douglas Elliman Real Estate makes no guarantees regarding the accuracy or completeness of third-party data cited herein. Equal Housing Opportunity.</p>
+    </div>
+</div>
+
+<!-- ===== ARTICLE BODY ===== -->
+<article class="article-body">
+
+    <!-- SECTION 1: OPENING -->
+    <h2>The Listing Price Is Not the Whole Story</h2>
+
+    <p>When buyers evaluate a luxury property in Palm Beach County, they focus on the asking price. That number dominates the conversation. It anchors the negotiation. It frames the decision. But the asking price is one variable in a multi-variable equation, and in Palm Beach County, the other variables &mdash; property insurance, property taxes, and flood coverage &mdash; are large enough to shift the economics of ownership by tens of thousands of dollars per year.</p>
+
+    <p>Most buyers underestimate these costs. More importantly, most buyers look at these costs as static snapshots rather than trajectories. They see today&rsquo;s premium and assume it represents the future. That is a mistake. The direction of these costs matters far more than the current number, and right now, the direction in Palm Beach County is more favorable than it has been in years.</p>
+
+    <p>This article is the data. Every number cited here comes from publicly available government reports, regulatory filings, industry publications, or MLS data. I am not making predictions. I am showing you where the numbers stand, where they have been, and what the structural forces driving them look like as of March 2026.</p>
+
+    <!-- SECTION 2: INSURANCE LANDSCAPE -->
+    <h2>The Insurance Landscape &mdash; Where Palm Beach County Actually Stands</h2>
+
+    <p>Let me start with the number that gets the most attention: Palm Beach County&rsquo;s average homeowners insurance premium, including windstorm coverage, is $6,412 per year. That makes PBC the second most expensive county in Florida, trailing only Monroe County at $7,829.</p>
+
+    <p>That headline number deserves context. Here is how PBC compares to its peer counties across the state.</p>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>County</th>
+                    <th>Avg Premium (Incl. Wind)</th>
+                    <th>Context</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Monroe</td>
+                    <td>$7,829</td>
+                    <td>Florida Keys &mdash; extreme coastal exposure</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Palm Beach</td>
+                    <td>$6,412</td>
+                    <td>High insured values; favorable loss history</td>
+                </tr>
+                <tr>
+                    <td>Broward</td>
+                    <td>$6,220</td>
+                    <td>Tri-county litigation zone</td>
+                </tr>
+                <tr>
+                    <td>Miami-Dade</td>
+                    <td>$6,023</td>
+                    <td>Highest litigation rate in Florida</td>
+                </tr>
+                <tr>
+                    <td>Martin</td>
+                    <td>$5,993</td>
+                    <td>Coastal Treasure Coast</td>
+                </tr>
+                <tr>
+                    <td>Collier</td>
+                    <td>$5,565</td>
+                    <td>Naples / Southwest Florida</td>
+                </tr>
+                <tr>
+                    <td>Lee</td>
+                    <td>$3,646</td>
+                    <td>$21.4B in losses from Hurricane Ian (2022)</td>
+                </tr>
+                <tr>
+                    <td>Bay</td>
+                    <td>$3,478</td>
+                    <td>$7.4B in losses from Hurricane Michael (2018)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Notice something counterintuitive in that table. Lee County, which absorbed $21.4 billion in insured losses from Hurricane Ian in 2022, pays $3,646 per year. Bay County, which took $7.4 billion from Hurricane Michael in 2018, pays $3,478. Palm Beach County, which has not taken a major direct hurricane hit in over twenty years, pays $6,412.</p>
+
+    <p>The reason PBC premiums are elevated is not historical loss experience. It is three factors working in combination: higher insured property values (replacement cost is the dominant premium driver), elevated tri-county litigation rates, and forward-looking catastrophe models that simulate risk without rewarding favorable track records.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;Lee County absorbed $21.4 billion in losses from Hurricane Ian. Bay County took $7.4 billion from Michael. Palm Beach County&rsquo;s last major direct hit was Wilma in 2005 &mdash; over twenty years ago. The last Category 4 or higher direct landfall was the 1928 Okeechobee Hurricane. The premiums reflect the value of what we are insuring, not the frequency of what we have lost.&rdquo;</p>
+    </div>
+
+    <p>University researchers have called Palm Beach County a &ldquo;lucky&rdquo; location, noting no significant storm surge event in over 50 years. That luck is real, but catastrophe models do not reward it. These models simulate 55,000 years of synthetic hurricanes to price risk. They do not care that PBC has been fortunate. But they do care about building quality &mdash; and that is where luxury construction in PBC starts to tell a very different story than the headline premium suggests.</p>
+
+    <!-- SECTION 3: STABILIZATION -->
+    <h2>The Stabilization &mdash; Why the Trajectory Is What Matters</h2>
+
+    <p>If you have been paying attention to Florida insurance headlines for the past five years, you have read a crisis narrative. And for good reason &mdash; the crisis was real. Carriers were leaving the state. Premiums were surging 20 to 30 percent annually. Citizens Property Insurance, the state&rsquo;s insurer of last resort, was ballooning toward a policy count that threatened the entire market&rsquo;s stability.</p>
+
+    <p>That narrative is outdated. The structural conditions in Florida&rsquo;s insurance market have shifted dramatically, and the data supports a thesis that very few people are discussing: the worst is behind us, and the trajectory is improving.</p>
+
+    <p>Here are the numbers.</p>
+
+    <p>Florida&rsquo;s property insurance industry posted $825 million in net income in 2024 &mdash; the first meaningful profit in years. That profitability did not happen by accident. It happened because the state legislature passed landmark tort reforms in 2022 and 2023 that fundamentally changed the economics of writing insurance in Florida.</p>
+
+    <p>Those reforms slashed insurance litigation by 36 percent, eliminated one-way attorney fees that had created a cottage industry of insurance lawsuits, and banned assignment of benefits (AOB) abuse. The result: 17 new carriers entered the Florida market, bringing $297 million or more in surplus capital. Carriers are not fleeing Florida anymore. They are entering it.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;The Florida insurance industry posted $825 million in net income in 2024. Seventeen new carriers entered the market. The average rate increase request collapsed from 21.8% to 0.8%. This is not a market in crisis. This is a market in recovery.&rdquo;</p>
+    </div>
+
+    <p>The Citizens Property Insurance story is perhaps the most dramatic indicator of market stabilization. At its peak in October 2023, Citizens held 1.42 million policies. As of early 2026, that number has collapsed to approximately 336,000 &mdash; a 76 percent decline. Palm Beach County led South Florida&rsquo;s depopulation effort with a 65 percent drop in Citizens policies in the year ending December 2025. Private carriers are actively absorbing Citizens&rsquo; book of business because they can now underwrite Florida profitably.</p>
+
+    <p>The rate environment tells the same story from a different angle. Average rate increase requests from carriers have collapsed from 21.8 percent to 0.8 percent. Several major carriers have filed for decreases:</p>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Carrier / Program</th>
+                    <th>Rate Change</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>State Farm</td>
+                    <td>&minus;10.1%</td>
+                    <td>Filed rate decrease</td>
+                </tr>
+                <tr>
+                    <td>GEICO</td>
+                    <td>&minus;10.5%</td>
+                    <td>Filed rate decrease</td>
+                </tr>
+                <tr>
+                    <td>Florida Peninsula</td>
+                    <td>&minus;8.4%</td>
+                    <td>Filed rate decrease</td>
+                </tr>
+                <tr>
+                    <td>AAA</td>
+                    <td>&minus;15%</td>
+                    <td>Cumulative decrease</td>
+                </tr>
+                <tr>
+                    <td>Progressive</td>
+                    <td>$950M returned</td>
+                    <td>Excess profit return to ~2.7M policyholders</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Citizens (PBC &mdash; HO-3)</td>
+                    <td>&minus;11.9%</td>
+                    <td>Historic decrease &bull; Effective July 1, 2026</td>
+                </tr>
+                <tr>
+                    <td>Citizens (Statewide)</td>
+                    <td>&minus;8.7%</td>
+                    <td>Historic statewide average decrease</td>
+                </tr>
+                <tr>
+                    <td>FIGA Emergency Assessment</td>
+                    <td>Ending Oct 1, 2026</td>
+                    <td>1% surcharge ends two years early &bull; ~$650M savings statewide</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Citizens has approved a historic 8.7 percent statewide decrease, with Palm Beach County receiving an 11.9 percent average decrease on HO-3 policies &mdash; translating to approximately $599 per year in savings. And the FIGA 1 percent emergency assessment, a surcharge applied to all Florida policyholders after Hurricane Ian, is ending on October 1, 2026 &mdash; two years ahead of schedule &mdash; saving Florida policyholders roughly $650 million.</p>
+
+    <p>None of this means insurance is cheap. It means the trajectory has reversed. The question for a buyer evaluating a property in 2026 is not &ldquo;What am I paying today?&rdquo; It is &ldquo;Am I buying into a cost curve that is rising, stabilizing, or declining?&rdquo; The data says stabilizing with meaningful downward pressure for the first time in years.</p>
+
+    <!-- SECTION 4: LITIGATION FACTOR -->
+    <h2>The Litigation Factor &mdash; PBC&rsquo;s Quiet Advantage Within the Tri-County</h2>
+
+    <p>Palm Beach County sits within what the insurance industry calls the tri-county litigation zone &mdash; Palm Beach, Broward, and Miami-Dade &mdash; which collectively produces a 25.27 percent litigated claims rate versus 8.62 percent statewide. That tri-county designation is a meaningful factor in how carriers price PBC policies.</p>
+
+    <p>But within that tri-county grouping, PBC has a quiet advantage that most buyers never hear about: Palm Beach County&rsquo;s litigation rate is &ldquo;much lower&rdquo; than Broward or Miami-Dade, according to the Sun Sentinel&rsquo;s analysis of industry data. Miami-Dade ran approximately 31 percent litigated claims in 2022 &mdash; the highest in the state. PBC, while still above the state average, is the most favorable county within the tri-county zone.</p>
+
+    <p>The market is beginning to recognize this distinction. American Integrity Insurance began writing policies in Broward and Miami-Dade in August 2025 for the first time in a decade &mdash; implying they had already been comfortable writing in PBC before expanding south. Carriers are pricing tri-county risk with more granularity, and PBC benefits from that granularity.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;The tri-county zone produces a 25.27% litigated claims rate versus 8.62% statewide. But Palm Beach County is the most favorable county within that zone. As carriers begin pricing tri-county risk with more precision, PBC stands to benefit disproportionately.&rdquo;</p>
+    </div>
+
+    <p>The broader tort reform impact is substantial. Litigation fell 25 percent in the first half of 2025. Citizens saw new claims drop 80 percent. Florida&rsquo;s nuclear verdict ranking dropped from second in the nation to tenth. And a Perryman Group study found that the reforms drove an average 14.5 percent reduction in property and casualty costs compared to a scenario without reform.</p>
+
+    <p>For PBC specifically, the combination of its position as the &ldquo;best of the worst&rdquo; within the tri-county and the statewide tort reforms creates a compounding advantage. As litigation continues to decline, PBC premiums stand to benefit both from the statewide trend and from carriers recognizing that PBC is not Broward, and Broward is not Miami-Dade.</p>
+
+    <!-- SECTION 5: WIND MITIGATION -->
+    <h2>Wind Mitigation &mdash; Where Luxury Construction Pays for Itself</h2>
+
+    <p>This is the section that changes the math for luxury homeowners, and it is the section that most insurance conversations overlook entirely.</p>
+
+    <p>Palm Beach County is not formally designated as a High Velocity Hurricane Zone (HVHZ), but coastal PBC requires equivalent impact protection with design wind speeds of approximately 146 mph. More importantly, Florida Statute 627.0629 mandates that insurers offer wind mitigation credits to homes that meet specific construction standards. And for well-built luxury homes, those credits are not marginal. They are transformative.</p>
+
+    <p>Here is the credit structure for wind mitigation features:</p>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Premium Impact</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="highlight-row">
+                    <td>Post-March 1, 2002 construction</td>
+                    <td>~68% automatic discount on windstorm</td>
+                    <td>Building code compliance alone</td>
+                </tr>
+                <tr>
+                    <td>Hip roof</td>
+                    <td>~20% savings</td>
+                    <td>vs. gable roof</td>
+                </tr>
+                <tr>
+                    <td>Impact-rated openings (windows/doors)</td>
+                    <td>10&ndash;20% savings</td>
+                    <td>Impact glass or shutters on all openings</td>
+                </tr>
+                <tr>
+                    <td>Secondary water resistance (SWR)</td>
+                    <td>10&ndash;15% savings</td>
+                    <td>Sealed roof deck</td>
+                </tr>
+                <tr>
+                    <td>Hurricane straps / clips</td>
+                    <td>Included in roof-to-wall credits</td>
+                    <td>Roof-to-wall attachment type matters</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>Optimal combination (all features)</td>
+                    <td>83&ndash;89% reduction in windstorm premium</td>
+                    <td>Documented via wind mitigation inspection</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Read that last line again. A luxury home built after 2002 with concrete block construction, impact-rated windows and doors, a hip roof, hurricane straps, and secondary water resistance can qualify for an 83 to 89 percent reduction in the windstorm portion of their premium. The windstorm portion is typically the largest component of a Florida homeowners policy. An 83 to 89 percent reduction on the largest component is not a marginal savings. It is a structural advantage.</p>
+
+    <p>The wind mitigation inspection that documents these features costs $75 to $150 and is valid for five years. It is, dollar for dollar, one of the highest-return investments a homeowner in PBC can make.</p>
+
+    <p>Construction year thresholds matter enormously. Pre-1994 homes pay the highest premiums because they predate Hurricane Andrew&rsquo;s building code overhaul. Homes built between 1994 and 2002 receive partial credits. Homes built after March 1, 2002 receive automatic 68 percent discounts on windstorm premiums simply by meeting the Florida Building Code. For the luxury construction common in St. Andrews and similar communities &mdash; concrete block, impact windows, hip roofs, hurricane straps &mdash; the highest tier of credits applies.</p>
+
+    <p>This is where the headline PBC premium of $6,412 becomes misleading for luxury buyers. That is an average across all construction types, all ages, all mitigation levels. A well-built post-2002 luxury home with full wind mitigation documentation can perform dramatically better than that average suggests.</p>
+
+    <!-- SECTION 6: FLOOD INSURANCE -->
+    <h2>Flood Insurance &mdash; The Separate Cost Layer Buyers Miss</h2>
+
+    <p>Standard homeowners insurance never covers flood. Never. This is not a coverage gap unique to Florida or to luxury properties. It is a fundamental characteristic of the product. Flood requires a separate policy, and for buyers accustomed to markets where flooding is not a primary concern, this is the cost layer that most often surprises them.</p>
+
+    <p>The flood insurance landscape in Palm Beach County changed materially on December 20, 2024, when FEMA released dramatically updated flood maps for the county &mdash; replacing data that in some cases dated back to the 1970s. The result: approximately 50,800 properties were added to high-risk flood zones, while 45,640 were reclassified to lower risk, producing a net increase of roughly 5,000 properties in the Special Flood Hazard Area (SFHA).</p>
+
+    <p>FEMA&rsquo;s Risk Rating 2.0 pricing methodology adds further nuance. Under the old system, flood premiums were determined primarily by zone designation. Under Risk Rating 2.0, pricing considers distance to water, elevation, building characteristics, replacement cost, and historical flood frequency. Two homes in the same zone can pay very different premiums based on their specific risk profile.</p>
+
+    <p>For luxury properties, the National Flood Insurance Program (NFIP) has a fundamental limitation: it caps building coverage at $250,000. For a home worth $2 million, $5 million, or $10 million, $250,000 in coverage is wholly inadequate. Private carriers &mdash; including Neptune Flood and Lloyd&rsquo;s-backed products active in PBC &mdash; offer $1 million or more in building coverage, and for luxury homeowners, private flood insurance is not optional. It is essential.</p>
+
+    <p>One advantage specific to unincorporated Palm Beach County: participation in FEMA&rsquo;s Community Rating System (CRS) provides a 25 percent discount on NFIP flood premiums. That discount is automatic for properties within the participating jurisdiction and reflects the community&rsquo;s investment in flood mitigation infrastructure and public awareness.</p>
+
+    <p>Citizens Property Insurance is also driving flood insurance adoption through mandatory requirements: homes insured by Citizens with values over $600,000 were required to carry flood insurance by 2024, homes over $400,000 by 2026, and all Citizens-insured homes by 2027. For the luxury market, this is largely academic &mdash; any well-advised buyer at the $2 million+ price point should already carry flood coverage. But the mandate signals a market-wide shift toward treating flood as a standard cost of ownership rather than an optional add-on.</p>
+
+    <!-- SECTION 7: PROPERTY TAXES -->
+    <h2>Property Taxes &mdash; Save Our Homes, Portability, and the Reset Risk</h2>
+
+    <p>Florida&rsquo;s property tax structure is straightforward in concept: assessed value multiplied by the millage rate. But the application of that structure creates an asymmetry between long-term homeowners and new buyers that has significant implications for anyone considering a purchase or sale in PBC.</p>
+
+    <p>The Save Our Homes (SOH) amendment caps annual increases in assessed value for homesteaded properties at 3 percent or the Consumer Price Index, whichever is lower. In 2025, the cap was 2.9 percent. For a homeowner who purchased a property ten or fifteen years ago, the gap between their assessed value and the property&rsquo;s current market value can be enormous. That gap represents real, quantifiable annual tax savings &mdash; and it resets to full market value upon sale.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;Save Our Homes creates a hidden asset for long-term owners: the gap between assessed value and market value can represent tens of thousands of dollars in annual tax savings. But it resets on purchase. Every buyer should understand this, and every seller should quantify it before listing.&rdquo;</p>
+    </div>
+
+    <p>That reset is the critical point for buyers. When you purchase a property, the assessed value resets to the purchase price. If the previous owner had a $1.5 million assessed value on a property with a $3.5 million market value, the new buyer&rsquo;s assessed value &mdash; and therefore their tax bill &mdash; reflects the $3.5 million. The previous owner&rsquo;s SOH benefit does not transfer with the property. It was their benefit, earned through years of ownership.</p>
+
+    <p>Portability provides a partial offset. Florida allows homestead property owners to transfer up to $500,000 of their accumulated SOH benefit to a new homestead property. The filing deadline is March 1, and the transfer must be to a new homestead. For a buyer selling a long-held primary residence in PBC and purchasing within the county (or anywhere in Florida), portability can meaningfully reduce the tax impact of the new purchase. But $500,000 is the cap, and for properties at the upper end of the luxury market, the benefit covers only a fraction of the potential reset.</p>
+
+    <p>Non-homestead properties &mdash; second homes and investment properties &mdash; are subject to a 10 percent annual assessment cap rather than the 3 percent SOH cap. That assessment also resets on purchase.</p>
+
+    <p>Two legislative developments are worth tracking. Amendment 5, passed in November 2024, introduced an inflation adjustment to homestead exemptions for non-school levies &mdash; a modest but meaningful expansion of the homestead benefit. And HJR 203, currently proposed, contemplates a phased elimination of non-school homestead taxes beginning in 2037. Separately, HJR 209 proposes a $100,000 added exemption for homesteads where the owner carries property insurance. Neither is law yet, but both signal the direction of the political conversation around property tax relief in Florida.</p>
+
+    <!-- SECTION 8: REAL ESTATE MARKET -->
+    <h2>The Real Estate Market Context &mdash; PBC Luxury Is Moving</h2>
+
+    <p>The statewide Florida numbers tell one story. The Palm Beach County numbers tell a different one.</p>
+
+    <p>Statewide, the Florida market is flat to modestly down. The single-family median sits at $405,000, down 1.2 percent year over year. Condo median is $305,000, down 2.4 percent. Headlines describe a market that has cooled. And for the median-price statewide market, that is accurate.</p>
+
+    <p>Palm Beach County is not the statewide median-price market. Total PBC sales are up 9.6 percent year over year. Single-family sales are up 10.24 percent. The single-family median is $700,000, up 7.69 percent year over year. And in the $1 million-plus tier &mdash; the tier relevant to readers of this article &mdash; single-family sales are up 42.86 percent and condo sales are up 27.24 percent. Luxury is cash-heavy and it is moving.</p>
+
+    <p>Boca Raton&rsquo;s median has shown volatility that deserves explanation. Redfin data shows a 21.4 percent decline, while Zillow&rsquo;s Home Value Index shows a 3.5 percent decline. That 18-point gap is not a data error. It reflects composition of closings &mdash; the mix of what sold in the measurement period. When a handful of ultra-high-end sales close in one quarter and not the next, the median swings. This is a mix-shift artifact, not a 20 percent crash.</p>
+
+    <p>At St. Andrews Country Club, the market tells its own story: 8 active listings, 12 sold year to date, a price range of $1.9 million to $10.5 million, and a 60 percent absorption rate. That absorption rate means the market is absorbing inventory at a pace that favors sellers. Demand is real, buyers are qualified, and properties that are priced correctly are transacting.</p>
+
+    <!-- SECTION 9: ST. ANDREWS IMPLICATIONS -->
+    <h2>What This Means If You Are Buying or Selling in St. Andrews</h2>
+
+    <p>Everything in this article converges at the individual property level. The macro trends matter only insofar as they affect the specific economics of the home you own, the home you want to buy, or the home you are considering selling.</p>
+
+    <p><strong>For buyers:</strong> The insurance cost picture is more favorable than the headlines suggest, particularly for well-built post-2002 homes with documented wind mitigation. A luxury home in St. Andrews with concrete block construction, impact windows, a hip roof, and hurricane straps qualifies for the highest tier of wind mitigation credits &mdash; potentially reducing the windstorm premium component by 83 to 89 percent. The gap between the county average of $6,412 and what a well-constructed luxury home actually pays can be substantial. Get a wind mitigation inspection before you finalize your cost projections.</p>
+
+    <p>On taxes, understand the reset. If you are purchasing a home that a long-term owner has held for fifteen years, your tax bill will be meaningfully higher than theirs was. That is not a surprise to avoid &mdash; it is a cost to plan for. If you are selling a Florida homestead to buy in St. Andrews, the portability of up to $500,000 in SOH benefit is a planning lever worth maximizing. Talk to your tax advisor before March 1 of the year you intend to file.</p>
+
+    <p><strong>For sellers:</strong> Your Save Our Homes benefit may be more valuable than you realize. If you have held your St. Andrews home for a decade or more, the gap between your assessed value and market value represents an annual tax benefit that your buyer will not inherit. Quantify that benefit. It is part of your total ownership economics, and understanding it is essential to making an informed decision about whether to sell, when to sell, and what your true holding cost has been.</p>
+
+    <p>The total carrying cost picture &mdash; insurance trending favorably for the first time in years, property taxes offering meaningful protection for long-term holders, and a luxury market that is absorbing inventory at healthy rates &mdash; favors Palm Beach County&rsquo;s trajectory relative to peer markets. The cost of owning in PBC is real. But the direction of that cost is what separates PBC from the narrative.</p>
+
+    <!-- ===== END CTA ===== -->
+    <div class="cta-section">
+        <h3>Ready to Understand Your True Ownership Economics?</h3>
+        <p>Every property has a different insurance, tax, and carrying cost profile. I can walk you through the numbers for any home in St. Andrews Country Club or the 21 luxury communities I track weekly.</p>
+        <a href="mailto:edmund@bogenhomes.com" class="cta-button">Contact Edmund</a>
+        <div class="cta-phone">561-235-7575</div>
+    </div>
+
+    <!-- ===== AUTHOR BIO ===== -->
+    <div class="author-bio">
+        <div class="author-photo">EB</div>
+        <div class="author-info">
+            <h3>Edmund Bogen</h3>
+            <div class="author-title">Luxury Real Estate Advisor | The Edmund Bogen Team at Douglas Elliman</div>
+            <p>Edmund Bogen is a luxury real estate advisor, AI consultant, and speaker specializing in South Florida&rsquo;s country club communities. With deep expertise in St. Andrews Country Club and the broader Boca Raton luxury market, Edmund provides data-driven guidance to high-net-worth buyers and sellers navigating the intersection of real estate, insurance economics, tax planning, and wealth preservation.</p>
+            <div class="author-contact">
+                <a href="mailto:edmund.bogen@elliman.com">edmund.bogen@elliman.com</a><br>
+                The Edmund Bogen Team | Douglas Elliman Real Estate
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-brand">The Edmund Bogen Team | Douglas Elliman Real Estate</div>
+    <p>Important Disclosure: This article is provided for informational and educational purposes only. It does not constitute legal, financial, tax, or insurance advice. Insurance premiums, property tax obligations, and real estate market conditions vary based on individual circumstances, property characteristics, and market factors. All data cited herein is sourced from publicly available government reports, industry publications, and MLS data believed to be reliable as of the date of publication. Readers should consult with licensed insurance agents, tax professionals, attorneys, and real estate advisors before making decisions. The Edmund Bogen Team at Douglas Elliman Real Estate makes no guarantees regarding the accuracy or completeness of third-party data cited herein. Equal Housing Opportunity.</p>
+    <p style="margin-top: 12px;">Douglas Elliman Real Estate. All material presented herein is intended for information purposes only. While this information is believed to be correct, it is represented subject to errors, omissions, changes or withdrawal without notice. If your property is currently listed with another real estate broker, please disregard this offer. It is not our intention to solicit the offerings of other real estate brokers. We cooperate with them fully.</p>
+    <p style="margin-top: 16px;">&copy; 2026 The Edmund Bogen Team. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
