@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If Homeowners Pay Less, Who Pays More? | The Edmund Bogen Team</title>
+    <meta name="description" content="What Amendment 3 could mean for Palm Beach County, Boca Raton, and St. Andrews Country Club — who saves, who pays, and the December 31 residency cutoff.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2a2a2a;
+            background: #ffffff;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --navy: #1a3e5c;
+            --cyan: #00a8e1;
+            --white: #ffffff;
+            --light-bg: #f7f9fb;
+            --text: #2a2a2a;
+            --text-light: #5a6a7a;
+            --border: #e0e6ec;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: var(--navy);
+            padding: 16px 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--cyan); }
+        .nav-tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: url('./amendment-3-hero.jpg') center center / cover no-repeat;
+            margin-top: 56px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 62, 92, 0.35) 0%,
+                rgba(26, 62, 92, 0.55) 50%,
+                rgba(26, 62, 92, 0.85) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 60px 24px 50px;
+            text-align: center;
+        }
+        .hero-label {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            color: var(--white);
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero-meta {
+            margin-top: 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .hero-meta span { margin: 0 8px; }
+
+        /* ===== STAT CALLOUT BOXES ===== */
+        .stat-bar {
+            background: var(--navy);
+            padding: 40px 24px;
+        }
+        .stat-bar-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .stat-box {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-number {
+            color: var(--cyan);
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .stat-sublabel {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* ===== ARTICLE BODY ===== */
+        .article-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px 40px;
+        }
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 56px 0 20px;
+            line-height: 1.3;
+        }
+        .article-body h2:first-child { margin-top: 0; }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 32px 0 12px;
+        }
+
+        /* ===== PULL QUOTES ===== */
+        .pull-quote {
+            border-left: 4px solid var(--cyan);
+            padding: 24px 28px;
+            margin: 40px 0;
+            background: var(--light-bg);
+            border-radius: 0 6px 6px 0;
+        }
+        .pull-quote p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.65;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        .pull-quote .quote-attr {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-light);
+            font-style: normal;
+            margin-top: 10px;
+        }
+
+        /* ===== DATA TABLES ===== */
+        .data-table-wrapper {
+            margin: 36px 0;
+            overflow-x: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .data-table thead th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 700;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .data-table thead th.num, .data-table tbody td.num { text-align: right; }
+        .data-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: top;
+        }
+        .data-table tbody tr:nth-child(even) { background: var(--light-bg); }
+        .data-table tbody tr:hover { background: #edf4fa; }
+        .highlight-row td {
+            background: rgba(0, 168, 225, 0.08) !important;
+            font-weight: 600;
+        }
+
+        /* ===== CALLOUT CARD ===== */
+        .callout-card {
+            background: var(--light-bg);
+            border-left: 4px solid var(--cyan);
+            border-radius: 0 8px 8px 0;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+        .callout-card h3 {
+            color: var(--navy);
+            margin: 0 0 12px;
+            font-size: 1.05rem;
+        }
+        .callout-card p {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .callout-card p:last-child { margin-bottom: 0; }
+
+        /* ===== DISCLAIMER CARD ===== */
+        .disclaimer-card {
+            background: #fffbf0;
+            border: 1px solid #e0d5b8;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 0 auto;
+            max-width: 760px;
+        }
+        .disclaimer-card h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .disclaimer-card p {
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* ===== LISTINGS ===== */
+        .listing-card {
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--cyan);
+            border-radius: 0 6px 6px 0;
+            padding: 22px 26px;
+            margin-bottom: 20px;
+            background: var(--light-bg);
+        }
+        .listing-card h3 { margin: 0 0 4px; font-size: 1.1rem; }
+        .listing-card h3 a { color: var(--navy); text-decoration: none; }
+        .listing-card h3 a:hover { color: var(--cyan); }
+        .listing-price {
+            color: var(--cyan);
+            font-weight: 800;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        .listing-card p { font-size: 0.92rem; margin-bottom: 8px; }
+        .listing-office {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-bottom: 0 !important;
+        }
+        .listing-link {
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 40px 36px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-section h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin: 0 0 16px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta-button:hover { background: #0090c4; }
+        .cta-phone {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+
+        /* ===== AUTHOR BIO ===== */
+        .author-bio {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 40px 0;
+            margin-top: 48px;
+            border-top: 2px solid var(--border);
+        }
+        .author-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        .author-info h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin: 0 0 4px;
+        }
+        .author-info .author-title {
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .author-info p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .author-contact {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+        .author-contact a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ===== SOURCES ===== */
+        .sources {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+        .sources h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .sources p {
+            font-size: 0.78rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            padding: 36px 24px;
+            text-align: center;
+        }
+        .footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .footer .footer-brand {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero { min-height: 480px; }
+            .hero-title { font-size: 1.7rem; }
+            .hero-subtitle { font-size: 0.92rem; }
+            .stat-bar-inner { grid-template-columns: 1fr; gap: 16px; }
+            .stat-number { font-size: 2.2rem; }
+            .article-body { padding: 36px 18px 30px; }
+            .article-body h2 { font-size: 1.3rem; margin-top: 40px; }
+            .article-body p { font-size: 0.95rem; }
+            .pull-quote p { font-size: 1rem; }
+            .cta-section { padding: 28px 20px; }
+            .author-bio { flex-direction: column; align-items: center; text-align: center; }
+            .data-table { font-size: 0.8rem; }
+            .disclaimer-card { padding: 20px 18px; margin: 0 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="https://www.bogenhomes.com" class="nav-brand">The Edmund Bogen Team <span>|</span> Douglas Elliman</a>
+        <span class="nav-tagline">Market Intelligence</span>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-label">Weekly Market Intelligence</div>
+        <h1 class="hero-title">If Homeowners Pay Less, Who Pays More?</h1>
+        <p class="hero-subtitle">What Amendment 3 could mean for Palm Beach County, Boca Raton, and St. Andrews &mdash; and why December 31, 2026 is a date worth knowing.</p>
+        <div class="hero-meta">
+            Edmund Bogen <span>|</span> September 19, 2026 <span>|</span> ~10-Minute Read
+        </div>
+    </div>
+</header>
+
+<!-- ===== 3-STAT CALLOUT ===== -->
+<section class="stat-bar">
+    <div class="stat-bar-inner">
+        <div class="stat-box">
+            <div class="stat-number">$250,000</div>
+            <div class="stat-label">Homestead Exemption by 2028 (Non-School Taxes)</div>
+            <div class="stat-sublabel">If Amendment 3 passes with 60% approval</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">~$250M</div>
+            <div class="stat-label">Estimated Annual Loss to Palm Beach County</div>
+            <div class="stat-sublabel">County Administrator Joseph Abruzzo</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">Dec 31</div>
+            <div class="stat-label">2026 Residency Cutoff for the Larger Exemption</div>
+            <div class="stat-sublabel">Later arrivals wait until the fifth year</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DISCLAIMER (TOP) ===== -->
+<div style="padding: 40px 24px 0;">
+    <div class="disclaimer-card">
+        <h4>Important Disclosure</h4>
+        <p>This article explains a ballot measure; it does not tell you how to vote and is not tax, legal, or voting advice. Consult your CPA or tax attorney about your own situation. All figures are drawn from publicly available government estimates, regulatory filings, and news reporting believed reliable as of September 19, 2026. Equal Housing Opportunity.</p>
+    </div>
+</div>
+
+<!-- ===== ARTICLE BODY ===== -->
+<article class="article-body">
+
+    <p style="font-size:1.15rem;"><strong>On November 3, Florida voters will decide whether homeowners get the largest property-tax break in the state's history. The harder question is who picks up the bill.</strong></p>
+
+    <p>As someone who lives, works, and sells real estate in St. Andrews every day, I'm hearing about this ballot measure more than almost any other topic. This piece does not tell you how to vote. It lays out what the amendment does, what local governments say it would cost, and where that cost could land.</p>
+
+    <h2>What Would Amendment 3 Actually Do?</h2>
+
+    <p>For all non-school property taxes, the amendment raises the homestead exemption to $150,000 in 2027 and $250,000 in 2028, then adjusts it for inflation. It also cuts the annual cap on assessment increases for non-homestead properties, including second homes and commercial real estate, from 10% to 5%. It needs at least 60% of the vote to pass.</p>
+
+    <p>It also creates a new dividing line. Anyone who is not a Florida resident on December 31, 2026, starts with the existing exemption and does not receive the larger one until the fifth year.</p>
+
+    <div class="callout-card">
+        <h3>Mark Your Calendar</h3>
+        <p><strong>November 3, 2026:</strong> Election day. Amendment 3 needs 60% approval.</p>
+        <p><strong>December 31, 2026:</strong> Residency cutoff for the larger exemption.</p>
+        <p><strong>2027:</strong> Exemption rises to $150,000 on non-school taxes.</p>
+        <p><strong>2028:</strong> Exemption rises to $250,000.</p>
+    </div>
+
+    <h2>The $12 Billion Question</h2>
+
+    <p>Florida's Revenue Estimating Conference projects a $4.95 billion shortfall in local non-school property-tax revenue in fiscal year 2027&ndash;28. Once fully phased in, that grows to an estimated $11.86 billion a year by fiscal 2031&ndash;32. That is the figure most coverage rounds to "$12 billion."</p>
+
+    <p>In plain English: the savings to homeowners are real, and so is the revenue lost by counties, cities, and special districts. School taxes are not affected.</p>
+
+    <h2>Why This Is a County Story for St. Andrews</h2>
+
+    <p>Here's where it gets interesting, and where most coverage gets it wrong for our community. St. Andrews has a Boca Raton mailing address, but it sits in unincorporated Palm Beach County. The county, not the City of Boca Raton, is the local government behind our sheriff's patrols, fire rescue, parks, and roads.</p>
+
+    <p>Palm Beach County Administrator Joseph Abruzzo estimates the county could lose nearly $250 million once the amendment is fully in place. He has said commissioners would then have to choose between cutting spending, charging more for services, or shifting more of the tax burden to non-homestead properties.</p>
+
+    <p>The Property Appraiser's estimate is broader. Using 2025 numbers, it puts the countywide loss at more than $324 million at the full $250,000 exemption, spread across the county, the library system, the Health Care District, the Children's Services Council, and other taxing authorities.</p>
+
+    <div class="callout-card">
+        <h3>Key Fact</h3>
+        <p>Options the county administrator has named if revenue drops include paid beach parking, park user fees, expanded red-light camera enforcement, and tax increases that would fall mainly on businesses and renters.</p>
+    </div>
+
+    <p>Other countywide services have put numbers on it too. The Children's Services Council estimates its budget could fall by about $26 million. A Florida Policy Institute study estimates the Health Care District of Palm Beach County could lose $66.5 million in property-tax revenue.</p>
+
+    <p>The county is already tightening. Just this week, commissioners approved a 2027 budget with a record $32 million cut to the Sheriff's Office budget request to keep the county's tax rate flat.</p>
+
+    <h2>What Boca Raton Says It Would Lose</h2>
+
+    <p>We don't pay city taxes, but we shop, dine, and spend time in Boca Raton, so its choices affect us too. At a June 9 workshop, the city's CFO estimated an annual loss of about $8.14 million at the $150,000 exemption, rising to about $16.73 million at $250,000. Nothing changes in the upcoming budget year; the impact would begin with the 2027&ndash;28 budget.</p>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Boca Raton option discussed</th>
+                    <th>What it would mean</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Raise the tax rate</td>
+                    <td>From 3.66 to about 4.1078 mills, roughly 12%, still below neighboring cities</td>
+                </tr>
+                <tr>
+                    <td>Raise the fire assessment</td>
+                    <td>Could generate up to $21 million under state law</td>
+                </tr>
+                <tr>
+                    <td>Raise user fees</td>
+                    <td>Recreation, library, and building-permit fees</td>
+                </tr>
+                <tr>
+                    <td>Cut departments</td>
+                    <td>City modeling showed cuts above 5% start to affect service levels</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Property tax makes up 52.77% of the city's general fund, which is why a loss this size can't simply be absorbed.</p>
+
+    <h2>Boynton Beach Offers a Preview</h2>
+
+    <p>Next door, Boynton Beach reduced spending by $2 million this budget cycle through zero-based budgeting, a hiring freeze, and shifting vehicle purchases to leases. It lowered its tax rate while increasing fire assessments, which left some residents confused about the math. City officials expect more cuts if the amendment passes.</p>
+
+    <p>That is the pattern to watch: one line on the tax bill goes down while another bill, fee, or assessment goes up.</p>
+
+    <h2>Who Is Most Likely to Pay More?</h2>
+
+    <p><strong>Second-home owners and part-time residents.</strong> Non-homestead properties don't get the larger exemption. The lower 5% cap helps over time, but a higher tax rate or new assessments could offset part of that. This matters for the many St. Andrews owners who are not full-time Florida residents.</p>
+
+    <p><strong>New arrivals.</strong> A buyer who establishes residency after December 31, 2026, waits five years for the full exemption. Two identical homes on the same street could carry very different tax bills for years.</p>
+
+    <p><strong>Renters and businesses.</strong> Both receive no homestead exemption, and the county administrator has said higher taxes on rental properties often pass through to tenants.</p>
+
+    <p><strong>Everyone who uses local services.</strong> Fees for parks, beaches, permits, and fire protection apply whether or not a home is homesteaded.</p>
+
+    <h2>The Argument on Both Sides</h2>
+
+    <p>Supporters, including Florida Realtors, say homeowners need relief after years of rising values, insurance costs, and local spending, and that governments should cut waste before asking for more. Opponents say the cost of services doesn't disappear.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;This is not a tax cut. This is a tax shift.&rdquo;</p>
+        <div class="quote-attr">&mdash; Joseph Abruzzo, Palm Beach County Administrator</div>
+    </div>
+
+    <p>Reasonable people can, and do, disagree. Both things can be true at once: local government can carry waste, and homeowners can deserve relief.</p>
+
+    <h2>What Could This Mean for St. Andrews Real Estate?</h2>
+
+    <p>This is where my dual perspective as a realtor and resident matters most. Three things I'd watch:</p>
+
+    <p><strong>Residency timing.</strong> If you split time between Florida and another state and have been meaning to change your residency, the December 31 date may matter to you. Talk to your CPA or tax attorney before making any decision.</p>
+
+    <p><strong>Buyer math.</strong> Buyers relocating in 2027 or later will compare their carrying costs with neighbors who got in before the cutoff. Expect sharper questions about taxes during negotiations.</p>
+
+    <p><strong>Where the fees land.</strong> If the county leans on fees and assessments rather than cuts, those costs show up for every property owner, homesteaded or not.</p>
+
+    <p>Whatever your position, this is a conversation worth having thoughtfully, openly, and with the long-term health of our community in mind.</p>
+
+    <h2>St. Andrews Market Snapshot</h2>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Active</th>
+                    <th>Closed YTD 2026</th>
+                    <th>Highest List</th>
+                    <th>Lowest List</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>8</strong></td>
+                    <td><strong>25</strong></td>
+                    <td><strong>$19,975,000</strong></td>
+                    <td><strong>$3,995,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>How Our Neighbors Compare</h3>
+    <p style="font-size:0.95rem;">Homes listed for every home sold. Lower means a tighter market.</p>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Community</th>
+                    <th class="num">Active</th>
+                    <th class="num">Closed</th>
+                    <th class="num">Listed per sale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Polo Club</td><td class="num">7</td><td class="num">70</td><td class="num">0.10</td></tr>
+                <tr><td>Boca West</td><td class="num">26</td><td class="num">173</td><td class="num">0.15</td></tr>
+                <tr><td>Broken Sound</td><td class="num">16</td><td class="num">89</td><td class="num">0.18</td></tr>
+                <tr><td>Stonebridge</td><td class="num">5</td><td class="num">20</td><td class="num">0.25</td></tr>
+                <tr><td>Boca Bridges</td><td class="num">7</td><td class="num">26</td><td class="num">0.27</td></tr>
+                <tr><td>The Oaks</td><td class="num">11</td><td class="num">35</td><td class="num">0.31</td></tr>
+                <tr class="highlight-row"><td>St. Andrews</td><td class="num">8</td><td class="num">25</td><td class="num">0.32</td></tr>
+                <tr><td>Mizner Country Club</td><td class="num">4</td><td class="num">12</td><td class="num">0.33</td></tr>
+                <tr><td>Seasons</td><td class="num">3</td><td class="num">9</td><td class="num">0.33</td></tr>
+                <tr><td>Addison Reserve</td><td class="num">11</td><td class="num">32</td><td class="num">0.34</td></tr>
+                <tr><td>Lotus</td><td class="num">14</td><td class="num">38</td><td class="num">0.37</td></tr>
+                <tr><td>Delaire</td><td class="num">3</td><td class="num">8</td><td class="num">0.38</td></tr>
+                <tr><td>The Bridges</td><td class="num">10</td><td class="num">26</td><td class="num">0.38</td></tr>
+                <tr><td>Woodfield</td><td class="num">21</td><td class="num">50</td><td class="num">0.42</td></tr>
+                <tr><td>Long Lake Estates</td><td class="num">3</td><td class="num">6</td><td class="num">0.50</td></tr>
+                <tr><td>Royal Palm Yacht &amp; Country Club</td><td class="num">19</td><td class="num">37</td><td class="num">0.51</td></tr>
+                <tr><td>Seven Bridges</td><td class="num">15</td><td class="num">26</td><td class="num">0.58</td></tr>
+                <tr><td>Bocaire Country Club</td><td class="num">12</td><td class="num">19</td><td class="num">0.63</td></tr>
+                <tr><td>Boca Grove</td><td class="num">11</td><td class="num">9</td><td class="num">1.22</td></tr>
+                <tr><td>The Sanctuary*</td><td class="num">8</td><td class="num">1</td><td class="num">&mdash;</td></tr>
+                <tr><td>Le Lac*</td><td class="num">1</td><td class="num">0</td><td class="num">&mdash;</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="font-size:0.78rem;color:var(--text-light);">*Too few closings in the period for a meaningful comparison. Communities differ widely in price point, so this measures pace of sales, not value.</p>
+
+    <h2>Now Available in St. Andrews</h2>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/6960-LAKE-ESTATES-COURT-BOCA-RATON-FL-33496/B26035087/43/">6960 Lake Estates Court</a></h3>
+        <div class="listing-price">$19,975,000</div>
+        <p>A contemporary waterfront estate built in 2022 by Cudmore Homes in the Lake Estates section, with sweeping lake and golf views. 5 bedrooms, 6 full and 2 half baths, two private offices, dual 2-car garages, and walls of glass on a half-acre lot.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/6960-LAKE-ESTATES-COURT-BOCA-RATON-FL-33496/B26035087/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Compass Florida LLC</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/17903-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/B26064587/43/">17903 Foxborough Lane</a></h3>
+        <div class="listing-price">$10,150,000</div>
+        <p>New construction on a south-facing golf fairway, offered furnished. 6 bedrooms, 6 full and 2 half baths, a Club Room, a glass-enclosed office or gym, and a 4-car garage.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/17903-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/B26064587/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Lang Realty</p>
+    </div>
+
+    <div class="listing-card">
+        <h3>17531 Foxborough Lane</h3>
+        <div class="listing-price">$8,500,000</div>
+        <p>A 2020 residence with a private elevator and high ceilings. 5 bedrooms, 6 full and 2 half baths, with a pool, spa, and built-in grill outdoors.</p>
+        <p class="listing-office">Listed by Colfax Realty International</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/7027-QUEENFERRY-CIRCLE-BOCA-RATON-FL-33496/B26037727/43/">7027 Queenferry Circle</a></h3>
+        <div class="listing-price">$8,250,000</div>
+        <p>A double-lot estate of 0.77 acres with long lake and golf course views. 7 bedrooms, a home office, impact windows, a whole-house generator, and a new roof.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/7027-QUEENFERRY-CIRCLE-BOCA-RATON-FL-33496/B26037727/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Compass Florida LLC</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/7359-BALLANTRAE-COURT-BOCA-RATON-FL-33496/B26075065/43/">7359 Ballantrae Court</a></h3>
+        <div class="listing-price">$7,950,000</div>
+        <p>An architect's own home, expanded and redesigned to 6,006 square feet, on an oversized corner lot with a circular drive, 23-foot ceilings, and walls of glass facing the golf course.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/7359-BALLANTRAE-COURT-BOCA-RATON-FL-33496/B26075065/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by One Sotheby's International Realty</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/17661-SCARSDALE-WAY-BOCA-RATON-FL-33496/B26031007/43/">17661 Scarsdale Way</a></h3>
+        <div class="listing-price">$7,900,000</div>
+        <p>A modern 2019 estate of about 6,400 square feet on 0.44 acres with a golf course view. 26-foot coffered ceilings, an elevator, a wet bar, a chef's kitchen with three ovens, 5 bedrooms, and a den.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/17661-SCARSDALE-WAY-BOCA-RATON-FL-33496/B26031007/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Luxury Partners Realty</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/17730-SCARSDALE-WAY-BOCA-RATON-FL-33496/B26010857/43/">17730 Scarsdale Way</a></h3>
+        <div class="listing-price">$5,850,000</div>
+        <p>A European-inspired two-story home with lakefront and double-fairway views. 7 bedrooms, 8 full and 1 half baths, a clay tile roof imported from Valencia, Spain, and volume ceilings.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/17730-SCARSDALE-WAY-BOCA-RATON-FL-33496/B26010857/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Lang Realty</p>
+    </div>
+
+    <div class="listing-card">
+        <h3><a href="https://bogenhomes.com/homes-for-sale-details/17771-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/B26049501/43/">17771 Foxborough Lane</a></h3>
+        <div class="listing-price">$3,995,000</div>
+        <p>A fully renovated home on the 14th fairway. 5 bedrooms, soaring ceilings, walls of glass, and a designer kitchen with marble slab counters and a Sub-Zero refrigerator.</p>
+        <a class="listing-link" href="https://bogenhomes.com/homes-for-sale-details/17771-FOXBOROUGH-LANE-BOCA-RATON-FL-33496/B26049501/43/">VIEW DETAILS &rarr;</a>
+        <p class="listing-office">Listed by Luxury Partners Realty</p>
+    </div>
+
+    <p style="text-align:center;margin:36px 0 0;"><a class="cta-button" href="https://bogenhomes.com/community/st-andrews-2/">VIEW ALL ST. ANDREWS HOMES</a></p>
+
+    <!-- ===== CTA ===== -->
+    <div class="cta-section">
+        <h3>Questions About Amendment 3 and Your Property?</h3>
+        <p>If you'd like to talk through how Amendment 3 could affect your property, your residency timing, or your plans in St. Andrews, I'm always happy to talk.</p>
+        <a href="mailto:edmund@bogenhomes.com" class="cta-button">EMAIL EDMUND</a>
+        <div class="cta-phone">Call/Text: <a href="tel:+15612357575" style="color:rgba(255,255,255,0.8);text-decoration:none;">561-235-7575</a></div>
+    </div>
+
+    <!-- ===== AUTHOR BIO ===== -->
+    <div class="author-bio">
+        <img src="./edmund-bogen-headshot.jpg" alt="Edmund Bogen" class="author-photo">
+        <div class="author-info">
+            <h3>Edmund Bogen</h3>
+            <div class="author-title">Luxury Real Estate Advisor | The Edmund Bogen Team at Douglas Elliman</div>
+            <p>Edmund Bogen is a luxury real estate specialist and trusted advisor based in Boca Raton, Florida. As the leader of the Edmund Bogen Team at Douglas Elliman Real Estate, Edmund is known for combining market expertise, high-touch service, and strong local relationships to help buyers and sellers navigate premier communities throughout Palm Beach County, especially St. Andrews Country Club and Boca Raton's top luxury neighborhoods. He is recognized for his strategic pricing guidance, discreet marketing approach, and hands-on deal leadership from start to finish.</p>
+            <div class="author-contact">
+                <a href="mailto:edmund@bogenhomes.com">edmund@bogenhomes.com</a> &nbsp;|&nbsp; Call/Text: <a href="tel:+15612357575">561-235-7575</a>
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<!-- ===== SOURCES ===== -->
+<div class="sources">
+    <h4>Sources</h4>
+    <p>Florida Department of State, Amendment 3 ballot summary &middot; Florida TaxWatch, Florida Property Tax Resource Center &middot; Suncoast Searchlight, fact brief on Revenue Estimating Conference projections (Aug. 2026) &middot; City of Boca Raton, June 9, 2026 Property Tax Reform workshop recap &middot; TAPinto Boca Raton (June 2026) &middot; CBS12 News, interviews with County Administrator Joseph Abruzzo (July&ndash;Aug. 2026) &middot; WFLX, Palm Beach County Property Appraiser estimate (July 2026) &middot; Palm Beach Post, county 2027 budget (Sept. 2026) &middot; The Boca Raton Tribune, Boynton Beach budget meeting (Sept. 2026) &middot; South Florida Times, Florida Policy Institute hospital-district estimates (Sept. 2026) &middot; Listing data: BeachesMLS via Flexmls and bogenhomes.com, as of September 19, 2026.</p>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p class="footer-brand">THE EDMUND BOGEN TEAM &middot; DOUGLAS ELLIMAN REAL ESTATE</p>
+    <p>444 E. Palmetto Park Rd, Boca Raton, FL 33432 &middot; Call/Text: 561-235-7575</p>
+    <p style="margin-top:12px;">The hero image on this page was created with artificial intelligence; its background does not depict a real place, property, or event. This article is for general information only and is not tax, legal, or voting advice. Consult your CPA or tax attorney about your own situation. Market data courtesy of BeachesMLS. Information is deemed reliable but not guaranteed and is subject to change; listings shown are courtesy of the listing brokerages named. All material presented herein is intended for information purposes only and is subject to errors, omissions, changes or withdrawal without notice. If your property is currently listed with another broker, this is not a solicitation of that listing. Equal Housing Opportunity.</p>
+</footer>
+
+</body>
+</html>
