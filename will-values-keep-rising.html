@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will Values Keep Climbing? | The Edmund Bogen Team</title>
+    <meta name="description" content="Will Florida and Palm Beach County luxury home values keep rising? The bullish case, the contrarian case, and what it means for St. Andrews Country Club homeowners.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2a2a2a;
+            background: #ffffff;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== BRAND COLORS ===== */
+        :root {
+            --navy: #1a3e5c;
+            --cyan: #00a8e1;
+            --white: #ffffff;
+            --light-bg: #f7f9fb;
+            --text: #2a2a2a;
+            --text-light: #5a6a7a;
+            --border: #e0e6ec;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            background: var(--navy);
+            padding: 16px 0;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+        }
+        .nav-brand span { color: var(--cyan); }
+        .nav-tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background: url('./will-values-keep-rising-hero.png') center center / cover no-repeat;
+            margin-top: 56px;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 62, 92, 0.35) 0%,
+                rgba(26, 62, 92, 0.55) 50%,
+                rgba(26, 62, 92, 0.85) 100%
+            );
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 60px 24px 50px;
+            text-align: center;
+        }
+        .hero-label {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 3px;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            color: var(--white);
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero-meta {
+            margin-top: 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        .hero-meta span { margin: 0 8px; }
+
+        /* ===== STAT CALLOUT BOXES ===== */
+        .stat-bar {
+            background: var(--navy);
+            padding: 40px 24px;
+        }
+        .stat-bar-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .stat-box {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-number {
+            color: var(--cyan);
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            color: rgba(255,255,255,0.85);
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .stat-sublabel {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        /* ===== ARTICLE BODY ===== */
+        .article-body {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 56px 24px 40px;
+        }
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        .article-body h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 56px 0 20px;
+            line-height: 1.3;
+        }
+        .article-body h2:first-child { margin-top: 0; }
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin: 32px 0 12px;
+        }
+
+        /* ===== PULL QUOTES ===== */
+        .pull-quote {
+            border-left: 4px solid var(--cyan);
+            padding: 24px 28px;
+            margin: 40px 0;
+            background: var(--light-bg);
+            border-radius: 0 6px 6px 0;
+        }
+        .pull-quote p {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.65;
+            margin-bottom: 0;
+            font-style: italic;
+        }
+        .pull-quote .quote-attr {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-light);
+            font-style: normal;
+            margin-top: 10px;
+        }
+
+        /* ===== DATA TABLES ===== */
+        .data-table-wrapper {
+            margin: 36px 0;
+            overflow-x: auto;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .data-table thead th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 700;
+            padding: 14px 16px;
+            text-align: left;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .data-table thead th.num, .data-table tbody td.num { text-align: right; }
+        .data-table tbody td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            vertical-align: top;
+        }
+        .data-table tbody tr:nth-child(even) { background: var(--light-bg); }
+        .data-table tbody tr:hover { background: #edf4fa; }
+        .highlight-row td {
+            background: rgba(0, 168, 225, 0.08) !important;
+            font-weight: 600;
+        }
+
+        /* ===== CALLOUT CARD ===== */
+        .callout-card {
+            background: var(--light-bg);
+            border-left: 4px solid var(--cyan);
+            border-radius: 0 8px 8px 0;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+        .callout-card h3 {
+            color: var(--navy);
+            margin: 0 0 12px;
+            font-size: 1.05rem;
+        }
+        .callout-card p {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+        .callout-card p:last-child { margin-bottom: 0; }
+
+        /* ===== DISCLAIMER CARD ===== */
+        .disclaimer-card {
+            background: #fffbf0;
+            border: 1px solid #e0d5b8;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 0 auto;
+            max-width: 760px;
+        }
+        .disclaimer-card h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .disclaimer-card p {
+            font-size: 0.8rem;
+            line-height: 1.7;
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* ===== LISTINGS ===== */
+        .listing-card {
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--cyan);
+            border-radius: 0 6px 6px 0;
+            padding: 22px 26px;
+            margin-bottom: 20px;
+            background: var(--light-bg);
+        }
+        .listing-card h3 { margin: 0 0 4px; font-size: 1.1rem; }
+        .listing-card h3 a { color: var(--navy); text-decoration: none; }
+        .listing-card h3 a:hover { color: var(--cyan); }
+        .listing-price {
+            color: var(--cyan);
+            font-weight: 800;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+        .listing-card p { font-size: 0.92rem; margin-bottom: 8px; }
+        .listing-office {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-bottom: 0 !important;
+        }
+        .listing-link {
+            color: var(--cyan);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--navy);
+            border-radius: 8px;
+            padding: 40px 36px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .cta-section h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin: 0 0 16px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            padding: 14px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .cta-button:hover { background: #0090c4; }
+        .cta-phone {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            margin-top: 16px;
+        }
+
+        /* ===== AUTHOR BIO ===== */
+        .author-bio {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            padding: 40px 0;
+            margin-top: 48px;
+            border-top: 2px solid var(--border);
+        }
+        .author-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        .author-info h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin: 0 0 4px;
+        }
+        .author-info .author-title {
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .author-info p {
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+        .author-contact {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 8px;
+        }
+        .author-contact a {
+            color: var(--cyan);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* ===== SOURCES ===== */
+        .sources {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px 40px;
+        }
+        .sources h4 {
+            color: var(--navy);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .sources p {
+            font-size: 0.78rem;
+            line-height: 1.7;
+            color: var(--text-light);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy);
+            padding: 36px 24px;
+            text-align: center;
+        }
+        .footer p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.72rem;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .footer .footer-brand {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero { min-height: 480px; }
+            .hero-title { font-size: 1.7rem; }
+            .hero-subtitle { font-size: 0.92rem; }
+            .stat-bar-inner { grid-template-columns: 1fr; gap: 16px; }
+            .stat-number { font-size: 2.2rem; }
+            .article-body { padding: 36px 18px 30px; }
+            .article-body h2 { font-size: 1.3rem; margin-top: 40px; }
+            .article-body p { font-size: 0.95rem; }
+            .pull-quote p { font-size: 1rem; }
+            .cta-section { padding: 28px 20px; }
+            .author-bio { flex-direction: column; align-items: center; text-align: center; }
+            .data-table { font-size: 0.8rem; }
+            .disclaimer-card { padding: 20px 18px; margin: 0 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="https://www.bogenhomes.com" class="nav-brand">The Edmund Bogen Team <span>|</span> Douglas Elliman</a>
+        <span class="nav-tagline">Market Intelligence</span>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="hero-label">Weekly Market Intelligence</div>
+        <h1 class="hero-title">Will Values Keep Climbing?</h1>
+        <p class="hero-subtitle">The smartest voices in Florida real estate don't all agree on where luxury prices go next. Here's both sides of the argument &mdash; and what it means inside the gates of St. Andrews.</p>
+        <div class="hero-meta">
+            Edmund Bogen <span>|</span> September 30, 2026 <span>|</span> ~7-Minute Read
+        </div>
+        <div class="hero-meta" style="margin-top:8px; font-size:0.8rem; opacity:0.85;">
+            This article was created with the assistance of artificial intelligence.
+        </div>
+    </div>
+</header>
+
+<!-- ===== 3-STAT CALLOUT ===== -->
+<section class="stat-bar">
+    <div class="stat-bar-inner">
+        <div class="stat-box">
+            <div class="stat-number">+22%</div>
+            <div class="stat-label">South Florida $1M+ Closed Sales, Q1 2026 vs. Q1 2025</div>
+            <div class="stat-sublabel">Keyes / Illustrated Properties Luxury Report</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">+4%</div>
+            <div class="stat-label">2026 National Home-Price Forecast</div>
+            <div class="stat-sublabel">Lawrence Yun, NAR Chief Economist</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">&minus;2% to &minus;4%</div>
+            <div class="stat-label">2026 Statewide Base Case from One Bearish Analyst</div>
+            <div class="stat-sublabel">Concentrated in condos and Southwest Florida &mdash; not Palm Beach single-family</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== DISCLAIMER (TOP) ===== -->
+<div style="padding: 40px 24px 0;">
+    <div class="disclaimer-card">
+        <h4>Important Disclosure</h4>
+        <p>This article summarizes published market commentary and data. It is not financial, tax, or investment advice, and no one &mdash; including me &mdash; can promise what home values will do. Figures are drawn from news reporting and industry sources believed reliable as of September 30, 2026. Equal Housing Opportunity.</p>
+    </div>
+</div>
+
+<!-- ===== ARTICLE BODY ===== -->
+<article class="article-body">
+
+    <p style="font-size:1.15rem;"><strong>Ask ten Florida market experts where luxury home values go from here and you'll get two camps: those who see the run continuing, and those who see the market catching its breath. Both camps have credible people in them &mdash; so this week I'm giving you both, straight.</strong></p>
+
+    <p>As a St. Andrews resident and a realtor working this market daily, I read this commentary with one question in mind: what does it mean for a homeowner behind our gates deciding whether to sell before season, hold, or buy?</p>
+
+    <h2>The Bullish Case: Supply, Capital, and Momentum</h2>
+
+    <p><strong>The inventory argument.</strong> At The Real Deal's "Welcome to the New Miami" event on September 24, Julian Johnston, a broker associate at ONE Sotheby's International Realty, argued that the shortage of quality luxury inventory isn't going away &mdash; and that money keeps arriving from high-tax, high-friction markets abroad and out of state.</p>
+
+    <div class="pull-quote">
+        <p>&ldquo;Prices are going to continue to rise. It's supply and demand.&rdquo;</p>
+        <div class="quote-attr">&mdash; Julian Johnston, ONE Sotheby's International Realty, at The Real Deal's Miami luxury event (Sept. 2026)</div>
+    </div>
+
+    <p><strong>The economist's view.</strong> Lawrence Yun, chief economist of the National Association of Realtors, forecasts national home prices rising about 4% in 2026, and as of this summer expects home sales to improve in the second half of the year. That's steady appreciation, not a boom &mdash; and after the last five years, steady may be the healthiest word in real estate.</p>
+
+    <p><strong>The developer's view.</strong> In a mid-year 2026 industry roundup, Noah Breakstone, CEO of Fort Lauderdale-based BTI Partners, described Florida demand as having &ldquo;remained resilient&rdquo; despite elevated interest rates and insurance pressures &mdash; more discerning than the post-COVID frenzy, but still positive, with migration into Florida's major metros continuing.</p>
+
+    <p><strong>The political tailwind.</strong> Back in June 2025, Governor DeSantis famously predicted Palm Beach real estate would &ldquo;skyrocket&rdquo; if New York City elected a socialist mayor. New York did just that in November. Whatever your politics, the wealth-migration pipeline from the Northeast remains a real, measurable force in our county's luxury market.</p>
+
+    <h2>The Numbers Behind the Optimism</h2>
+
+    <p>The hard data backs the bulls &mdash; at least in our segment. According to the Keyes / Illustrated Properties Luxury Report, South Florida closed 3,382 sales above $1 million in the first quarter of 2026, up 22% from a year earlier. Palm Beach County alone closed 2,028 single-family sales above $1 million, up about 21%. The $5 million to $10 million bracket &mdash; the heart of the St. Andrews market &mdash; grew 35%.</p>
+
+    <p>And one bearish analysis (more on it below) concedes a point that matters to us: Palm Beach County single-family median prices have been setting new highs, up 7.7%, with roughly 88% of the county's $1 million-plus purchases made in cash. Cash buyers don't get margin-called by mortgage rates.</p>
+
+    <h2>The Contrarian Case: An Inflection Point</h2>
+
+    <p>Now the other side, because you deserve the full picture.</p>
+
+    <p>Dr. Brad O'Connor, chief economist at Florida Realtors, framed this spring as a fork in the road &mdash; Florida Realtors' own coverage called the market an &ldquo;inflection point.&rdquo; His tell to watch: days on market. In April, the median Florida single-family home went under contract in 44 days, nearly identical to the same month in 2019 and 2025. If that number stretches through fall, it signals softening demand; if it holds, the market has found its footing.</p>
+
+    <p>The genuinely bearish view comes from analysts like LongYield, whose February 2026 report projects statewide prices declining another 2&ndash;4% through year-end. But read the fine print: the damage is concentrated in condos (down 6.1% year-over-year statewide, with over 13 months of supply) and in Southwest Florida &mdash; Cape Coral, Naples, Sarasota. That is a very different market from gated single-family communities in Boca Raton.</p>
+
+    <div class="callout-card">
+        <h3>The Honest Takeaway</h3>
+        <p>Florida is not one housing market. Statewide headlines are being dragged down by condos and the Gulf Coast. Palm Beach County luxury single-family &mdash; our market &mdash; has so far moved in the opposite direction. That divergence is the single most important thing to understand in 2026.</p>
+    </div>
+
+    <h2>One More Quiet Tailwind: The Weather</h2>
+
+    <p>Through September 30, the 2026 Atlantic season has produced eight named storms and not a single hurricane &mdash; the first season since 1914 to go this late without one, thanks largely to El Ni&ntilde;o. No hurricane has made a Florida landfall this year.</p>
+
+    <p>A caution flag before we celebrate: September is historically the peak month for Florida hurricane landfalls, but October is the top month for strikes on <em>South</em> Florida specifically. The season runs through November 30. Still, a quiet year helps the insurance conversation &mdash; and buyer psychology &mdash; heading into season.</p>
+
+    <h2>What This Means Inside St. Andrews</h2>
+
+    <p><strong>If you're thinking of selling:</strong> the fall listing window ahead of season is opening now, inventory in the community remains tight, and the $5M&ndash;$10M bracket is the fastest-growing segment in South Florida. Sellers who list into scarcity historically do better than sellers who list into crowds.</p>
+
+    <p><strong>If you're holding:</strong> the data says watch days on market through the fall, as O'Connor suggests. A patient hold in a cash-heavy, supply-constrained community is a very different risk than holding a Gulf Coast condo.</p>
+
+    <p><strong>If you're buying (or upgrading within the community):</strong> steady 4%-type appreciation with tight supply argues against waiting for a dip that the luxury single-family data simply doesn't show &mdash; though nobody can guarantee where prices go, which is exactly why both camps exist.</p>
+
+    <p>Every one of these decisions is personal &mdash; it depends on your timeline, your family, and your next chapter. If you'd like to talk through what the market is actually doing on your street, not just in the headlines, my door is open.</p>
+
+    <h2>St. Andrews Market Snapshot</h2>
+
+    <div class="data-table-wrapper">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Active</th>
+                    <th>Closed YTD 2026</th>
+                    <th>Highest List</th>
+                    <th>Lowest List</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>9</strong></td>
+                    <td><strong>25</strong></td>
+                    <td><strong>$19,975,000</strong></td>
+                    <td><strong>$2,500,000</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="font-size:0.85rem;color:var(--text-light);">Data as of September 30, 2026. Market data courtesy of BeachesMLS. Information is deemed reliable but not guaranteed.</p>
+
+    <!-- NOW-AVAILABLE LISTING CARDS INSERTED AFTER FLEXMLS VERIFICATION -->
+
+    <p style="text-align:center;margin:36px 0 0;"><a class="cta-button" href="https://bogenhomes.com/community/st-andrews-2/">VIEW ALL ST. ANDREWS HOMES</a></p>
+
+    <div class="cta-section">
+        <h3>Thinking About Your Own Timing?</h3>
+        <p>Whether you're weighing a sale before season, holding, or looking to buy within the community, I'm happy to share what's actually happening behind the gates &mdash; quietly and without obligation.</p>
+        <a href="mailto:edmund@bogenhomes.com" class="cta-button">EMAIL EDMUND</a>
+        <div class="cta-phone">Call/Text: <a href="tel:+15612357575" style="color:rgba(255,255,255,0.8);text-decoration:none;">561-235-7575</a></div>
+    </div>
+
+    <div class="author-bio">
+        <img src="./edmund-bogen-headshot.jpg" alt="Edmund Bogen" class="author-photo">
+        <div class="author-info">
+            <div class="author-name">Edmund Bogen</div>
+            <div class="author-title">Luxury Real Estate Advisor | The Edmund Bogen Team at Douglas Elliman</div>
+            <p>St. Andrews Country Club resident and specialist. Three decades of South Florida luxury real estate experience, from Miami Beach to Palm Beach.</p>
+            <div class="author-contact">
+                <a href="mailto:edmund@bogenhomes.com">edmund@bogenhomes.com</a> &middot; <a href="tel:+15612357575">561-235-7575</a> &middot; <a href="https://www.bogenhomes.com">bogenhomes.com</a>
+            </div>
+        </div>
+    </div>
+
+</article>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p><strong>The Edmund Bogen Team</strong> | Douglas Elliman Real Estate</p>
+        <p>Sources: The Real Deal (Sept. 25, 2026); NAR / Lawrence Yun 2026 forecast; Keyes / Illustrated Properties Luxury Report, Q1 2026; Florida Realtors / Dr. Brad O'Connor (May 2026); LongYield Florida Housing analysis (Feb. 2026); NOAA hurricane climatology. This article was created with the assistance of artificial intelligence and reviewed for accuracy.</p>
+        <p>Market data courtesy of BeachesMLS. Information is deemed reliable but not guaranteed. If your property is currently listed with another broker, this is not a solicitation of that listing. Equal Housing Opportunity.</p>
+    </div>
+</footer>
+
+</body>
+</html>
