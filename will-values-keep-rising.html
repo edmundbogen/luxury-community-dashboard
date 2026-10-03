@@ -65,12 +65,18 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 600px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            background: url('./will-values-hero.jpg') center top / cover no-repeat;
+            background: linear-gradient(135deg, #1a3e5c 0%, #15334d 100%);
             margin-top: 56px;
+        }
+        .hero-image {
+            display: block;
+            width: 100%;
+            max-width: 1100px;
+            height: auto;
+            margin: 0 auto;
         }
         .hero-overlay {
             position: absolute;
@@ -493,6 +499,9 @@
         </div>
     </div>
 </header>
+
+<!-- ===== HERO IMAGE ===== -->
+<img class="hero-image" src="./will-values-hero.jpg?v=3" alt="Edmund Bogen centered between a sunny gated country-club market with a rising green arrow and a stormy coastal condo market with a falling red arrow">
 
 <!-- ===== 3-STAT CALLOUT ===== -->
 <section class="stat-bar">
